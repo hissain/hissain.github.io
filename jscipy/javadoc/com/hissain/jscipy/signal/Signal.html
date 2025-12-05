@@ -297,7 +297,8 @@ loadScripts(document, 'script');</script>
 <h3>detrend</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">detrend</span><wbr><span class="parameters">(double[]&nbsp;signal,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;type)</span></div>
-<div class="block">Removes a linear or constant trend from the signal using a string type.</div>
+<div class="block">Removes a linear or constant trend from the signal using a string type.
+ Consider using <a href="#detrend(double%5B%5D,com.hissain.jscipy.signal.DetrendType)"><code>detrend(double[], DetrendType)</code></a> instead for type safety.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>signal</code> - The input signal.</dd>
@@ -390,7 +391,8 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double[]</span>&nbsp;<span class="element-name">convolve</span><wbr><span class="parameters">(double[]&nbsp;signal,
  double[]&nbsp;window,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mode)</span></div>
-<div class="block">Convolves two signals using a string mode ("same", "full", "valid").</div>
+<div class="block">Convolves two signals using a string mode ("same", "full", "valid").
+ Consider using <a href="#convolve(double%5B%5D,double%5B%5D,com.hissain.jscipy.signal.ConvolutionMode)"><code>convolve(double[], double[], ConvolutionMode)</code></a> instead for type safety.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>signal</code> - The first signal.</dd>
