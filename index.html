@@ -3,109 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hissain — Software Engineer & ML Enthusiast</title>
+  <title>Sazzad Hissain Khan - Software Architect & AI Enthusiast</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
       margin: 0;
       padding: 0;
-      background: #f5f5f5;
-      color: #222;
+      background: #f0f2f5;
+      color: #333;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
     }
     header {
       text-align: center;
-      padding: 60px 20px;
+      padding: 80px 0;
       background: #fff;
       border-bottom: 1px solid #ddd;
     }
+    header img.profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
     header h1 {
+      font-size: 2.8em;
       margin: 0;
-      font-size: 40px;
       font-weight: 700;
     }
     header p {
-      margin: 10px 0 0;
-      font-size: 18px;
-      color: #555;
+      font-size: 1.2em;
+      color: #666;
+      margin-top: 10px;
     }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    .social-links {
+      margin-top: 20px;
+    }
+    .social-links a {
+      margin: 0 15px;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #007acc;
+    }
+    section {
+      padding: 60px 0;
     }
     h2 {
+      text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #007acc;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .project-card h3 {
       margin-top: 0;
-      font-size: 26px;
-      border-left: 4px solid #007acc;
-      padding-left: 10px;
+      font-size: 1.4em;
     }
-    .section {
-      margin-bottom: 30px;
+    .project-card p {
+      margin-bottom: 20px;
     }
-    a {
-      color: #007acc;
+    .project-card a {
       text-decoration: none;
+      color: #007acc;
+      font-weight: 600;
     }
-    a:hover {
-      text-decoration: underline;
+    .project-card .stars {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #666;
     }
     footer {
       text-align: center;
-      padding: 30px;
-      font-size: 14px;
-      color: #666;
+      padding: 40px 0;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      margin-top: 60px;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Sazzad Hissain Khan</h1>
-  <p>Software Engineer at Samsung | ML Enthusiast | Innovator</p>
-</header>
+  <header>
+    <div class="container">
+      <img src="https://avatars.githubusercontent.com/u/1412262?v=4" alt="Sazzad Hissain Khan" class="profile-photo">
+      <h1>Sazzad Hissain Khan</h1>
+      <p>Associate Software Architect | Innovator | AI Enthusiast</p>
+      <div class="social-links">
+        <a href="https://github.com/hissain" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/hissain/" target="_blank">LinkedIn</a>
+        <a href="mailto:hissain.khan@gmail.com">Email</a>
+      </div>
+    </div>
+  </header>
 
-<div class="container">
-  
-  <div class="section">
-    <h2>About Me</h2>
-    <p>I’m a software engineer with interests in machine learning, mathematical thinking, philosophy of science, and technological innovation. I love exploring how emerging technologies shape human progress.</p>
+  <div class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p style="text-align: left; max-width: 800px; margin: 0 auto 40px auto;">
+        I am an Associate Architect and Assistant Principal Engineer at Samsung Electronics with over 14 years of experience in mobile and wearables software development. I have a strong background in building robust and maintainable systems. I have made significant contributions to the Samsung Health for iOS app, which has over 6 million users. I have also filed seven patent applications, one of which has been granted in multiple countries.
+        <br><br>
+        I currently lead the Health Sensing Modalities Team, where I focus on AI-driven health sensing and on-device intelligence for wearables. My work includes developing a stress detection algorithm, a non-invasive sweat sensor for cholesterol and glucose detection, and a system for estimating Dim Light Melatonin Onset. I have also led the development of foundation models for hypertension and PVC detection using PPG sensor data.
+        <br><br>
+        My technical skills include Digital Health, Android and iOS app development, Wearables, System Design, and Application Architecture. I am also interested in AI, Technological Innovation, and the Philosophy of Science.
+      </p>
+    </section>
+    <section id="projects">
+      <h2>Top Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3><a href="https://github.com/hissain/CoronaTracker" target="_blank">CoronaTracker</a></h3>
+          <p>A full stack framework to trace possible close-contact candidates for COVID-19 positive patients.</p>
+          <div class="stars">⭐ 12</div>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/hissain/jscipy" target="_blank">jscipy</a></h3>
+          <p>A Java Scientific Computing Library for Signal Processing, inspired by Python's SciPy.</p>
+          <div class="stars">⭐ 4</div>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/hissain/llm_patent_search" target="_blank">llm_patent_search</a></h3>
+          <p>A streamlined solution for patent similarity searches using LLMs and RAG.</p>
+          <div class="stars">⭐ 3</div>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank">AndroidSemanticSearch</a></h3>
+          <p>A minimalistic Android app for semantic search using ObjectBox and Lucene KNN.</p>
+          <div class="stars">⭐ 2</div>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/hissain/llmsearch" target="_blank">llmsearch</a></h3>
+          <p>Searching patent prior arts or summarisation and citation for articles on a given topic.</p>
+          <div class="stars">⭐ 2</div>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/hissain/fastrep" target="_blank">fastrep</a></h3>
+          <p>A CLI and web tool for tracking daily work and generating professional reports with AI.</p>
+          <div class="stars">⭐ 1</div>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/hissain/gtalk" target="_blank">gtalk</a></h3>
+          <p>A CLI to interact with Google's AI directly from your terminal.</p>
+          <div class="stars">⭐ 1</div>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/hissain/NoQuota" target="_blank">NoQuota</a></h3>
+          <p>A VS Code extension to automatically switch models when usage quota is reached.</p>
+          <div class="stars">⭐ 1</div>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/hissain/youtuber-debunked" target="_blank">youtuber-debunked</a></h3>
+          <p>Extracts audio from YouTube, transcribes it, and analyzes for logical fallacies using AI.</p>
+          <div class="stars">⭐ 1</div>
+        </div>
+        <div class="project-card">
+          <h3><a href="https://github.com/hissain/ghcs" target="_blank">ghcs</a></h3>
+          <p>A CLI for GitHub code searching and downloading with LLM-based refinement.</p>
+          <div class="stars">⭐ 1</div>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <div class="section">
-  <h2>Projects</h2>
-  <ul>
-    <li><a href="https://github.com/hissain/fastrep" target="_blank">fastrep — AI-assisted work tracking and report generator</a></li>
-    <li><a href="https://github.com/hissain/jscipy" target="_blank">jSciPy</a> — Java DSP & scientific computing library (<a href="jscipy/">Docs</a>)</li>
-    <li><a href="https://github.com/hissain/llm_patent_search" target="_blank">llm_patent_search — Patent similarity with LLM + RAG</a></li>
-    <li><a href="https://github.com/hissain/ghcs" target="_blank">ghcs — GitHub code-search CLI with LLM refinement</a></li>
-    <li><a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank">AndroidSemanticSearch — Mobile semantic search demo</a></li>
-    <li><a href="https://github.com/hissain/awesome_bangla_tts" target="_blank">awesome_bangla_tts — Bengali TTS finetuning pipelines</a></li>
-    <li><a href="https://github.com/hissain/awesome_bangla_asr" target="_blank">awesome_bangla_asr — Bengali ASR finetuning (Whisper)</a></li>
-    <li><a href="https://github.com/hissain/ppg_heart_rate" target="_blank">ppg_heart_rate — PPG-based HR & respiration estimator</a></li>
-    <li><a href="https://github.com/hissain/dnn_vfi" target="_blank">dnn_vfi — Video frame interpolation (UNet/RIFE/Mamba)</a></li>
-    <li><a href="https://github.com/hissain/sensor-data-collector" target="_blank">sensor-data-collector — WearOS physiological data suite</a></li>
-  </ul>
-</div>
+  <footer>
+    <p>© <span id="yr"></span> Sazzad Hissain Khan. All rights reserved.</p>
+  </footer>
 
-
-  <div class="section">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:hissain.khan@gmail.com">hissain.khan@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/hissain" target="_blank">github.com/hissain</a></p>
-  </div>
-
-</div>
-
-<footer>
-  © <span id="yr"></span> Hissain
-</footer>
-
-<script>
-  document.getElementById("yr").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
