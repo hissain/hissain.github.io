@@ -110,6 +110,15 @@
       margin-right: 10px;
       font-size: 0.9em;
     }
+    .key-points {
+      margin-top: 10px;
+      padding-left: 20px;
+      font-size: 0.95em;
+      color: #555;
+    }
+    .key-points li {
+      margin-bottom: 5px;
+    }
     footer {
       text-align: center;
       padding: 40px 0;
@@ -160,17 +169,29 @@
       <h2>Github Projects</h2>
       <div class="project-section">
         <h3><a href="https://github.com/hissain/CoronaTracker" target="_blank">CoronaTracker</a></h3>
-        <p>A full stack framework to trace possible close-contact candidates for COVID-19 positive patients. This project utilizes Bluetooth and GPS to identify and notify individuals who may have been exposed to the virus, helping to control its spread.</p>
+        <p>A full stack framework to trace possible close-contact candidates within the last 14 days for a COVID-19 positive patient. This project utilizes Bluetooth, GPS, and NFC to identify and notify individuals who may have been exposed to the virus, helping to control its spread. It addresses challenges like user privacy, data storage, and GPS inaccuracy with a robust system design.</p>
+        <ul class="key-points">
+          <li><strong>Contact Tracing:</strong> Identifies potential close contacts using GPS and Bluetooth history.</li>
+          <li><strong>Privacy Focused:</strong> Designed to balance public health needs with user data privacy.</li>
+          <li><strong>Cross-Platform:</strong> Supports both Android and iOS platforms for wider coverage.</li>
+        </ul>
         <div class="tags">
           <span>Java</span>
+          <span>Kotlin</span>
+          <span>Swift</span>
           <span>Android</span>
+          <span>iOS</span>
           <span>Spring Boot</span>
-          <span>Firebase</span>
         </div>
       </div>
       <div class="project-section">
         <h3><a href="https://github.com/hissain/jscipy" target="_blank">jscipy</a></h3>
-        <p>A Java Scientific Computing Library for Signal Processing, inspired by Python's SciPy. It provides a comprehensive set of tools for filtering, spectral analysis, and statistical signal processing, making it easier for Java developers to implement complex algorithms.</p>
+        <p>A Java Scientific Computing Library for Signal Processing, inspired by Python's SciPy. It fills the gap for a comprehensive signal processing library in the Java ecosystem, providing tools for Butterworth/Chebyshev filters, peak detection, RK4 solvers, interpolation, FFT, resampling, and more. Essential for machine learning and signal processing pipelines on the JVM.</p>
+        <ul class="key-points">
+          <li><strong>Signal Processing:</strong> Comprehensive tools for filtering, spectral analysis, and more.</li>
+          <li><strong>Java Compatibility:</strong> Brings SciPy-like functionality to the Java ecosystem.</li>
+          <li><strong>Scientific Computing:</strong> Ideal for research and engineering applications needing robust math tools.</li>
+        </ul>
         <div class="tags">
           <span>Java</span>
           <span>Signal Processing</span>
@@ -179,9 +200,15 @@
       </div>
       <div class="project-section">
         <h3><a href="https://github.com/hissain/llm_patent_search" target="_blank">llm_patent_search</a></h3>
-        <p>A streamlined solution for patent similarity searches using Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG). This tool helps inventors and legal professionals to efficiently find relevant prior art for their inventions.</p>
+        <p>A streamlined solution for performing patent similarity searches by leveraging Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG). It integrates Google Patent Database, DuckDuckGo search, and Google's Gemini model to generate keywords, build complex queries, and parse results, making prior art search efficient for inventors and legal professionals.</p>
+        <ul class="key-points">
+          <li><strong>Automated Search:</strong> Generates keywords and builds complex queries automatically.</li>
+          <li><strong>RAG Integration:</strong> Combines retrieval with LLM generation for accurate results.</li>
+          <li><strong>Efficiency:</strong> Saves time for inventors and legal professionals in prior art search.</li>
+        </ul>
         <div class="tags">
           <span>Python</span>
+          <span>Streamlit</span>
           <span>LLM</span>
           <span>RAG</span>
           <span>Patent Search</span>
@@ -189,65 +216,108 @@
       </div>
       <div class="project-section">
         <h3><a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank">AndroidSemanticSearch</a></h3>
-        <p>A minimalistic Android app for semantic search using ObjectBox and Lucene KNN. This project demonstrates how to build a powerful local search engine on Android, enabling users to search for information based on meaning rather than just keywords.</p>
+        <p>A minimalistic Android app showcasing semantic search using ObjectBox and Lucene KNN. It leverages the MiniLM-L6-V2 embedding model to transform text queries into vector embeddings for efficient retrieval based on meaning rather than just keywords. Ideal for demonstrating on-device vector search capabilities.</p>
+        <ul class="key-points">
+          <li><strong>Semantic Search:</strong> Finds results based on meaning rather than exact keyword match.</li>
+          <li><strong>On-Device:</strong> Runs entirely on the device for privacy and speed.</li>
+          <li><strong>Efficient Retrieval:</strong> Uses vector embeddings for fast and accurate search.</li>
+        </ul>
         <div class="tags">
           <span>Android</span>
-          <span>Kotlin</span>
+          <span>Java</span>
           <span>ObjectBox</span>
           <span>Lucene</span>
+          <span>Vector Search</span>
         </div>
       </div>
       <div class="project-section">
         <h3><a href="https://github.com/hissain/InspectorAI" target="_blank">InspectorAI</a></h3>
-        <p>An AI-powered tool for code inspection and analysis. Helps developers identify potential bugs, security vulnerabilities, and performance issues in their code.</p>
+        <p>A production-ready Chrome extension that supercharges web data extraction and analysis. It allows users to visually select any web component, extract its content with minimal tokens, and ask AI models for insights, translation, or summarization directly within the browser. Supports multiple AI providers like OpenAI, Gemini, and Anthropic.</p>
+        <ul class="key-points">
+          <li><strong>Web Extraction:</strong> Visually select and extract data from any webpage.</li>
+          <li><strong>AI Analysis:</strong> Get instant insights, summaries, or translations from AI models.</li>
+          <li><strong>Browser Integration:</strong> Seamlessly integrated into Chrome for a smooth workflow.</li>
+        </ul>
         <div class="tags">
-          <span>Python</span>
+          <span>JavaScript</span>
+          <span>Chrome Extension</span>
           <span>AI</span>
-          <span>Code Analysis</span>
+          <span>Web Scraping</span>
         </div>
       </div>
       <div class="project-section">
         <h3><a href="https://github.com/hissain/llmsearch" target="_blank">llmsearch</a></h3>
-        <p>Searching patent prior arts or summarisation and citation for articles on a given topic.</p>
+        <p>A repository for searching patent prior arts or summarization and citation for articles on a given topic. It utilizes LangChain tools like DuckDuckGo, Wikipedia, YouTube, and Arxiv on top of LLMs to provide comprehensive search and analysis capabilities.</p>
+        <ul class="key-points">
+          <li><strong>Multi-Source Search:</strong> Aggregates information from various sources like Wikipedia and Arxiv.</li>
+          <li><strong>Summarization:</strong> Quickly digests long articles and papers.</li>
+          <li><strong>Citation:</strong> Provides sources for generated information.</li>
+        </ul>
         <div class="tags">
           <span>Python</span>
+          <span>LangChain</span>
           <span>LLM</span>
-          <span>NLP</span>
+          <span>Research</span>
         </div>
       </div>
       <div class="project-section">
         <h3><a href="https://github.com/hissain/fastrep" target="_blank">fastrep</a></h3>
-        <p>A CLI and web tool for tracking daily work and generating professional reports with AI.</p>
+        <p>A powerful CLI and local web-based tool for tracking daily work activities and generating professional reports. It features AI-powered summarization, customizable templates, and a dual interface (CLI/Web). Perfect for developers and professionals who need to maintain detailed work logs and generate status reports effortlessly.</p>
+        <ul class="key-points">
+          <li><strong>Work Tracking:</strong> Easily log daily activities via CLI or Web UI.</li>
+          <li><strong>Automated Reports:</strong> Generates professional weekly or monthly reports instantly.</li>
+          <li><strong>AI Summaries:</strong> Uses AI to summarize work logs for concise reporting.</li>
+        </ul>
         <div class="tags">
           <span>Python</span>
           <span>CLI</span>
-          <span>AI</span>
+          <span>Flask</span>
+          <span>AI Reporting</span>
         </div>
       </div>
       <div class="project-section">
         <h3><a href="https://github.com/hissain/gtalk" target="_blank">gtalk</a></h3>
-        <p>A CLI to interact with Google's AI directly from your terminal.</p>
+        <p>A powerful command-line interface to interact with Google's AI Mode directly from your terminal without requiring a token. It provides context-aware AI-powered answers, code examples, and explanations. Features include interactive mode, code block support, and fast, headless browser sessions.</p>
+        <ul class="key-points">
+          <li><strong>Terminal AI:</strong> Access Google's AI directly from your command line.</li>
+          <li><strong>No Token Required:</strong> Free to use without complex API setups.</li>
+          <li><strong>Interactive Mode:</strong> Supports continuous conversations and context awareness.</li>
+        </ul>
         <div class="tags">
-          <span>Go</span>
+          <span>Python</span>
           <span>CLI</span>
-          <span>AI</span>
+          <span>Google AI</span>
+          <span>Terminal Tool</span>
         </div>
       </div>
       <div class="project-section">
         <h3><a href="https://github.com/hissain/NoQuota" target="_blank">NoQuota</a></h3>
-        <p>A VS Code extension to automatically switch models when usage quota is reached.</p>
+        <p>A VS Code extension that automatically switches to an alternative AI model when the primary model reaches its usage quota limit. It supports multiple providers like OpenAI, OpenRouter, and Ollama, ensuring uninterrupted AI assistance for coding. Features include intelligent fallback, AI code completion, and a built-in chat interface.</p>
+        <ul class="key-points">
+          <li><strong>Uninterrupted Coding:</strong> Automatically switches models to avoid downtime.</li>
+          <li><strong>Multi-Provider:</strong> Supports various AI providers for flexibility.</li>
+          <li><strong>VS Code Integration:</strong> Seamlessly integrated into your development environment.</li>
+        </ul>
         <div class="tags">
           <span>TypeScript</span>
           <span>VS Code Extension</span>
+          <span>AI</span>
+          <span>Productivity</span>
         </div>
       </div>
       <div class="project-section">
         <h3><a href="https://github.com/hissain/cline-ui" target="_blank">cline-ui</a></h3>
-        <p>A user interface for the Cline command-line tool.</p>
+        <p>A web-based user interface for interacting with the Cline VS Code extension CLI. It provides a clean, responsive interface to send queries to Cline, view history, and receive real-time updates, offering an alternative way to interact with the Cline AI assistant outside of VS Code.</p>
+        <ul class="key-points">
+          <li><strong>Web Dashboard:</strong> A user-friendly interface for the Cline CLI.</li>
+          <li><strong>History Tracking:</strong> Keeps a record of your interactions with Cline.</li>
+          <li><strong>Real-Time Updates:</strong> Shows progress and responses as they happen.</li>
+        </ul>
         <div class="tags">
-          <span>TypeScript</span>
-          <span>React</span>
-          <span>Next.js</span>
+          <span>Python</span>
+          <span>Flask</span>
+          <span>Web UI</span>
+          <span>Cline</span>
         </div>
       </div>
     </section>
