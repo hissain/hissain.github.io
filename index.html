@@ -73,39 +73,42 @@
       transform: translateX(-50%);
       bottom: -10px;
     }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    .project-card {
+    .project-section, .patent-section, .publication-section {
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 8px;
       padding: 25px;
+      margin-bottom: 30px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
       transition: transform 0.3s, box-shadow 0.3s;
     }
-    .project-card:hover {
+    .project-section:hover, .patent-section:hover, .publication-section:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     }
-    .project-card h3 {
+    .project-section h3, .patent-section h3, .publication-section h3 {
       margin-top: 0;
       font-size: 1.4em;
     }
-    .project-card p {
+    .project-section p, .patent-section p, .publication-section p {
       margin-bottom: 20px;
     }
-    .project-card a {
+    .project-section a, .patent-section a, .publication-section a {
       text-decoration: none;
       color: #007acc;
       font-weight: 600;
     }
-    .project-card .stars {
+    .tags {
       margin-top: 15px;
+    }
+    .tags span {
+      display: inline-block;
+      background: #e9ecef;
+      color: #495057;
+      border-radius: 3px;
+      padding: 5px 10px;
+      margin-right: 10px;
       font-size: 0.9em;
-      color: #666;
     }
     footer {
       text-align: center;
@@ -142,58 +145,109 @@
         My technical skills include Digital Health, Android and iOS app development, Wearables, System Design, and Application Architecture. I am also interested in AI, Technological Innovation, and the Philosophy of Science.
       </p>
     </section>
+    <section id="patents">
+      <h2>Patents and Publications</h2>
+      <div class="patent-section">
+        <h3><a href="https://patents.google.com/patent/US12056292B2/" target="_blank">Wearable apparatus and control method thereof</a></h3>
+        <p>This patent describes a wearable apparatus that can be controlled by tap gestures on the strap. It uses sensors to detect posture changes and tap inputs, allowing for user interaction without touching the screen. This is particularly useful when wearing gloves or when the screen is locked.</p>
+      </div>
+      <div class="publication-section">
+        <h3><a href="https://arxiv.org/abs/2510.25785" target="_blank">HiMAE: Hierarchical Masked Autoencoders Discover Resolution-Specific Structure in Wearable Time Series</a></h3>
+        <p>This paper introduces HiMAE, a self-supervised learning framework for wearable time series data. HiMAE uses a hierarchical masked autoencoder to learn representations at multiple temporal resolutions, enabling the discovery of scale-sensitive structure in physiological signals. This approach improves performance on various downstream tasks while being efficient enough to run on-device.</p>
+      </div>
+    </section>
     <section id="projects">
-      <h2>Top Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3><a href="https://github.com/hissain/CoronaTracker" target="_blank">CoronaTracker</a></h3>
-          <p>A full stack framework to trace possible close-contact candidates for COVID-19 positive patients.</p>
-          <div class="stars">⭐ 12</div>
+      <h2>Github Projects</h2>
+      <div class="project-section">
+        <h3><a href="https://github.com/hissain/CoronaTracker" target="_blank">CoronaTracker</a></h3>
+        <p>A full stack framework to trace possible close-contact candidates for COVID-19 positive patients. This project utilizes Bluetooth and GPS to identify and notify individuals who may have been exposed to the virus, helping to control its spread.</p>
+        <div class="tags">
+          <span>Java</span>
+          <span>Android</span>
+          <span>Spring Boot</span>
+          <span>Firebase</span>
         </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/hissain/jscipy" target="_blank">jscipy</a></h3>
-          <p>A Java Scientific Computing Library for Signal Processing, inspired by Python's SciPy.</p>
-          <div class="stars">⭐ 4</div>
+      </div>
+      <div class="project-section">
+        <h3><a href="https://github.com/hissain/jscipy" target="_blank">jscipy</a></h3>
+        <p>A Java Scientific Computing Library for Signal Processing, inspired by Python's SciPy. It provides a comprehensive set of tools for filtering, spectral analysis, and statistical signal processing, making it easier for Java developers to implement complex algorithms.</p>
+        <div class="tags">
+          <span>Java</span>
+          <span>Signal Processing</span>
+          <span>Scientific Computing</span>
         </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/hissain/llm_patent_search" target="_blank">llm_patent_search</a></h3>
-          <p>A streamlined solution for patent similarity searches using LLMs and RAG.</p>
-          <div class="stars">⭐ 3</div>
+      </div>
+      <div class="project-section">
+        <h3><a href="https://github.com/hissain/llm_patent_search" target="_blank">llm_patent_search</a></h3>
+        <p>A streamlined solution for patent similarity searches using Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG). This tool helps inventors and legal professionals to efficiently find relevant prior art for their inventions.</p>
+        <div class="tags">
+          <span>Python</span>
+          <span>LLM</span>
+          <span>RAG</span>
+          <span>Patent Search</span>
         </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank">AndroidSemanticSearch</a></h3>
-          <p>A minimalistic Android app for semantic search using ObjectBox and Lucene KNN.</p>
-          <div class="stars">⭐ 2</div>
+      </div>
+      <div class="project-section">
+        <h3><a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank">AndroidSemanticSearch</a></h3>
+        <p>A minimalistic Android app for semantic search using ObjectBox and Lucene KNN. This project demonstrates how to build a powerful local search engine on Android, enabling users to search for information based on meaning rather than just keywords.</p>
+        <div class="tags">
+          <span>Android</span>
+          <span>Kotlin</span>
+          <span>ObjectBox</span>
+          <span>Lucene</span>
         </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/hissain/llmsearch" target="_blank">llmsearch</a></h3>
-          <p>Searching patent prior arts or summarisation and citation for articles on a given topic.</p>
-          <div class="stars">⭐ 2</div>
+      </div>
+      <div class="project-section">
+        <h3><a href="https://github.com/hissain/InspectorAI" target="_blank">InspectorAI</a></h3>
+        <p>An AI-powered tool for code inspection and analysis. Helps developers identify potential bugs, security vulnerabilities, and performance issues in their code.</p>
+        <div class="tags">
+          <span>Python</span>
+          <span>AI</span>
+          <span>Code Analysis</span>
         </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/hissain/fastrep" target="_blank">fastrep</a></h3>
-          <p>A CLI and web tool for tracking daily work and generating professional reports with AI.</p>
-          <div class="stars">⭐ 1</div>
+      </div>
+      <div class="project-section">
+        <h3><a href="https://github.com/hissain/llmsearch" target="_blank">llmsearch</a></h3>
+        <p>Searching patent prior arts or summarisation and citation for articles on a given topic.</p>
+        <div class="tags">
+          <span>Python</span>
+          <span>LLM</span>
+          <span>NLP</span>
         </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/hissain/gtalk" target="_blank">gtalk</a></h3>
-          <p>A CLI to interact with Google's AI directly from your terminal.</p>
-          <div class="stars">⭐ 1</div>
+      </div>
+      <div class="project-section">
+        <h3><a href="https://github.com/hissain/fastrep" target="_blank">fastrep</a></h3>
+        <p>A CLI and web tool for tracking daily work and generating professional reports with AI.</p>
+        <div class="tags">
+          <span>Python</span>
+          <span>CLI</span>
+          <span>AI</span>
         </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/hissain/NoQuota" target="_blank">NoQuota</a></h3>
-          <p>A VS Code extension to automatically switch models when usage quota is reached.</p>
-          <div class="stars">⭐ 1</div>
+      </div>
+      <div class="project-section">
+        <h3><a href="https://github.com/hissain/gtalk" target="_blank">gtalk</a></h3>
+        <p>A CLI to interact with Google's AI directly from your terminal.</p>
+        <div class="tags">
+          <span>Go</span>
+          <span>CLI</span>
+          <span>AI</span>
         </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/hissain/youtuber-debunked" target="_blank">youtuber-debunked</a></h3>
-          <p>Extracts audio from YouTube, transcribes it, and analyzes for logical fallacies using AI.</p>
-          <div class="stars">⭐ 1</div>
+      </div>
+      <div class="project-section">
+        <h3><a href="https://github.com/hissain/NoQuota" target="_blank">NoQuota</a></h3>
+        <p>A VS Code extension to automatically switch models when usage quota is reached.</p>
+        <div class="tags">
+          <span>TypeScript</span>
+          <span>VS Code Extension</span>
         </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/hissain/ghcs" target="_blank">ghcs</a></h3>
-          <p>A CLI for GitHub code searching and downloading with LLM-based refinement.</p>
-          <div class="stars">⭐ 1</div>
+      </div>
+      <div class="project-section">
+        <h3><a href="https://github.com/hissain/cline-ui" target="_blank">cline-ui</a></h3>
+        <p>A user interface for the Cline command-line tool.</p>
+        <div class="tags">
+          <span>TypeScript</span>
+          <span>React</span>
+          <span>Next.js</span>
         </div>
       </div>
     </section>
