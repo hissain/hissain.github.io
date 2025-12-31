@@ -1,442 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+---
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sazzad Hissain Khan | Software Architect & AI Innovator</title>
-  <meta name="description"
-    content="Portfolio of Sazzad Hissain Khan - Associate Software Architect at Samsung Electronics, specializing in AI, Wearables, and Digital Health.">
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about-text">
+    <p>I am an <strong>Associate Architect</strong> and <strong>Assistant Principal Engineer</strong> at Samsung
+      Electronics with over 14 years of experience in mobile and wearables software development. I lead the Health
+      Sensing Modalities Team, focusing on AI-driven health sensing and on-device intelligence. My work currently
+      involves developing advanced algorithms for stress detection, non-invasive blood analysis, and foundation
+      models for physiological signals analysis.</p>
+    <p>Previously, I made significant contributions to the Samsung Health iOS app (6M+ users) and hold multiple
+      patents in wearable technology. I am passionate about Digital Health, System Architecture, and the
+      intersection of AI and daily life.</p>
+  </div>
+</section>
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hissain.github.io/">
-  <meta property="og:title" content="Sazzad Hissain Khan - Portfolio">
-  <meta property="og:description" content="Associate Software Architect & AI Enthusiast. Creator of jSciPy.">
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/1412262?v=4">
+<section id="projects">
+  <h2>Featured Work</h2>
+  <div class="project-grid">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #1f2937;
-      --text-secondary: #4b5563;
-      --accent-color: #2563eb;
-      --accent-hover: #1d4ed8;
-      --card-bg: #ffffff;
-      --card-border: #e5e7eb;
-      --header-bg: #f9fafb;
-      --tag-bg: #f3f4f6;
-      --tag-text: #374151;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #111827;
-      --text-color: #f9fafb;
-      --text-secondary: #9ca3af;
-      --accent-color: #60a5fa;
-      --accent-hover: #3b82f6;
-      --card-bg: #1f2937;
-      --card-border: #374151;
-      --header-bg: #111827;
-      --tag-bg: #374151;
-      --tag-text: #d1d5db;
-      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    header {
-      background-color: var(--header-bg);
-      padding: 4rem 2rem;
-      text-align: center;
-      border-bottom: 1px solid var(--card-border);
-    }
-
-    .profile-photo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid var(--bg-color);
-      box-shadow: var(--shadow);
-      margin-bottom: 1.5rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin: 0.5rem 0;
-      letter-spacing: -0.025em;
-    }
-
-    .subtitle {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-    }
-
-    .social-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    .social-links a:hover {
-      color: var(--accent-color);
-    }
-
-    .container {
-      max-width: 1024px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
-
-    section {
-      margin-bottom: 5rem;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    h2::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 4px;
-      background: var(--accent-color);
-      margin-top: 0.5rem;
-      border-radius: 2px;
-      opacity: 0.8;
-    }
-
-    .about-text {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    /* Project Grid */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    /* Featured Project Card */
-    .featured-project {
-      grid-column: 1 / -1;
-      border: 2px solid var(--accent-color);
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 1rem;
-    }
-
-    .card h3 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-
-    .card h3 a {
-      color: var(--text-color);
-      text-decoration: none;
-    }
-
-    .card h3 a:hover {
-      color: var(--accent-color);
-    }
-
-    .badge-featured {
-      background: var(--accent-color);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .card p {
-      color: var(--text-secondary);
-      flex-grow: 1;
-    }
-
-    .tags {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .tag {
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 0.25rem 0.75rem;
-      border-radius: 6px;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
-
-    /* Toggle Switch */
-    .theme-toggle {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      cursor: pointer;
-      font-size: 1.5rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem;
-      color: var(--text-secondary);
-      border-top: 1px solid var(--card-border);
-      margin-top: 4rem;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .container {
-        padding: 0 1rem;
-      }
-
-      header {
-        padding: 3rem 1rem;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
-
-  <header>
-    <img src="https://avatars.githubusercontent.com/u/1412262?v=4" alt="Sazzad Hissain Khan" class="profile-photo">
-    <h1>Sazzad Hissain Khan</h1>
-    <p class="subtitle">Associate Software Architect | Innovator | AI Enthusiast</p>
-    <div class="social-links">
-      <a href="https://github.com/hissain" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/hissain/" target="_blank">LinkedIn</a>
-      <a href="mailto:hissain.khan@gmail.com">Email</a>
-    </div>
-  </header>
-
-  <div class="container">
-
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="about-text">
-        <p>I am an <strong>Associate Architect</strong> and <strong>Assistant Principal Engineer</strong> at Samsung
-          Electronics with over 14 years of experience in mobile and wearables software development. I lead the Health
-          Sensing Modalities Team, focusing on AI-driven health sensing and on-device intelligence. My work currently
-          involves developing advanced algorithms for stress detection, non-invasive blood analysis, and foundation
-          models for physiological signals analysis.</p>
-        <p>Previously, I made significant contributions to the Samsung Health iOS app (6M+ users) and hold multiple
-          patents in wearable technology. I am passionate about Digital Health, System Architecture, and the
-          intersection of AI and daily life.</p>
+    <!-- Featured Project: jSciPy -->
+    <article class="card featured-project">
+      <div class="card-header">
+        <h3><a href="https://github.com/hissain/jscipy" target="_blank">jSciPy</a></h3>
+        <span class="badge-featured">Flagship</span>
       </div>
-    </section>
-
-    <section id="projects">
-      <h2>Featured Work</h2>
-      <div class="project-grid">
-
-        <!-- Featured Project: jSciPy -->
-        <article class="card featured-project">
-          <div class="card-header">
-            <h3><a href="https://github.com/hissain/jscipy" target="_blank">jSciPy</a></h3>
-            <span class="badge-featured">Flagship</span>
-          </div>
-          <p>A comprehensive Java Scientific Computing Library inspired by Python's SciPy. It bridges the gap in the
-            Java ecosystem for robust signal processing, offering high-performance implementations of
-            Butterworth/Chebyshev filters, FFT, Peak Detection, and RK4 solvers. Essential for ML pipelines on JVM and
-            Android.</p>
-          <div class="tags">
-            <span class="tag">Java</span>
-            <span class="tag">Signal Processing</span>
-            <span class="tag">Scientific Computing</span>
-            <span class="tag">Android</span>
-          </div>
-        </article>
-
-        <!-- CoronaTracker -->
-        <article class="card">
-          <h3><a href="https://github.com/hissain/CoronaTracker" target="_blank">CoronaTracker</a></h3>
-          <p>Privacy-focused contact tracing framework utilizing Bluetooth, GPS, and NFC to identify close-contact
-            candidates. Designed to balance public health needs with user privacy across Android and iOS platforms.</p>
-          <div class="tags">
-            <span class="tag">Java</span>
-            <span class="tag">Swift</span>
-            <span class="tag">Spring Boot</span>
-          </div>
-        </article>
-
-
-        <!-- llm_patent_search -->
-        <article class="card">
-          <h3><a href="https://github.com/hissain/llm_patent_search" target="_blank">llm_patent_search</a></h3>
-          <p>Streamlined patent similarity search leveraging LLMs and RAG. Integrates Google Patents and Gemini to
-            automate keyword generation and query building for legal professionals.</p>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">LLM</span>
-            <span class="tag">RAG</span>
-          </div>
-        </article>
-
-        <!-- InspectorAI -->
-        <article class="card">
-          <h3><a href="https://github.com/hissain/InspectorAI" target="_blank">InspectorAI</a></h3>
-          <p>Chrome extension supercharging web analysis. Visually select elements and ask AI models (OpenAI, Anthropic,
-            Gemini) for insights, translation, or summarization instantly.</p>
-          <div class="tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">Chrome Ext</span>
-            <span class="tag">AI</span>
-          </div>
-        </article>
-
-        <!-- NoQuota -->
-        <article class="card">
-          <h3><a href="https://github.com/hissain/NoQuota" target="_blank">NoQuota</a></h3>
-          <p>VS Code extension that ensures uninterrupted AI coding by automatically switching providers (OpenAI,
-            OpenRouter, Ollama) when quotas are reached.</p>
-          <div class="tags">
-            <span class="tag">TypeScript</span>
-            <span class="tag">VS Code</span>
-            <span class="tag">AI</span>
-          </div>
-        </article>
-
-        <!-- fastrep -->
-        <article class="card">
-          <h3><a href="https://github.com/hissain/fastrep" target="_blank">fastrep</a></h3>
-          <p>CLI and web tool for tracking daily work and generating AI-summarized status reports. Features customizable
-            templates and privacy-first local storage.</p>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Flask</span>
-            <span class="tag">Productivity</span>
-          </div>
-        </article>
-
+      <p>A comprehensive Java Scientific Computing Library inspired by Python's SciPy. It bridges the gap in the
+        Java ecosystem for robust signal processing, offering high-performance implementations of
+        Butterworth/Chebyshev filters, FFT, Peak Detection, and RK4 solvers. Essential for ML pipelines on JVM and
+        Android.</p>
+      <div class="tags">
+        <span class="tag">Java</span>
+        <span class="tag">Signal Processing</span>
+        <span class="tag">Scientific Computing</span>
+        <span class="tag">Android</span>
       </div>
-    </section>
+    </article>
 
-    <section id="publications">
-      <h2>Patents & Publications</h2>
-      <div class="project-grid">
-
-        <!-- HiMAE Publication -->
-        <article class="card">
-          <h3><a href="https://arxiv.org/abs/2510.25785" target="_blank">HiMAE</a></h3>
-          <p>Hierarchical Masked Autoencoders for finding structure in wearable time series. A self-supervised learning
-            framework discovering scale-sensitive structures in physiological signals for efficient on-device
-            processing.</p>
-          <div class="tags">
-            <span class="tag">Publication</span>
-            <span class="tag">AI Research</span>
-            <span class="tag">Time Series</span>
-          </div>
-        </article>
-
-        <!-- Wearable Patent -->
-        <article class="card">
-          <h3><a href="https://patents.google.com/patent/US12056292B2/" target="_blank">Wearable Gesture Control
-            </a></h3>
-          <p>Apparatus and method for controlling wearable devices via strap-based tap gestures. Enables interaction
-            without screen touch, ideal for active scenarios or gloved usage.</p>
-          <div class="tags">
-            <span class="tag">Patent</span>
-            <span class="tag">Wearables</span>
-            <span class="tag">HCI</span>
-          </div>
-        </article>
-
+    <!-- CoronaTracker -->
+    <article class="card">
+      <h3><a href="https://github.com/hissain/CoronaTracker" target="_blank">CoronaTracker</a></h3>
+      <p>Privacy-focused contact tracing framework utilizing Bluetooth, GPS, and NFC to identify close-contact
+        candidates. Designed to balance public health needs with user privacy across Android and iOS platforms.</p>
+      <div class="tags">
+        <span class="tag">Java</span>
+        <span class="tag">Swift</span>
+        <span class="tag">Spring Boot</span>
       </div>
-    </section>
+    </article>
 
+
+    <!-- llm_patent_search -->
+    <article class="card">
+      <h3><a href="https://github.com/hissain/llm_patent_search" target="_blank">llm_patent_search</a></h3>
+      <p>Streamlined patent similarity search leveraging LLMs and RAG. Integrates Google Patents and Gemini to
+        automate keyword generation and query building for legal professionals.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">LLM</span>
+        <span class="tag">RAG</span>
+      </div>
+    </article>
+
+    <!-- InspectorAI -->
+    <article class="card">
+      <h3><a href="https://github.com/hissain/InspectorAI" target="_blank">InspectorAI</a></h3>
+      <p>Chrome extension supercharging web analysis. Visually select elements and ask AI models (OpenAI, Anthropic,
+        Gemini) for insights, translation, or summarization instantly.</p>
+      <div class="tags">
+        <span class="tag">JavaScript</span>
+        <span class="tag">Chrome Ext</span>
+        <span class="tag">AI</span>
+      </div>
+    </article>
+
+    <!-- NoQuota -->
+    <article class="card">
+      <h3><a href="https://github.com/hissain/NoQuota" target="_blank">NoQuota</a></h3>
+      <p>VS Code extension that ensures uninterrupted AI coding by automatically switching providers (OpenAI,
+        OpenRouter, Ollama) when quotas are reached.</p>
+      <div class="tags">
+        <span class="tag">TypeScript</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">AI</span>
+      </div>
+    </article>
+
+    <!-- fastrep -->
+    <article class="card">
+      <h3><a href="https://github.com/hissain/fastrep" target="_blank">fastrep</a></h3>
+      <p>CLI and web tool for tracking daily work and generating AI-summarized status reports. Features customizable
+        templates and privacy-first local storage.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">Productivity</span>
+      </div>
+    </article>
 
   </div>
+</section>
 
-  <footer>
-    <p>&copy; <span id="year"></span> Sazzad Hissain Khan. Built with modern web standards.</p>
-  </footer>
+<section id="publications">
+  <h2>Patents & Publications</h2>
+  <div class="project-grid">
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- HiMAE Publication -->
+    <article class="card">
+      <h3><a href="https://arxiv.org/abs/2510.25785" target="_blank">HiMAE</a></h3>
+      <p>Hierarchical Masked Autoencoders for finding structure in wearable time series. A self-supervised learning
+        framework discovering scale-sensitive structures in physiological signals for efficient on-device
+        processing.</p>
+      <div class="tags">
+        <span class="tag">Publication</span>
+        <span class="tag">AI Research</span>
+        <span class="tag">Time Series</span>
+      </div>
+    </article>
 
-    const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
+    <!-- Wearable Patent -->
+    <article class="card">
+      <h3><a href="https://patents.google.com/patent/US12056292B2/" target="_blank">Wearable Gesture Control
+        </a></h3>
+      <p>Apparatus and method for controlling wearable devices via strap-based tap gestures. Enables interaction
+        without screen touch, ideal for active scenarios or gloved usage.</p>
+      <div class="tags">
+        <span class="tag">Patent</span>
+        <span class="tag">Wearables</span>
+        <span class="tag">HCI</span>
+      </div>
+    </article>
 
-    // Check for saved theme preference, otherwise use system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefearsDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefearsDark)) {
-      html.setAttribute('data-theme', 'dark');
-      themeToggle.textContent = '☀️';
-    }
-
-    themeToggle.addEventListener('click', () => {
-      if (html.getAttribute('data-theme') === 'dark') {
-        html.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
-        themeToggle.textContent = '🌙';
-      } else {
-        html.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        themeToggle.textContent = '☀️';
-      }
-    });
-  </script>
-</body>
-
-</html>
+  </div>
+</section>

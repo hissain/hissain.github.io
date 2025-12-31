@@ -1,0 +1,18 @@
+title: Sazzad Hissain Khan
+description: Associate Software Architect & AI Innovator
+url: "https://hissain.github.io"
+baseurl: ""
+theme: jekyll-theme-primer # Using a default theme as base, but we will override with custom layouts
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Decap CMS needs to know where to save images
+uploads_dir: assets/images/uploads
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/1412262?v=4">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+
+  <!-- CMS -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+
+<body>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+
+  <header>
+    <a href="{{ "/" | relative_url }}" style="text-decoration: none; color: inherit;">
+      <img src="https://avatars.githubusercontent.com/u/1412262?v=4" alt="{{ site.title }}" class="profile-photo">
+    </a>
+    <h1>{{ site.title }}</h1>
+    <p class="subtitle">{{ site.description }}</p>
+    <div class="social-links">
+      <a href="{{ "/" | relative_url }}">Home</a>
+      <a href="{{ "/blog" | relative_url }}">Blog</a>
+      <a href="https://github.com/hissain" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/hissain/" target="_blank">LinkedIn</a>
+    </div>
+  </header>
+
+  <div class="container">
+    {{ content }}
+  </div>
+
+  <footer>
+    <p>&copy; <span id="year"></span> {{ site.title }}. Built with Jekyll & modern web standards.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    // Check for saved theme preference, otherwise use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefearsDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefearsDark)) {
+      html.setAttribute('data-theme', 'dark');
+      themeToggle.textContent = '☀️';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙';
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️';
+      }
+    });
+  </script>
+</body>
+
+</html>

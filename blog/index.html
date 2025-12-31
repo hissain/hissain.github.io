@@ -1,0 +1,36 @@
+---
+layout: default
+title: Blog
+description: Technical articles on AI, System Architecture, and Software Development.
+---
+
+<section>
+    <div class="card" style="margin-bottom: 2rem; border-left: 4px solid var(--accent-color);">
+        <h1 style="margin: 0; font-size: 2.5rem;">Technical Blog</h1>
+        <p style="margin-top: 0.5rem;">Notes on Engineering, AI, and Architecture.</p>
+    </div>
+
+    <div class="project-grid">
+        {% for post in site.posts %}
+        <article class="card">
+            <div class="card-header">
+                <!-- We can add category tags here if we want -->
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            </div>
+            <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 30 }}</p>
+            <div class="tags" style="margin-top: 1rem; justify-content: space-between; align-items: center;">
+                <div style="display:flex; gap:0.5rem">
+                    <!-- Add tags later if needed -->
+                </div>
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">
+                    {{ post.date | date: "%b %d, %Y" }}
+                </span>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+
+    {% if site.posts.size == 0 %}
+    <p style="text-align: center; color: var(--text-secondary);">No posts found. Publishing soon!</p>
+    {% endif %}
+</section>

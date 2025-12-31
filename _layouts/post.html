@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<article class="post-container" style="max-width: 800px; margin: 0 auto; padding: 2rem 0;">
+
+    <header class="post-header" style="margin-bottom: 2rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">{{ page.title }}</h1>
+        <div class="post-meta" style="color: var(--text-secondary); font-size: 0.9rem;">
+            <time datetime="{{ page.date | date_to_xmlschema }}">
+                {{ page.date | date: "%B %-d, %Y" }}
+            </time>
+            {% if page.author %}
+            <span> • {{ page.author }}</span>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="post-content" style="font-size: 1.1rem; line-height: 1.8;">
+        {{ content }}
+    </div>
+
+    <div class="post-navigation" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
+        <a href="{{ " /blog" | relative_url }}">← Back to Blog</a>
+    </div>
+
+</article>
