@@ -1,9 +1,15 @@
 ---
 layout: post
-title: "Welcome to My Technical Blog"
+title: Welcome to My Technical Blog
 date: 2025-01-01 12:00:00 +0000
-description: "Why I started this blog and what to expect."
+description: Why I started this blog and what to expect.
 author: Sazzad Hissain Khan
+tags:
+  - ai
+  - artificial-intelligence
+  - first-post
+  - hissain
+  - welcome
 ---
 
 Welcome to my new technical blog!
