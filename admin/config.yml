@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: hissain/hissain.github.io
+  name: git-gateway
   branch: main
 
 media_folder: "assets/images/uploads" # Media files will be stored in the repo under assets/images/uploads
