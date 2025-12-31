@@ -7,9 +7,6 @@
     <title>Content Manager</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-        // Force Netlify Identity to use the remote site URL relative to our backend
-        localStorage.setItem("netlifySiteURL", "https://hissain-github-io.netlify.app");
-
         // Proxy the init function to force our APIUrl, preventing Decap CMS from resetting it
         const originalInit = window.netlifyIdentity.init;
         window.netlifyIdentity.init = function (opts) {
