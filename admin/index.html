@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        // Explicitly initialize the widget with the remote Netlify site URL
+        window.netlifyIdentity.init({
+            APIUrl: "https://hissain-github-io.netlify.app/.netlify/identity"
+        });
+    </script>
 </head>
 
 <body>
