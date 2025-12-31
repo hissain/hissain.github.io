@@ -116,9 +116,10 @@ description: Technical articles on AI, System Architecture, and Software Develop
 
             posts.forEach(post => {
                 const title = post.dataset.title;
-                const tags = post.dataset.tags.split(','); // already downcase
+                const tagsString = post.dataset.tags; // already downcase
+                const tags = tagsString.split(',');
 
-                const matchesSearch = title.includes(searchTerm);
+                const matchesSearch = title.includes(searchTerm) || tagsString.includes(searchTerm);
                 const matchesTag = currentTag === 'all' || tags.includes(currentTag);
 
                 if (matchesSearch && matchesTag) {
