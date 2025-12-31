@@ -10,17 +10,33 @@ description: Technical articles on AI, System Architecture, and Software Develop
         <p style="margin-top: 0.5rem;">Notes on Engineering, AI, and Architecture.</p>
     </div>
 
-    <div class="project-grid">
+    <!-- Search and Filter Section -->
+    <div class="card" style="margin-bottom: 2rem;">
+        <input type="text" id="searchInput" placeholder="Search posts..."
+            style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem; margin-bottom: 1rem;">
+
+        <div id="tagCloud" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <!-- Tags will be populated by JS -->
+        </div>
+    </div>
+
+    <div class="project-grid" id="postsContainer">
         {% for post in site.posts %}
-        <article class="card">
+        <article class="card post-item" data-title="{{ post.title | downcase }}"
+            data-tags="{{ post.tags | join: ',' | downcase }}">
             <div class="card-header">
-                <!-- We can add category tags here if we want -->
                 <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
             </div>
             <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 30 }}</p>
-            <div class="tags" style="margin-top: 1rem; justify-content: space-between; align-items: center;">
-                <div style="display:flex; gap:0.5rem">
-                    <!-- Add tags later if needed -->
+            <div class="tags"
+                style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                <div style="display:flex; gap:0.5rem; flex-wrap: wrap;">
+                    {% for tag in post.tags %}
+                    <span class="tag-badge"
+                        style="background: var(--bg-secondary); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; color: var(--text-secondary);">
+                        #{{ tag }}
+                    </span>
+                    {% endfor %}
                 </div>
                 <span style="font-size: 0.85rem; color: var(--text-secondary);">
                     {{ post.date | date: "%b %d, %Y" }}
@@ -30,7 +46,111 @@ description: Technical articles on AI, System Architecture, and Software Develop
         {% endfor %}
     </div>
 
+    <p id="noResultsMessage" style="text-align: center; color: var(--text-secondary); display: none; margin-top: 2rem;">
+        No posts found matching your criteria.
+    </p>
+
     {% if site.posts.size == 0 %}
     <p style="text-align: center; color: var(--text-secondary);">No posts found. Publishing soon!</p>
     {% endif %}
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const postsContainer = document.getElementById('postsContainer');
+        const posts = document.querySelectorAll('.post-item');
+        const tagCloud = document.getElementById('tagCloud');
+        const noResults = document.getElementById('noResultsMessage');
+
+        // 1. Collect all unique tags
+        const allTags = new Set();
+        posts.forEach(post => {
+            const tags = post.dataset.tags.split(',').filter(t => t);
+            tags.forEach(tag => allTags.add(tag.trim()));
+        });
+
+        // 2. Render Tag Cloud
+        if (allTags.size > 0) {
+            // Add "All" button
+            const allBtn = document.createElement('button');
+            allBtn.textContent = 'All';
+            allBtn.className = 'filter-tag active';
+            allBtn.style.cssText = `
+            padding: 0.4rem 0.8rem; 
+            border: 1px solid var(--border-color); 
+            border-radius: 20px; 
+            background: var(--accent-color); 
+            color: white; 
+            cursor: pointer;
+            font-size: 0.9rem;
+        `;
+            allBtn.dataset.tag = 'all';
+            tagCloud.appendChild(allBtn);
+
+            // Add other tags
+            Array.from(allTags).sort().forEach(tag => {
+                const btn = document.createElement('button');
+                btn.textContent = '#' + tag; // Display with hash for style
+                btn.className = 'filter-tag';
+                btn.style.cssText = `
+                padding: 0.4rem 0.8rem; 
+                border: 1px solid var(--border-color); 
+                border-radius: 20px; 
+                background: var(--bg-secondary); 
+                color: var(--text-primary); 
+                cursor: pointer;
+                font-size: 0.9rem;
+            `;
+                btn.dataset.tag = tag;
+                tagCloud.appendChild(btn);
+            });
+        }
+
+        let currentTag = 'all';
+
+        // 3. Filter Function
+        function filterPosts() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            posts.forEach(post => {
+                const title = post.dataset.title;
+                const tags = post.dataset.tags.split(','); // already downcase
+
+                const matchesSearch = title.includes(searchTerm);
+                const matchesTag = currentTag === 'all' || tags.includes(currentTag);
+
+                if (matchesSearch && matchesTag) {
+                    post.style.display = ''; // Show
+                    visibleCount++;
+                } else {
+                    post.style.display = 'none'; // Hide
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // 4. Event Listeners
+        searchInput.addEventListener('input', filterPosts);
+
+        tagCloud.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') return;
+
+            // Update active state
+            document.querySelectorAll('.filter-tag').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'var(--bg-secondary)';
+                btn.style.color = 'var(--text-primary)';
+            });
+
+            e.target.classList.add('active');
+            e.target.style.background = 'var(--accent-color)';
+            e.target.style.color = 'white';
+
+            currentTag = e.target.dataset.tag;
+            filterPosts();
+        });
+    });
+</script>
