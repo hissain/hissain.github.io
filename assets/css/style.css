@@ -227,3 +227,24 @@ footer {
     padding: 3rem 1rem;
   }
 }
+
+/* Code Block Styles */
+pre {
+  background: var(--tag-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid var(--card-border);
+  margin: 1.5rem 0;
+}
+
+code {
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+pre code {
+  color: var(--text-color);
+  background: none;
+  padding: 0;
+}
