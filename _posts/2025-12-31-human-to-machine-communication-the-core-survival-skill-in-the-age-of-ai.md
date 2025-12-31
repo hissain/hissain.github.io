@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Human-to-Machine Communication: The Core Survival Skill in the Age of AI"
-date: 2025-12-31 22:37:00
+date: 2025-12-30 22:37:00 +0600
 description: As AI systems increasingly mediate knowledge, labor, and
   decision-making, the limiting factor is no longer machine capability but human
   communication precision. This article argues that survival and leverage in the
