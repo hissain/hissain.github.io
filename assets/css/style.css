@@ -322,13 +322,27 @@ pre code {
 
 @media (max-width: 768px) {
   .post-container {
-    padding: 1.5rem;
-    margin: 1rem;
+    padding: 1.5rem 1rem;
+    /* Reduce side padding */
+    margin: 1rem 0.5rem;
+    /* Reduce side margins */
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    /* Smaller title for mobile */
+    line-height: 1.3;
+  }
+
+  .abstract {
+    margin: 1.5rem 0.5rem;
+    /* Much smaller margins for mobile */
   }
 }
 
 .abstract {
   margin: 2rem 4rem;
+  /* Desktop margins */
   text-align: justify;
   font-size: 0.95rem;
   font-style: italic;
