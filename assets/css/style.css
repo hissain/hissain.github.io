@@ -1,39 +1,37 @@
 :root {
-  --bg-color: #ffffff;
-  --text-color: #1f2937;
-  --text-secondary: #4b5563;
-  --accent-color: #2563eb;
-  --accent-hover: #1d4ed8;
+  --bg-color: #e5e7eb;
+  /* Light gray background for "desk" feel */
+  --paper-bg: #ffffff;
+  --text-color: #000000;
+  --text-secondary: #333333;
+  --accent-color: #000000;
+  /* Minimalist black/standard link blue */
+  --accent-hover: #333333;
   --card-bg: #ffffff;
-  --card-border: #e5e7eb;
-  --header-bg: #f9fafb;
+  --card-border: #cccccc;
+  --header-bg: #ffffff;
   --tag-bg: #f3f4f6;
   --tag-text: #374151;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] {
-  --bg-color: #111827;
-  --text-color: #f9fafb;
-  --text-secondary: #9ca3af;
+  --bg-color: #1a1a1a;
+  --paper-bg: #2d2d2d;
+  --text-color: #f0f0f0;
+  --text-secondary: #cccccc;
   --accent-color: #60a5fa;
-  --accent-hover: #3b82f6;
-  --card-bg: #1f2937;
-  --card-border: #374151;
-  --header-bg: #111827;
-  --tag-bg: #374151;
-  --tag-text: #d1d5db;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --card-border: #404040;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Times New Roman', 'Georgia', serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  transition: background-color 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
 }
 
 header {
@@ -55,8 +53,10 @@ header {
 h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  margin: 0.5rem 0;
-  letter-spacing: -0.025em;
+  margin: 1rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .subtitle {
@@ -88,21 +88,14 @@ section {
 }
 
 h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  position: relative;
-  display: inline-block;
-}
-
-h2::after {
-  content: '';
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--text-color);
   display: block;
-  width: 100%;
-  height: 4px;
-  background: var(--accent-color);
-  margin-top: 0.5rem;
-  border-radius: 2px;
-  opacity: 0.8;
 }
 
 .about-text {
@@ -253,7 +246,99 @@ pre code {
 .post-content img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0;
+  /* Remove rounded corners for formal look */
   display: block;
-  margin: 1.5rem auto;
+  margin: 2rem auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background: white;
+}
+
+/* IEEE Specific Layout Items */
+.post-container {
+  max-width: 850px;
+  margin: 3rem auto;
+  padding: 4rem;
+  background: var(--paper-bg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--card-border);
+}
+
+.post-header {
+  margin-bottom: 3rem;
+  border-bottom: 2px solid var(--text-color);
+  padding-bottom: 1rem;
+}
+
+.post-meta {
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.post-meta .author {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.1em;
+}
+
+.post-meta .divider {
+  margin: 0 10px;
+}
+
+.post-content {
+  text-align: justify;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.post-content p {
+  margin-bottom: 1.5rem;
+  text-indent: 2rem;
+  /* Classic paragraph indent */
+}
+
+.post-content h3 {
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+.tags {
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.tag {
+  background: none;
+  border: 1px solid var(--text-secondary);
+  border-radius: 0;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+}
+
+@media (max-width: 768px) {
+  .post-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}
+
+.abstract {
+  margin: 2rem 4rem;
+  text-align: justify;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.abstract-label {
+  font-weight: bold;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 0.85rem;
 }
