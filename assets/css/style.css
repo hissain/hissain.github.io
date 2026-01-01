@@ -15,6 +15,12 @@
   --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 [data-theme="dark"] {
   --bg-color: #1a1a1a;
   --paper-bg: #2d2d2d;
@@ -218,7 +224,8 @@ footer {
   }
 
   .container {
-    padding: 0 1rem;
+    padding: 0;
+    /* Remove padding on mobile container to allow full-width cards */
   }
 
   header {
@@ -330,7 +337,7 @@ pre code {
     padding: 1.5rem 1rem;
     margin: 0;
     width: 100%;
-    max-width: 100%;
+    /* max-width is handled by width: 100% in border-box */
     border-left: none;
     border-right: none;
     border-radius: 0;
