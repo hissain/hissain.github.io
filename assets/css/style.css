@@ -110,7 +110,9 @@ h2 {
 }
 
 .about-text {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  /* Enlarge text slightly */
+  line-height: 1.8;
   color: var(--text-secondary);
   max-width: 800px;
   margin: 0 auto;
@@ -231,6 +233,11 @@ footer {
   header {
     padding: 3rem 1rem;
   }
+
+  .about-text {
+    padding: 0 0.5rem;
+    /* Add extra breathing room for about text on mobile */
+  }
 }
 
 /* Code Block Styles */
@@ -335,9 +342,8 @@ pre code {
 @media (max-width: 768px) {
   .post-container {
     padding: 1.5rem 1.5rem;
-    /* Increased side padding for text readability */
-    margin: 0.5rem;
-    /* Very small margin for publication feel */
+    margin: 0.5rem 0;
+    /* Top/Bottom margin only. Side is handled by container padding */
     width: auto;
     /* Fill available space minus margin */
     border: 1px solid var(--card-border);
