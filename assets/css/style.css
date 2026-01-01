@@ -250,9 +250,9 @@ pre code {
   /* Remove rounded corners for formal look */
   display: block;
   margin: 2rem auto;
-  border: 1px solid #ccc;
+  border: 1px solid var(--card-border);
   padding: 5px;
-  background: white;
+  background: var(--card-bg);
 }
 
 /* IEEE Specific Layout Items */
