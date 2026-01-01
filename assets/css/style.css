@@ -335,14 +335,15 @@ pre code {
 @media (max-width: 768px) {
   .post-container {
     padding: 1.5rem 1rem;
-    margin: 0;
-    width: 100%;
-    /* max-width is handled by width: 100% in border-box */
-    border-left: none;
-    border-right: none;
+    margin: 0.5rem;
+    /* Very small margin for publication feel */
+    width: auto;
+    /* Fill available space minus margin */
+    border: 1px solid var(--card-border);
+    /* Restore border */
     border-radius: 0;
+    /* Keep it sharp */
     box-shadow: none;
-    /* Optional: remove shadow for flat look, or keep it */
   }
 
   h1 {
