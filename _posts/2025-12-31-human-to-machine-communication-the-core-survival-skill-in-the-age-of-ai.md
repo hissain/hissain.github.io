@@ -17,7 +17,7 @@ tags:
   - Future of Work
   - Technical Writing
 ---
-# Human-to-Machine Communication: The Core Survival Skill in the Age of AI
+
 
 ## 1. The New Bottleneck
 

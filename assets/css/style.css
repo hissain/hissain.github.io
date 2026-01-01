@@ -363,6 +363,17 @@ pre code {
     margin: 1.5rem 0.5rem;
     /* Much smaller margins for mobile */
   }
+
+  .post-content h1,
+  .post-content h2,
+  .post-content h3,
+  .post-content h4,
+  .post-content h5,
+  .post-content h6 {
+    text-align: left;
+    /* Prevent weird spacing from justification on mobile */
+    text-align-last: left;
+  }
 }
 
 .abstract {
@@ -380,4 +391,23 @@ pre code {
   font-style: normal;
   text-transform: uppercase;
   font-size: 0.85rem;
+}
+
+.keywords {
+  margin: 1rem 4rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-align: justify;
+}
+
+.keywords-label {
+  font-weight: bold;
+  font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .keywords {
+    margin: 1rem 0.5rem;
+  }
 }

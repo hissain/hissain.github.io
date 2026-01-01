@@ -15,20 +15,17 @@ layout: default
                 {{ page.date | date: "%B %-d, %Y" }}
             </time>
 
-            {% if page.tags %}
-            <div class="tags">
-                {% for tag in page.tags %}
-                <span class="tag">#{{ tag }}</span>
-                {% endfor %}
+            {% if page.description %}
+            <div class="abstract">
+                <span class="abstract-label">Abstract</span> — {{ page.description }}
             </div>
             {% endif %}
-        </div>
 
-        {% if page.description %}
-        <div class="abstract">
-            <span class="abstract-label">Abstract</span> — {{ page.description }}
-        </div>
-        {% endif %}
+            {% if page.tags %}
+            <div class="keywords">
+                <span class="keywords-label">Keywords</span> — {{ page.tags | join: ", " }}
+            </div>
+            {% endif %}
     </header>
 
     <div class="post-content">
