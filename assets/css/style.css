@@ -224,8 +224,8 @@ footer {
   }
 
   .container {
-    padding: 0;
-    /* Remove padding on mobile container to allow full-width cards */
+    padding: 0 0.5rem;
+    /* Restore small padding for main page content */
   }
 
   header {
@@ -334,7 +334,8 @@ pre code {
 
 @media (max-width: 768px) {
   .post-container {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1.5rem;
+    /* Increased side padding for text readability */
     margin: 0.5rem;
     /* Very small margin for publication feel */
     width: auto;
