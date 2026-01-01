@@ -323,9 +323,14 @@ pre code {
 @media (max-width: 768px) {
   .post-container {
     padding: 1.5rem 1rem;
-    /* Reduce side padding */
-    margin: 1rem 0.5rem;
-    /* Reduce side margins */
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    box-shadow: none;
+    /* Optional: remove shadow for flat look, or keep it */
   }
 
   h1 {
