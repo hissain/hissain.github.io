@@ -7,6 +7,7 @@ description: As AI systems increasingly mediate knowledge, labor, and
   communication precision. This article argues that survival and leverage in the
   AI era depend on how effectively humans translate intent, constraints, and
   context into machine-interpretable form.
+author: Sazzad Hissain Khan
 tags:
   - AI
   - Human-AI Interaction
