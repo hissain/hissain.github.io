@@ -55,95 +55,146 @@ description: Technical articles on AI, System Architecture, and Software Develop
     {% endif %}
 </section>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('searchInput');
-        const postsContainer = document.getElementById('postsContainer');
-        const posts = document.querySelectorAll('.post-item');
-        const tagCloud = document.getElementById('tagCloud');
-        const noResults = document.getElementById('noResultsMessage');
+// Pagination Controls
+const itemsPerPage = 5;
+let currentPage = 1;
+let currentFilteredPosts = []; // To track posts after search/tag filter
 
-        // 1. Collect all unique tags
-        const allTags = new Set();
-        posts.forEach(post => {
-            const tags = post.dataset.tags.split(',').filter(t => t);
-            tags.forEach(tag => allTags.add(tag.trim()));
-        });
+document.addEventListener('DOMContentLoaded', function () {
+const searchInput = document.getElementById('searchInput');
+const postsContainer = document.getElementById('postsContainer');
+const posts = Array.from(document.querySelectorAll('.post-item')); // Convert NodeList to Array
+const tagCloud = document.getElementById('tagCloud');
+const noResults = document.getElementById('noResultsMessage');
 
-        // 2. Render Tag Cloud
-        if (allTags.size > 0) {
-            // Add "All" button
-            const allBtn = document.createElement('button');
-            allBtn.textContent = 'All';
-            allBtn.className = 'filter-tag active';
-            allBtn.style.cssText = `
-            padding: 0.4rem 0.8rem; 
-            border: 1px solid var(--border-color); 
-            border-radius: 20px; 
-            background: var(--accent-color); 
-            color: white; 
-            cursor: pointer;
-            font-size: 0.9rem;
-        `;
-            allBtn.dataset.tag = 'all';
-            tagCloud.appendChild(allBtn);
+// Create Pagination UI
+const paginationContainer = document.createElement('div');
+paginationContainer.id = 'paginationControls';
+paginationContainer.style.cssText = 'display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; align-items:
+center;';
+postsContainer.after(paginationContainer);
 
-            // Add other tags
-            Array.from(allTags).sort().forEach(tag => {
-                const btn = document.createElement('button');
-                btn.textContent = '#' + tag; // Display with hash for style
-                btn.className = 'filter-tag';
-                btn.style.cssText = `
-                padding: 0.4rem 0.8rem; 
-                border: 1px solid var(--border-color); 
-                border-radius: 20px; 
-                background: var(--bg-secondary); 
-                color: var(--text-primary); 
-                cursor: pointer;
-                font-size: 0.9rem;
-            `;
-                btn.dataset.tag = tag;
-                tagCloud.appendChild(btn);
-            });
-        }
+// 1. Collect and Count Tags
+const tagCounts = {};
+posts.forEach(post => {
+const tags = post.dataset.tags.split(',').filter(t => t);
+tags.forEach(tag => {
+const t = tag.trim();
+tagCounts[t] = (tagCounts[t] || 0) + 1;
+});
+});
 
-        let currentTag = 'all';
+// 2. Render Top 20 Tags
+if (Object.keys(tagCounts).length > 0) {
+// Add "All" button
+const allBtn = document.createElement('button');
+allBtn.textContent = 'All';
+allBtn.className = 'filter-tag active';
+allBtn.style.cssText = `
+padding: 0.4rem 0.8rem;
+border: 1px solid var(--border-color);
+border-radius: 20px;
+background: var(--accent-color);
+color: white;
+cursor: pointer;
+font-size: 0.9rem;
+`;
+allBtn.dataset.tag = 'all';
+tagCloud.appendChild(allBtn);
 
-        // 3. Filter Function
-        function filterPosts() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            let visibleCount = 0;
+// Sort tags by count desc, then take top 20
+const sortedTags = Object.entries(tagCounts)
+.sort((a, b) => b[1] - a[1]) // Sort by count descending
+.slice(0, 20) // Take top 20
+.map(entry => entry[0]);
 
-            posts.forEach(post => {
-                const title = post.dataset.title;
-                const tagsString = post.dataset.tags; // already downcase
-                const tags = tagsString.split(',');
+sortedTags.forEach(tag => {
+const btn = document.createElement('button');
+btn.textContent = '#' + tag;
+btn.className = 'filter-tag';
+btn.style.cssText = `
+padding: 0.4rem 0.8rem;
+border: 1px solid var(--border-color);
+border-radius: 20px;
+background: var(--bg-secondary);
+color: var(--text-primary);
+cursor: pointer;
+font-size: 0.9rem;
+`;
+btn.dataset.tag = tag;
+tagCloud.appendChild(btn);
+});
+}
 
-                const matchesSearch = title.includes(searchTerm) || tagsString.includes(searchTerm);
-                const matchesTag = currentTag === 'all' || tags.includes(currentTag);
+let currentTag = 'all';
 
-                if (matchesSearch && matchesTag) {
-                    post.style.display = ''; // Show
-                    visibleCount++;
-                } else {
-                    post.style.display = 'none'; // Hide
-                }
-            });
+// 3. Filter Function
+function filterPosts() {
+const searchTerm = searchInput.value.toLowerCase().trim();
 
-            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
+// Filter the full list
+currentFilteredPosts = posts.filter(post => {
+const title = post.dataset.title;
+const tagsString = post.dataset.tags;
+const tags = tagsString.split(',');
 
-        // 4. Event Listeners
-        searchInput.addEventListener('input', filterPosts);
+const matchesSearch = title.includes(searchTerm) || tagsString.includes(searchTerm);
+const matchesTag = currentTag === 'all' || tags.includes(currentTag);
+return matchesSearch && matchesTag;
+});
 
-        tagCloud.addEventListener('click', (e) => {
+// Reset to page 1 on new filter
+currentPage = 1;
+renderPagination();
+}
+
+// 4. Render Pagination
+function renderPagination() {
+const totalPosts = currentFilteredPosts.length;
+const totalPages = Math.ceil(totalPosts / itemsPerPage);
+
+// Validation
+if (currentPage > totalPages) currentPage = totalPages || 1;
+if (currentPage < 1) currentPage=1; const start=(currentPage - 1) * itemsPerPage; const end=start + itemsPerPage; //
+    Hide all first posts.forEach(p=> p.style.display = 'none');
+
+    // Show current page slice
+    const visiblePosts = currentFilteredPosts.slice(start, end);
+    visiblePosts.forEach(p => p.style.display = '');
+
+    noResults.style.display = totalPosts === 0 ? 'block' : 'none';
+    updatePaginationControls(totalPages);
+    }
+
+    function updatePaginationControls(totalPages) {
+    paginationContainer.innerHTML = '';
+
+    if (totalPages <= 1) return; // No controls needed if 1 page const prevBtn=document.createElement('button');
+        prevBtn.textContent='← Prev' ; prevBtn.disabled=currentPage===1; prevBtn.onclick=()=> { if (currentPage > 1) {
+        currentPage--; renderPagination(); window.scrollTo(0, 0); }};
+        stylePaginationBtn(prevBtn);
+
+        const pageInfo = document.createElement('span');
+        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+        pageInfo.style.cssText = 'color: var(--text-secondary); font-size: 0.9rem;';
+
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = 'Next →';
+        nextBtn.disabled = currentPage === totalPages;
+        nextBtn.onclick = () => { if (currentPage < totalPages) { currentPage++; renderPagination(); window.scrollTo(0,
+            0); }}; stylePaginationBtn(nextBtn); paginationContainer.append(prevBtn, pageInfo, nextBtn); } function
+            stylePaginationBtn(btn) { btn.style.cssText=` padding: 0.5rem 1rem; background: var(--bg-secondary); // Use
+            theme bg color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; cursor:
+            pointer; opacity: ${btn.disabled ? 0.5 : 1}; pointer-events: ${btn.disabled ? 'none' : 'auto' }; `; } // 5.
+            Event Listeners searchInput.addEventListener('input', filterPosts); tagCloud.addEventListener('click', (e)=>
+            {
             if (e.target.tagName !== 'BUTTON') return;
 
             // Update active state
             document.querySelectorAll('.filter-tag').forEach(btn => {
-                btn.classList.remove('active');
-                btn.style.background = 'var(--bg-secondary)';
-                btn.style.color = 'var(--text-primary)';
+            btn.classList.remove('active');
+            btn.style.background = 'var(--bg-secondary)';
+            btn.style.color = 'var(--text-primary)';
             });
 
             e.target.classList.add('active');
@@ -152,6 +203,8 @@ description: Technical articles on AI, System Architecture, and Software Develop
 
             currentTag = e.target.dataset.tag;
             filterPosts();
-        });
-    });
-</script>
+            });
+
+            // Initial Load
+            filterPosts();
+            });
