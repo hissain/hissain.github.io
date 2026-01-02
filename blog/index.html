@@ -55,146 +55,170 @@ description: Technical articles on AI, System Architecture, and Software Develop
     {% endif %}
 </section>
 
-// Pagination Controls
-const itemsPerPage = 1; // Testing pagination
-let currentPage = 1;
-let currentFilteredPosts = []; // To track posts after search/tag filter
+<script>
+    // Pagination Controls
+    const itemsPerPage = 1; // Testing pagination
+    let currentPage = 1;
+    let currentFilteredPosts = []; // To track posts after search/tag filter
 
-document.addEventListener('DOMContentLoaded', function () {
-const searchInput = document.getElementById('searchInput');
-const postsContainer = document.getElementById('postsContainer');
-const posts = Array.from(document.querySelectorAll('.post-item')); // Convert NodeList to Array
-const tagCloud = document.getElementById('tagCloud');
-const noResults = document.getElementById('noResultsMessage');
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const postsContainer = document.getElementById('postsContainer');
+        const posts = Array.from(document.querySelectorAll('.post-item')); // Convert NodeList to Array
+        const tagCloud = document.getElementById('tagCloud');
+        const noResults = document.getElementById('noResultsMessage');
 
-// Create Pagination UI
-const paginationContainer = document.createElement('div');
-paginationContainer.id = 'paginationControls';
-paginationContainer.style.cssText = 'display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; align-items:
-center;';
-postsContainer.after(paginationContainer);
+        // Create Pagination UI
+        const paginationContainer = document.createElement('div');
+        paginationContainer.id = 'paginationControls';
+        paginationContainer.style.cssText = 'display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; align-items: center;';
+        postsContainer.after(paginationContainer);
 
-// 1. Collect and Count Tags
-const tagCounts = {};
-posts.forEach(post => {
-const tags = post.dataset.tags.split(',').filter(t => t);
-tags.forEach(tag => {
-const t = tag.trim();
-tagCounts[t] = (tagCounts[t] || 0) + 1;
-});
-});
+        // 1. Collect and Count Tags
+        const tagCounts = {};
+        posts.forEach(post => {
+            const tags = post.dataset.tags.split(',').filter(t => t);
+            tags.forEach(tag => {
+                const t = tag.trim();
+                tagCounts[t] = (tagCounts[t] || 0) + 1;
+            });
+        });
 
-// 2. Render Top 20 Tags
-if (Object.keys(tagCounts).length > 0) {
-// Add "All" button
-const allBtn = document.createElement('button');
-allBtn.textContent = 'All';
-allBtn.className = 'filter-tag active';
-allBtn.style.cssText = `
-padding: 0.4rem 0.8rem;
-border: 1px solid var(--border-color);
-border-radius: 20px;
-background: var(--accent-color);
-color: white;
-cursor: pointer;
-font-size: 0.9rem;
-`;
-allBtn.dataset.tag = 'all';
-tagCloud.appendChild(allBtn);
+        // 2. Render Top 20 Tags
+        if (Object.keys(tagCounts).length > 0) {
+            // Add "All" button
+            const allBtn = document.createElement('button');
+            allBtn.textContent = 'All';
+            allBtn.className = 'filter-tag active';
+            allBtn.style.cssText = `
+            padding: 0.4rem 0.8rem; 
+            border: 1px solid var(--border-color); 
+            border-radius: 20px; 
+            background: var(--accent-color); 
+            color: white; 
+            cursor: pointer;
+            font-size: 0.9rem;
+        `;
+            allBtn.dataset.tag = 'all';
+            tagCloud.appendChild(allBtn);
 
-// Sort tags by count desc, then take top 20
-const sortedTags = Object.entries(tagCounts)
-.sort((a, b) => b[1] - a[1]) // Sort by count descending
-.slice(0, 20) // Take top 20
-.map(entry => entry[0]);
+            // Sort tags by count desc, then take top 20
+            const sortedTags = Object.entries(tagCounts)
+                .sort((a, b) => b[1] - a[1]) // Sort by count descending
+                .slice(0, 20) // Take top 20
+                .map(entry => entry[0]);
 
-sortedTags.forEach(tag => {
-const btn = document.createElement('button');
-btn.textContent = '#' + tag;
-btn.className = 'filter-tag';
-btn.style.cssText = `
-padding: 0.4rem 0.8rem;
-border: 1px solid var(--border-color);
-border-radius: 20px;
-background: var(--bg-secondary);
-color: var(--text-primary);
-cursor: pointer;
-font-size: 0.9rem;
-`;
-btn.dataset.tag = tag;
-tagCloud.appendChild(btn);
-});
-}
+            sortedTags.forEach(tag => {
+                const btn = document.createElement('button');
+                btn.textContent = '#' + tag;
+                btn.className = 'filter-tag';
+                btn.style.cssText = `
+                padding: 0.4rem 0.8rem; 
+                border: 1px solid var(--border-color); 
+                border-radius: 20px; 
+                background: var(--bg-secondary); 
+                color: var(--text-primary); 
+                cursor: pointer;
+                font-size: 0.9rem;
+            `;
+                btn.dataset.tag = tag;
+                tagCloud.appendChild(btn);
+            });
+        }
 
-let currentTag = 'all';
+        let currentTag = 'all';
 
-// 3. Filter Function
-function filterPosts() {
-const searchTerm = searchInput.value.toLowerCase().trim();
+        // 3. Filter Function
+        function filterPosts() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
 
-// Filter the full list
-currentFilteredPosts = posts.filter(post => {
-const title = post.dataset.title;
-const tagsString = post.dataset.tags;
-const tags = tagsString.split(',');
+            // Filter the full list
+            currentFilteredPosts = posts.filter(post => {
+                const title = post.dataset.title;
+                const tagsString = post.dataset.tags;
+                const tags = tagsString.split(',');
 
-const matchesSearch = title.includes(searchTerm) || tagsString.includes(searchTerm);
-const matchesTag = currentTag === 'all' || tags.includes(currentTag);
-return matchesSearch && matchesTag;
-});
+                const matchesSearch = title.includes(searchTerm) || tagsString.includes(searchTerm);
+                const matchesTag = currentTag === 'all' || tags.includes(currentTag);
+                return matchesSearch && matchesTag;
+            });
 
-// Reset to page 1 on new filter
-currentPage = 1;
-renderPagination();
-}
+            // Reset to page 1 on new filter
+            currentPage = 1;
+            renderPagination();
+        }
 
-// 4. Render Pagination
-function renderPagination() {
-const totalPosts = currentFilteredPosts.length;
-const totalPages = Math.ceil(totalPosts / itemsPerPage);
+        // 4. Render Pagination
+        function renderPagination() {
+            const totalPosts = currentFilteredPosts.length;
+            const totalPages = Math.ceil(totalPosts / itemsPerPage);
 
-// Validation
-if (currentPage > totalPages) currentPage = totalPages || 1;
-if (currentPage < 1) currentPage=1; const start=(currentPage - 1) * itemsPerPage; const end=start + itemsPerPage; //
-    Hide all first posts.forEach(p=> p.style.display = 'none');
+            // Validation
+            if (currentPage > totalPages) currentPage = totalPages || 1;
+            if (currentPage < 1) currentPage = 1;
 
-    // Show current page slice
-    const visiblePosts = currentFilteredPosts.slice(start, end);
-    visiblePosts.forEach(p => p.style.display = '');
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
 
-    noResults.style.display = totalPosts === 0 ? 'block' : 'none';
-    updatePaginationControls(totalPages);
-    }
+            // Hide all first
+            posts.forEach(p => p.style.display = 'none');
 
-    function updatePaginationControls(totalPages) {
-    paginationContainer.innerHTML = '';
+            // Show current page slice
+            const visiblePosts = currentFilteredPosts.slice(start, end);
+            visiblePosts.forEach(p => p.style.display = '');
 
-    if (totalPages <= 1) return; // No controls needed if 1 page const prevBtn=document.createElement('button');
-        prevBtn.textContent='← Prev' ; prevBtn.disabled=currentPage===1; prevBtn.onclick=()=> { if (currentPage > 1) {
-        currentPage--; renderPagination(); window.scrollTo(0, 0); }};
-        stylePaginationBtn(prevBtn);
+            noResults.style.display = totalPosts === 0 ? 'block' : 'none';
+            updatePaginationControls(totalPages);
+        }
 
-        const pageInfo = document.createElement('span');
-        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-        pageInfo.style.cssText = 'color: var(--text-secondary); font-size: 0.9rem;';
+        function updatePaginationControls(totalPages) {
+            paginationContainer.innerHTML = '';
 
-        const nextBtn = document.createElement('button');
-        nextBtn.textContent = 'Next →';
-        nextBtn.disabled = currentPage === totalPages;
-        nextBtn.onclick = () => { if (currentPage < totalPages) { currentPage++; renderPagination(); window.scrollTo(0,
-            0); }}; stylePaginationBtn(nextBtn); paginationContainer.append(prevBtn, pageInfo, nextBtn); } function
-            stylePaginationBtn(btn) { btn.style.cssText=` padding: 0.5rem 1rem; background: var(--bg-secondary); // Use
-            theme bg color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 4px; cursor:
-            pointer; opacity: ${btn.disabled ? 0.5 : 1}; pointer-events: ${btn.disabled ? 'none' : 'auto' }; `; } // 5.
-            Event Listeners searchInput.addEventListener('input', filterPosts); tagCloud.addEventListener('click', (e)=>
-            {
+            if (totalPages <= 1) return; // No controls needed if 1 page
+
+            const prevBtn = document.createElement('button');
+            prevBtn.textContent = '← Prev';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => { if (currentPage > 1) { currentPage--; renderPagination(); window.scrollTo(0, 0); } };
+            stylePaginationBtn(prevBtn);
+
+            const pageInfo = document.createElement('span');
+            pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+            pageInfo.style.cssText = 'color: var(--text-secondary); font-size: 0.9rem;';
+
+            const nextBtn = document.createElement('button');
+            nextBtn.textContent = 'Next →';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => { if (currentPage < totalPages) { currentPage++; renderPagination(); window.scrollTo(0, 0); } };
+            stylePaginationBtn(nextBtn);
+
+            paginationContainer.append(prevBtn, pageInfo, nextBtn);
+        }
+
+        function stylePaginationBtn(btn) {
+            btn.style.cssText = `
+                padding: 0.5rem 1rem;
+                background: var(--bg-secondary); // Use theme bg
+                color: var(--text-primary);
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
+                cursor: pointer;
+                opacity: ${btn.disabled ? 0.5 : 1};
+                pointer-events: ${btn.disabled ? 'none' : 'auto'};
+            `;
+        }
+
+        // 5. Event Listeners
+        searchInput.addEventListener('input', filterPosts);
+
+        tagCloud.addEventListener('click', (e) => {
             if (e.target.tagName !== 'BUTTON') return;
 
             // Update active state
             document.querySelectorAll('.filter-tag').forEach(btn => {
-            btn.classList.remove('active');
-            btn.style.background = 'var(--bg-secondary)';
-            btn.style.color = 'var(--text-primary)';
+                btn.classList.remove('active');
+                btn.style.background = 'var(--bg-secondary)';
+                btn.style.color = 'var(--text-primary)';
             });
 
             e.target.classList.add('active');
@@ -203,8 +227,9 @@ if (currentPage < 1) currentPage=1; const start=(currentPage - 1) * itemsPerPage
 
             currentTag = e.target.dataset.tag;
             filterPosts();
-            });
+        });
 
-            // Initial Load
-            filterPosts();
-            });
+        // Initial Load
+        filterPosts();
+    });
+</script>
