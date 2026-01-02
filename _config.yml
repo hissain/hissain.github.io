@@ -2,7 +2,7 @@ title: Sazzad Hissain Khan
 description: Associate Software Architect & AI Innovator
 url: "https://hissain.github.io"
 baseurl: ""
-version: "1.0.1"
+version: "1.0.2"
 timezone: Asia/Dhaka # Ensures posts with local times are not treated as future posts by GitHub Pages (UTC)
 theme: jekyll-theme-primer # Using a default theme as base, but we will override with custom layouts
 plugins:
