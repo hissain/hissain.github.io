@@ -411,3 +411,9 @@ pre code {
     margin: 1rem 0.5rem;
   }
 }
+
+.card .keywords {
+  margin: 1rem 0 0 0;
+  text-align: left;
+  font-size: 0.85rem;
+}
