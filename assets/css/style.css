@@ -417,3 +417,27 @@ pre code {
   text-align: left;
   font-size: 0.85rem;
 }
+/* Card Action Buttons */
+.card-actions {
+  margin-top: 1.5rem;
+}
+
+.btn-card {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.btn-card:hover {
+  background: var(--text-color);
+  color: var(--card-bg);
+  text-decoration: none;
+}
