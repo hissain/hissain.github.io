@@ -3,8 +3,7 @@ layout: post
 title: "Introducing jSciPy: Scientific Computing for Java"
 date: 2025-12-31 12:00:00 +0600
 thumbnail: ""
-description: A comprehensive Java library for Signal Processing, Filters, and
-  Transformations, inspired by Python's SciPy.
+description: In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
 tags:
   - Java
   - Open Source
@@ -19,19 +18,16 @@ If you come from a Python background, you undoubtedly know [SciPy](https://scipy
 
 **jSciPy** is my attempt to fill that gap. It is a Java Scientific Computing Library designed for **Signal Processing**, **Machine Learning**, and **Data Science workflows**, providing a familiar API for developers used to NumPy and SciPy.
 
-## Why jSciPy?
-
-In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
-
 ## Key Features
 
 ### 1. Advanced Filtering
 
 Implemented from scratch to match SciPy's output:
 
-* **Butterworth Filters**: Low-pass, high-pass, band-pass, band-stop.
-* **Chebyshev Filters**: Type I and Type II.
-* **Zero-Phase Filtering**: `filtfilt` support for phase-perfect signal reconstruction.
+It currently includes modules for:
+*   **Signal Processing**: Butterworth filters, Savitzky-Golay smoothing, Peak detection.
+*   **Transformations**: FFT (Fast Fourier Transform), Hilbert Transform, Convolution.
+*   **Math & Analysis**: RK4 ODE Solver, Interpolation (Linear, Cubic Spline), Resampling.
 
 ### 2. Signal Analysis
 
