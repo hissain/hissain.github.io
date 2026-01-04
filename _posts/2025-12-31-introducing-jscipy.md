@@ -21,7 +21,7 @@ If you come from a Python background, you undoubtedly know [SciPy](https://scipy
 
 ## Why jSciPy?
 
-While there are many math libraries for Java, few focus specifically on **Signal Processing** with the same ease of use as SciPy. jSciPy provides robust implementations of standard algorithms that are essential for analyzing sensor data, audio, or any time-series data.
+In modern machine learning workflows, most signal processing tasks rely on Python's SciPy utilities. However, there is no Java library that replicates SciPy's behavior with comparable completeness and consistency. This creates a significant gap for teams building ML or signal processing pipelines on the JVM. jSciPy aims to fill this gap, and the demand for such a library is higher than ever.
 
 ## Key Features
 
