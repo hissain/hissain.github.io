@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Understanding Filter Topologies: Butterworth, Chebyshev, Bessel, and Elliptic Filters"
-date: 2026-01-15 18:00:00 +0600
+date: 2026-01-15 09:00:00 +0600
 thumbnail: ""
 description: A comprehensive comparison of the four most common filter topologies used in signal processing and RF design - their characteristics, trade-offs, and ideal applications.
 tags:
