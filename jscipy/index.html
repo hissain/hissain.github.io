@@ -1,48 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jSciPy - Java Scientific Computing Library</title>
+    <title>jSciPy - Java Scientific Computing Library Documentation</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; }
-        header { background: #007acc; color: white; padding: 2rem; text-align: center; }
-        header h1 { margin: 0; }
-        .container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
-        .btn { display: inline-block; background: #007acc; color: white; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 4px; margin-right: 10px; }
-        .btn:hover { background: #005f9e; }
-        .btn-secondary { background: #6c757d; }
-        .btn-secondary:hover { background: #5a6268; }
-        h2 { border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-top: 2rem; }
-        code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 4px; }
-        pre { background: #f4f4f4; padding: 1rem; overflow-x: auto; border-radius: 4px; }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: #007acc;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #007acc;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background: #005f9e;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
     </style>
 </head>
+
 <body>
 
-<header>
-    <h1>jSciPy</h1>
-    <p>A Java library for scientific computing, inspired by SciPy.</p>
-</header>
+    <header>
+        <h1>jSciPy</h1>
+        <p>A Java library for scientific computing, inspired by SciPy.</p>
+    </header>
 
-<div class="container">
-    <p style="text-align: center; margin-bottom: 2rem;">
-        <a href="javadoc/index.html" class="btn">View Javadoc</a>
-        <a href="https://github.com/hissain/jscipy" class="btn btn-secondary">View on GitHub</a>
-    </p>
+    <div class="container">
+        <p style="text-align: center; margin-bottom: 2rem;">
+            <a href="javadoc/index.html" class="btn">View Javadoc</a>
+            <a href="https://github.com/hissain/jscipy" class="btn btn-secondary">View on GitHub</a>
+        </p>
 
-    <h2>Overview</h2>
-    <p>jSciPy fills the gap in the Java ecosystem for a comprehensive scientific computing library similar to Python's SciPy. It provides robust implementations for signal processing, optimization, and more.</p>
+        <h2>Overview</h2>
+        <p>jSciPy fills the gap in the Java ecosystem for a comprehensive scientific computing library similar to
+            Python's SciPy. It provides robust implementations for signal processing, optimization, and more.</p>
 
-    <h2>Features</h2>
-    <ul>
-        <li><strong>Signal Processing</strong>: Butterworth filters (including zero-phase <code>filtfilt</code>), Peak Detection, Savitzky-Golay filters, Median filters, Convolution, Detrending, Resampling.</li>
-        <li><strong>Math & Analysis</strong>: RK4 ODE Solver, Interpolation (Linear, Cubic Spline), FFT/IFFT (via Commons Math wrapper with enhanced utilities), Hilbert Transform.</li>
-    </ul>
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Advanced Filtering</strong>: Butterworth, Chebyshev (I & II), Elliptic, and Bessel filters.
+                Supports zero-phase (<code>filtfilt</code>) and causal filtering modes.</li>
+            <li><strong>2D Processing</strong>: 2D Convolution (<code>convolve2d</code>), 2D FFT (<code>fft2</code>),
+                and 2D IFFT (<code>ifft2</code>).</li>
+            <li><strong>Spectral Analysis</strong>: Welch's Method (PSD), Spectrogram, standard 1D FFT/IFFT, and
+                Real-optimized FFT (<code>rfft</code>/<code>irfft</code>).</li>
+            <li><strong>Smoothing & Detection</strong>: Savitzky-Golay filters, Peak Detection
+                (<code>find_peaks</code>), Median filters, Detrending.</li>
+            <li><strong>Math & Analysis</strong>: RK4 ODE Solver, Linear & Cubic Spline Interpolation, Resampling.</li>
+        </ul>
 
-    <h2>Getting Started</h2>
-    <p>Add the dependency via JitPack:</p>
-    <pre>
+        <h2>Getting Started</h2>
+        <p>Add the dependency via JitPack:</p>
+        <pre>
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
@@ -53,12 +117,14 @@ dependencies {
 }
     </pre>
 
-    <h2>Documentation</h2>
-    <p>Explore the full <a href="javadoc/index.html">API Documentation (Javadoc)</a> to learn about all available classes and methods.</p>
+        <h2>Documentation</h2>
+        <p>Explore the full <a href="javadoc/index.html">API Documentation (Javadoc)</a> to learn about all available
+            classes and methods.</p>
 
-    <h2>License</h2>
-    <p>This project is licensed under the MIT License.</p>
-</div>
+        <h2>License</h2>
+        <p>This project is licensed under the MIT License.</p>
+    </div>
 
 </body>
+
 </html>
