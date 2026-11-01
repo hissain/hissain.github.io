@@ -109,57 +109,55 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
           <span class="suggestion-chip" onclick="pickSuggestion('আছে')">আছে</span>
         </div>
 
-        <!-- Virtual Keyboard Layout -->
+        <!-- Virtual Keyboard Layout (Phonetic QWERTY) -->
         <div class="virtual-keyboard">
           <!-- Row 1 -->
           <div class="kb-row">
-            <div class="kb-key" onclick="pressKey('ক')">ক</div>
-            <div class="kb-key" onclick="pressKey('খ')">খ</div>
-            <div class="kb-key" onclick="pressKey('গ')">গ</div>
-            <div class="kb-key" onclick="pressKey('ঘ')">ঘ</div>
-            <div class="kb-key" onclick="pressKey('ঙ')">ঙ</div>
-            <div class="kb-key" onclick="pressKey('চ')">চ</div>
-            <div class="kb-key" onclick="pressKey('ছ')">ছ</div>
-            <div class="kb-key" onclick="pressKey('জ')">জ</div>
-            <div class="kb-key" onclick="pressKey('ঝ')">ঝ</div>
-            <div class="kb-key" onclick="pressKey('ঞ')">ঞ</div>
+            <div class="kb-key" onclick="pressKey('q')">q</div>
+            <div class="kb-key" onclick="pressKey('w')">w</div>
+            <div class="kb-key" onclick="pressKey('e')">e</div>
+            <div class="kb-key" onclick="pressKey('r')">r</div>
+            <div class="kb-key" onclick="pressKey('t')">t</div>
+            <div class="kb-key" onclick="pressKey('y')">y</div>
+            <div class="kb-key" onclick="pressKey('u')">u</div>
+            <div class="kb-key" onclick="pressKey('i')">i</div>
+            <div class="kb-key" onclick="pressKey('o')">o</div>
+            <div class="kb-key" onclick="pressKey('p')">p</div>
           </div>
 
           <!-- Row 2 -->
-          <div class="kb-row">
-            <div class="kb-key" onclick="pressKey('ট')">ট</div>
-            <div class="kb-key" onclick="pressKey('ঠ')">ঠ</div>
-            <div class="kb-key" onclick="pressKey('ড')">ড</div>
-            <div class="kb-key" onclick="pressKey('ঢ')">ঢ</div>
-            <div class="kb-key" onclick="pressKey('ণ')">ণ</div>
-            <div class="kb-key" onclick="pressKey('ত')">ত</div>
-            <div class="kb-key" onclick="pressKey('থ')">থ</div>
-            <div class="kb-key" onclick="pressKey('দ')">দ</div>
-            <div class="kb-key" onclick="pressKey('ধ')">ধ</div>
-            <div class="kb-key" onclick="pressKey('ন')">ন</div>
+          <div class="kb-row" style="padding: 0 0.8rem;">
+            <div class="kb-key" onclick="pressKey('a')">a</div>
+            <div class="kb-key" onclick="pressKey('s')">s</div>
+            <div class="kb-key" onclick="pressKey('d')">d</div>
+            <div class="kb-key" onclick="pressKey('f')">f</div>
+            <div class="kb-key" onclick="pressKey('g')">g</div>
+            <div class="kb-key" onclick="pressKey('h')">h</div>
+            <div class="kb-key" onclick="pressKey('j')">j</div>
+            <div class="kb-key" onclick="pressKey('k')">k</div>
+            <div class="kb-key" onclick="pressKey('l')">l</div>
           </div>
 
           <!-- Row 3 -->
           <div class="kb-row">
-            <div class="kb-key kb-key-fn" onclick="toggleLayout()">EN/বাং</div>
-            <div class="kb-key" onclick="pressKey('প')">প</div>
-            <div class="kb-key" onclick="pressKey('ফ')">ফ</div>
-            <div class="kb-key" onclick="pressKey('ব')">ব</div>
-            <div class="kb-key" onclick="pressKey('ভ')">ভ</div>
-            <div class="kb-key" onclick="pressKey('ম')">ম</div>
-            <div class="kb-key" onclick="pressKey('য')">য</div>
-            <div class="kb-key" onclick="pressKey('র')">র</div>
-            <div class="kb-key" onclick="pressKey('ল')">ল</div>
-            <div class="kb-key kb-key-fn" onclick="deleteChar()">⌫</div>
+            <div class="kb-key kb-key-fn" onclick="toggleShift()" id="shiftKey" style="flex: 1.4;">⇧</div>
+            <div class="kb-key" onclick="pressKey('z')">z</div>
+            <div class="kb-key" onclick="pressKey('x')">x</div>
+            <div class="kb-key" onclick="pressKey('c')">c</div>
+            <div class="kb-key" onclick="pressKey('v')">v</div>
+            <div class="kb-key" onclick="pressKey('b')">b</div>
+            <div class="kb-key" onclick="pressKey('n')">n</div>
+            <div class="kb-key" onclick="pressKey('m')">m</div>
+            <div class="kb-key kb-key-fn" onclick="deleteChar()" style="flex: 1.4;">⌫</div>
           </div>
 
           <!-- Row 4 -->
           <div class="kb-row">
-            <div class="kb-key kb-key-fn">?123</div>
-            <div class="kb-key" onclick="pressKey('।')">।</div>
+            <div class="kb-key kb-key-fn" style="flex: 1.3;">?123</div>
+            <div class="kb-key" onclick="pressKey(',')" style="flex: 0.9;">,</div>
             <div class="kb-key kb-spacebar" onclick="pressSpace()">Space (Phonetic)</div>
-            <div class="kb-key" onclick="pressKey('?')">?</div>
-            <div class="kb-key kb-key-accent" onclick="pressEnter()">↵</div>
+            <div class="kb-key" onclick="pressKey('.')" style="flex: 0.9;">.</div>
+            <div class="kb-key kb-key-accent" onclick="pressEnter()" style="flex: 1.3;">↵</div>
           </div>
         </div>
 
@@ -426,65 +424,133 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
 </div>
 
 <script>
-  // Simulation Interactive Logic
-  const sampleSuggestions = {
+  // Phonetic Lexicon for Real-time Transliteration Simulation
+  const sampleLexicon = {
     'ami': ['আমি', 'আমার', 'আমরা', 'আজ', 'আছে'],
+    'am': ['আম', 'আমরা', 'আমার', 'আমি'],
+    'a': ['আ', 'আজ', 'আমি', 'আমার'],
     'tumi': ['তুমি', 'তোমার', 'তোমাদের', 'তুমিও'],
-    'kemon': ['কেমন', 'কেমনে', 'কেন'],
-    'acho': ['আছো', 'আছে', 'আছি'],
-    'bangla': ['বাংলা', 'বাংলাদেশ', 'বাঙালি']
+    'tum': ['তুমি', 'তোমার'],
+    'tu': ['তু', 'তুমি'],
+    't': ['ত', 'তো', 'তুমি'],
+    'kemon': ['কেমন', 'কেমনে', 'কেন', 'কেমনটা'],
+    'kemo': ['কেমন', 'কেমনে'],
+    'kem': ['কেমন', 'কেমনে'],
+    'ke': ['কে', 'কেন', 'কেউ'],
+    'k': ['ক', 'কী', 'কে', 'কিন্তু'],
+    'acho': ['আছো', 'আছে', 'আছি', 'আছেন'],
+    'ach': ['আছি', 'আছো', 'আছে'],
+    'ac': ['আছি', 'আছো'],
+    'achen': ['আছেন', 'আছে', 'আছো', 'আছি'],
+    'bangla': ['বাংলা', 'বাংলাদেশ', 'বাঙালি', 'বাঙ্গালী'],
+    'bang': ['বাং', 'বাংলা', 'বাংলাদেশ'],
+    'b': ['ব', 'বা', 'বাংলা', 'ভালো'],
+    'bhalo': ['ভালো', 'ভালোই', 'ভালোবাসা'],
+    'gan': ['গান', 'গানটি', 'গানের'],
+    'gai': ['গাই', 'গাইবো', 'গাইয়া'],
+    'shonar': ['সোনার', 'সোনারগাঁ', 'সোনা'],
+    'desh': ['দেশ', 'দেশের', 'দেশে'],
+    'dhaka': ['ঢাকা', 'ঢাকায়', 'ঢাকাই'],
+    'dhonnobad': ['ধন্যবাদ', 'ধন্য']
   };
 
-  let currentText = "ami banglay gan gai";
-  let currentOutput = "আমি বাংলায় গান গাই";
+  let activeBuffer = "";
+  let committedText = "আমি বাংলায় গান গাই";
+  let isShifted = false;
+
+  function renderSuggestions(candidates) {
+    const bar = document.getElementById('suggestionBar');
+    if (!bar) return;
+    bar.innerHTML = "";
+    candidates.slice(0, 5).forEach((word, idx) => {
+      const chip = document.createElement('span');
+      chip.className = idx === 0 ? "suggestion-chip active" : "suggestion-chip";
+      chip.textContent = word;
+      chip.onclick = () => pickSuggestion(word);
+      bar.appendChild(chip);
+    });
+  }
+
+  function getCandidates(query) {
+    const q = query.toLowerCase().trim();
+    if (!q) return ['আমি', 'আমার', 'আমরা', 'আজ', 'আছে'];
+    if (sampleLexicon[q]) return sampleLexicon[q];
+    for (const key of Object.keys(sampleLexicon)) {
+      if (key.startsWith(q)) return sampleLexicon[key];
+    }
+    return [q];
+  }
 
   function pickSuggestion(word) {
     const chatOutput = document.getElementById('chatOutput');
-    if (chatOutput) {
-      chatOutput.textContent = currentOutput + " " + word;
-      currentOutput = chatOutput.textContent;
-    }
-    showToast('Applied Suggestion', 'Selected: "' + word + '" from local vocabulary.');
+    const liveInput = document.getElementById('liveInputText');
+
+    committedText += (committedText ? " " : "") + word;
+    if (chatOutput) chatOutput.textContent = committedText;
+
+    activeBuffer = "";
+    if (liveInput) liveInput.textContent = "type in english phonetics...";
+    
+    renderSuggestions(['আমি', 'তোমার', 'কেমন', 'আছো', 'ধন্যবাদ']);
+    showToast('Phonetic Transliteration', 'Committed candidate: "' + word + '" to chat.');
   }
 
   function pressKey(char) {
     const liveInput = document.getElementById('liveInputText');
-    const chatOutput = document.getElementById('chatOutput');
-    if (liveInput && chatOutput) {
-      liveInput.textContent += char;
-      chatOutput.textContent += char;
-      currentOutput = chatOutput.textContent;
-    }
+    const actualChar = isShifted ? char.toUpperCase() : char.toLowerCase();
+    activeBuffer += actualChar;
+
+    if (liveInput) liveInput.textContent = activeBuffer;
+
+    const candidates = getCandidates(activeBuffer);
+    renderSuggestions(candidates);
+
+    if (isShifted) toggleShift();
   }
 
   function pressSpace() {
-    const liveInput = document.getElementById('liveInputText');
-    const chatOutput = document.getElementById('chatOutput');
-    if (liveInput && chatOutput) {
-      liveInput.textContent += " ";
-      chatOutput.textContent += " ";
-      currentOutput = chatOutput.textContent;
+    if (activeBuffer.length > 0) {
+      const candidates = getCandidates(activeBuffer);
+      const topCandidate = candidates[0] || activeBuffer;
+      pickSuggestion(topCandidate);
+    } else {
+      committedText += " ";
+      const chatOutput = document.getElementById('chatOutput');
+      if (chatOutput) chatOutput.textContent = committedText;
     }
   }
 
   function deleteChar() {
     const liveInput = document.getElementById('liveInputText');
     const chatOutput = document.getElementById('chatOutput');
-    if (liveInput && liveInput.textContent.length > 0) {
-      liveInput.textContent = liveInput.textContent.slice(0, -1);
+
+    if (activeBuffer.length > 0) {
+      activeBuffer = activeBuffer.slice(0, -1);
+      if (liveInput) liveInput.textContent = activeBuffer || "type in english phonetics...";
+      renderSuggestions(getCandidates(activeBuffer));
+    } else if (committedText.length > 0) {
+      committedText = committedText.slice(0, -1);
+      if (chatOutput) chatOutput.textContent = committedText;
     }
-    if (chatOutput && chatOutput.textContent.length > 0) {
-      chatOutput.textContent = chatOutput.textContent.slice(0, -1);
-      currentOutput = chatOutput.textContent;
+  }
+
+  function toggleShift() {
+    isShifted = !isShifted;
+    const shiftKey = document.getElementById('shiftKey');
+    if (shiftKey) {
+      shiftKey.style.background = isShifted ? "var(--accent-color)" : "#182030";
+      shiftKey.style.color = isShifted ? "#ffffff" : "var(--text-secondary)";
     }
+    document.querySelectorAll('.kb-key').forEach(el => {
+      const text = el.textContent.trim();
+      if (text.length === 1 && /[a-zA-Z]/.test(text)) {
+        el.textContent = isShifted ? text.toUpperCase() : text.toLowerCase();
+      }
+    });
   }
 
   function pressEnter() {
     showToast('Message Sent', 'Simulated message dispatched to chat.');
-  }
-
-  function toggleLayout() {
-    showToast('Layout Switched', 'Toggled between English QWERTY and Bangla Phonetic.');
   }
 
   // Toast System
