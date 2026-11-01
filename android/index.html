@@ -1,0 +1,431 @@
+---
+layout: default
+title: Android Apps
+description: Showcase of native Android applications, on-device AI, wearable companion tools, and digital signal processing systems by Sazzad Hissain Khan.
+---
+
+<section>
+  <!-- Header Card -->
+  <div class="card" style="margin-bottom: 2rem; border-left: 4px solid #3ddc84;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <h1 style="margin: 0; font-size: 2.3rem; text-align: left;">Android Showcase</h1>
+        <p style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 1.1rem;">
+          Native Android applications, wearable companion utilities, on-device AI, and mobile DSP engines.
+        </p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.6rem; background: var(--tag-bg); padding: 0.5rem 0.9rem; border-radius: 8px; border: 1px solid var(--card-border);">
+        <!-- Android Logo SVG -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#3ddc84" aria-hidden="true">
+          <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-1.0003s.4482-1.0003.9993-1.0003c.5511 0 .9993.4486.9993 1.0003s-.4482 1.0003-.9993 1.0003m-11.046 0c-.5511 0-.9993-.4486-.9993-1.0003s.4482-1.0003.9993-1.0003c.5511 0 .9993.4486.9993 1.0003s-.4482 1.0003-.9993 1.0003m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.414 13.8533 8.125 12 8.125s-3.5902.289-5.1368.8247L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.75h24c-.3432-4.0911-2.6889-7.5633-6.1185-9.4286"/>
+        </svg>
+        <span style="font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif;">Mobile & Wearables</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status Notice Banner -->
+  <div class="android-banner">
+    <h4>
+      <span>ℹ️</span> Application Showcase & Distribution Status
+    </h4>
+    <p>
+      This catalog features a blend of production-ready open-source codebases, research engineering prototypes, and upcoming consumer apps. Items with placeholder badges indicate builds currently undergoing internal verification or packaging for the Google Play Store.
+    </p>
+  </div>
+
+  <!-- Search & Filter Controls -->
+  <div class="card" style="margin-bottom: 2rem;">
+    <input type="text" id="appSearchInput" placeholder="Search Android apps, tech stack, or keywords..."
+      style="width: 100%; padding: 0.8rem; border: 1px solid var(--card-border); border-radius: 6px; font-size: 1rem; background: var(--paper-bg); color: var(--text-color); margin-bottom: 1rem;"
+      aria-label="Search Android apps">
+
+    <div class="filter-tabs" style="margin: 0;">
+      <button class="filter-btn active" data-category="all">All Apps (6)</button>
+      <button class="filter-btn" data-category="ai">On-Device AI</button>
+      <button class="filter-btn" data-category="health">Health & Wearables</button>
+      <button class="filter-btn" data-category="dsp">Signal Processing & DSP</button>
+      <button class="filter-btn" data-category="tools">Developer Tools</button>
+    </div>
+  </div>
+
+  <!-- App Cards Grid -->
+  <div class="app-grid" id="appsContainer">
+
+    <!-- App 1: AndroidSemanticSearch (Real open-source repo) -->
+    <article class="app-card" data-category="ai" data-keywords="kotlin tensorflow lite objectbox lucene knn bert on-device ai semantic search vector embeddings">
+      <div class="app-top-meta">
+        <span class="app-category">On-Device AI</span>
+        <span class="badge-status badge-status-release">Open Source (v1.0)</span>
+      </div>
+
+      <div class="app-header-block">
+        <div class="app-icon" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
+          <!-- Vector / Neural Search Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <circle cx="11" cy="11" r="3"></circle>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3><a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank" style="color: inherit; text-decoration: none;">AndroidSemanticSearch</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: 'Inter', sans-serif;">hissain / AndroidSemanticSearch</span>
+        </div>
+      </div>
+
+      <div class="app-tagline">
+        Zero-latency offline neural vector search & retrieval on mobile
+      </div>
+
+      <p class="app-description">
+        A minimalistic Android application demonstrating local, high-speed semantic search without cloud dependencies. Integrates the MiniLM-L6-V2 sentence embedding model, TensorFlow Lite, ObjectBox vector database, and Apache Lucene KNN to deliver context-aware retrieval directly on the device.
+      </p>
+
+      <ul class="app-features">
+        <li>On-device text embeddings via TensorFlow Lite & Bert vocabulary tokenizer</li>
+        <li>Embedded vector store leveraging ObjectBox HNSW & Lucene KNN indexing</li>
+        <li>100% private execution with sub-30ms similarity query latency</li>
+        <li>Clean MVVM architecture with Kotlin Coroutines and Flow</li>
+      </ul>
+
+      <div class="keywords" style="margin: 0 0 1rem 0;">
+        <span class="keywords-label">Keywords</span> — Kotlin, TensorFlow Lite, ObjectBox, Lucene KNN, Vector Search
+      </div>
+
+      <div class="app-actions">
+        <a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank" class="btn-card btn-sm">GitHub Repository</a>
+        <button class="btn-card btn-sm btn-placeholder" onclick="showPlaceholderNotice('AndroidSemanticSearch APK', 'Direct APK package download will be available on the GitHub Releases page.')">Download APK</button>
+      </div>
+    </article>
+
+    <!-- App 2: jSciPy Android Workbench (Real library & interactive demo) -->
+    <article class="app-card" data-category="dsp" data-keywords="kotlin java jscipy signal processing dsp fft butterworth filters peak detection mobile workbench">
+      <div class="app-top-meta">
+        <span class="app-category">Signal Processing & DSP</span>
+        <span class="badge-status badge-status-release">Library & Studio</span>
+      </div>
+
+      <div class="app-header-block">
+        <div class="app-icon" style="background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3);">
+          <!-- Waveform / Spectrum Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3><a href="https://github.com/hissain/jscipy" target="_blank" style="color: inherit; text-decoration: none;">jSciPy Android Studio</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: 'Inter', sans-serif;">Scientific Computing on Android</span>
+        </div>
+      </div>
+
+      <div class="app-tagline">
+        Interactive DSP filter studio & scientific computing workbench
+      </div>
+
+      <p class="app-description">
+        Mobile interactive testbed built on the jSciPy scientific library. Empowers mobile engineers and biomedical researchers to design digital filters (Butterworth, Chebyshev, Bessel), compute real-time FFT frequency spectrums, analyze Power Spectral Density (PSD), and detect waveform peaks.
+      </p>
+
+      <ul class="app-features">
+        <li>Zero-dependency native JVM/Android scientific mathematics engine</li>
+        <li>Live frequency response graphing for low-pass, high-pass, and bandpass filters</li>
+        <li>High-throughput peak detection algorithms for ECG/PPG biomedical waveforms</li>
+        <li>Runge-Kutta (RK4) differential equation solver and numerical calculus</li>
+      </ul>
+
+      <div class="keywords" style="margin: 0 0 1rem 0;">
+        <span class="keywords-label">Keywords</span> — Java, Kotlin, jSciPy, FFT, Signal Processing, Filters
+      </div>
+
+      <div class="app-actions">
+        <a href="https://github.com/hissain/jscipy" target="_blank" class="btn-card btn-sm">jSciPy Library</a>
+        <a href="{{ "/jscipy" | relative_url }}" class="btn-card btn-sm">Documentation</a>
+        <button class="btn-card btn-sm btn-placeholder" onclick="showPlaceholderNotice('jSciPy Android Demo', 'Interactive DSP mobile demo workbench APK is in alpha testing.')">Demo APK</button>
+      </div>
+    </article>
+
+    <!-- App 3: PulseTrack BLE (Wearable Health Placeholder) -->
+    <article class="app-card" data-category="health" data-keywords="kotlin ble bluetooth low energy gatt ppg hrv wearables digital health heart rate room compose">
+      <div class="app-top-meta">
+        <span class="app-category">Health & Wearables</span>
+        <span class="badge-status badge-status-beta">In Testing (v0.9)</span>
+      </div>
+
+      <div class="app-header-block">
+        <div class="app-icon" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3);">
+          <!-- Heart Beat / Pulse Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3>PulseTrack BLE</h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: 'Inter', sans-serif;">Wearable Biometrics Companion</span>
+        </div>
+      </div>
+
+      <div class="app-tagline">
+        Real-time wearable physiological telemetry & continuous HRV analyzer
+      </div>
+
+      <p class="app-description">
+        Specialized companion utility for BLE health sensors and custom biometric strap prototypes. Captures raw photoplethysmography (PPG) and motion data, computing Heart Rate Variability (HRV - SDNN, RMSSD, pNN50) metrics and stress indicators in real-time on device.
+      </p>
+
+      <ul class="app-features">
+        <li>Low-power background BLE GATT auto-reconnection & packet streaming</li>
+        <li>Motion artifact mitigation with real-time systolic peak extraction</li>
+        <li>Autonomous HRV metric calculation and Poincaré plot rendering</li>
+        <li>Encrypted local biometric database storage via Room & SQLCipher</li>
+      </ul>
+
+      <div class="keywords" style="margin: 0 0 1rem 0;">
+        <span class="keywords-label">Keywords</span> — Kotlin, BLE GATT, Jetpack Compose, Room, HRV, Wearables
+      </div>
+
+      <div class="app-actions">
+        <button class="btn-card btn-sm btn-placeholder" onclick="showPlaceholderNotice('PulseTrack BLE', 'Google Play Store closed beta testing program opens shortly. Check back for enrollment link.')">Play Store (Beta)</button>
+        <button class="btn-card btn-sm btn-placeholder" onclick="showPlaceholderNotice('PulseTrack Architecture', 'Whitepaper & hardware BLE protocol specifications are being finalized.')">System Specs</button>
+      </div>
+    </article>
+
+    <!-- App 4: ChronoSync DLMO (Circadian Health & ML Prototype) -->
+    <article class="app-card" data-category="health" data-keywords="kotlin circadian rhythm dlmo actigraphy light exposure sensors research prototype ai ml">
+      <div class="app-top-meta">
+        <span class="app-category">Health & Wearables</span>
+        <span class="badge-status badge-status-proto">Research Prototype</span>
+      </div>
+
+      <div class="app-header-block">
+        <div class="app-icon" style="background: rgba(147, 51, 234, 0.1); border-color: rgba(147, 51, 234, 0.3);">
+          <!-- Sun & Moon / Circadian Clock Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a7 7 0 1 0 10 10"></path>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3>ChronoSync DLMO</h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: 'Inter', sans-serif;">Circadian Rhythm Tracking</span>
+        </div>
+      </div>
+
+      <div class="app-tagline">
+        Circadian phase estimation & physiological light exposure tracking
+      </div>
+
+      <p class="app-description">
+        Mobile platform translating clinical research on Dim Light Melatonin Onset (DLMO) estimation into a practical user utility. Combines continuous ambient illuminance sensing (lux), actigraphy motion patterns, and behavioral inputs to estimate internal biological clock phase alignment.
+      </p>
+
+      <ul class="app-features">
+        <li>Ambient light spectral dosimetry & circadian stimulus (CS) accumulation</li>
+        <li>Multi-day wearable actigraphy integration for sleep-wake rhythm modeling</li>
+        <li>Personalized phase response curve (PRC) recommendations for shift workers</li>
+        <li>Based on clinical wearable sensing methodologies developed with MIT/Caltech</li>
+      </ul>
+
+      <div class="keywords" style="margin: 0 0 1rem 0;">
+        <span class="keywords-label">Keywords</span> — Kotlin, SensorManager, Circadian Biology, WorkManager, ML
+      </div>
+
+      <div class="app-actions">
+        <a href="https://arxiv.org/abs/2510.25785" target="_blank" class="btn-card btn-sm">Research Paper</a>
+        <button class="btn-card btn-sm btn-placeholder" onclick="showPlaceholderNotice('ChronoSync DLMO', 'Research prototype build is currently restricted to clinical trial participants.')">Clinical Preview</button>
+      </div>
+    </article>
+
+    <!-- App 5: AudioSense NDK (Audio DSP & High Performance) -->
+    <article class="app-card" data-category="dsp" data-keywords="c++ android ndk oboe aaudio opengl es audio dsp spectrogram stft low-latency">
+      <div class="app-top-meta">
+        <span class="app-category">Signal Processing & DSP</span>
+        <span class="badge-status badge-status-beta">Alpha Build</span>
+      </div>
+
+      <div class="app-header-block">
+        <div class="app-icon" style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);">
+          <!-- Acoustic / Spectrogram Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+            <line x1="7" y1="2" x2="7" y2="22"></line>
+            <line x1="17" y1="2" x2="17" y2="22"></line>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <line x1="2" y1="7" x2="7" y2="7"></line>
+            <line x1="2" y1="17" x2="7" y2="17"></line>
+            <line x1="17" y1="17" x2="22" y2="17"></line>
+            <line x1="17" y1="7" x2="22" y2="7"></line>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3>AudioSense NDK</h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: 'Inter', sans-serif;">Low-Latency Acoustic Analyzer</span>
+        </div>
+      </div>
+
+      <div class="app-tagline">
+        Sub-10ms buffer latency acoustic spectrum & waterfall visualizer
+      </div>
+
+      <p class="app-description">
+        A high-performance audio engine engineered with modern C++20 and the Android NDK. Utilizes Google Oboe and AAudio to record uncompressed microphone audio at minimal latency, executing Short-Time Fourier Transforms (STFT) rendered via custom OpenGL ES fragment shaders.
+      </p>
+
+      <ul class="app-features">
+        <li>Native real-time audio pipeline powered by Google Oboe & AAudio</li>
+        <li>Accelerated STFT with selectable Hamming, Hann, and Blackman windows</li>
+        <li>60 FPS continuous waterfall spectrogram rendering via OpenGL ES</li>
+        <li>Calibrated dB SPL metering, harmonic distortion analysis, and pitch tracking</li>
+      </ul>
+
+      <div class="keywords" style="margin: 0 0 1rem 0;">
+        <span class="keywords-label">Keywords</span> — C++20, NDK, Oboe, AAudio, OpenGL ES, JNI, Audio DSP
+      </div>
+
+      <div class="app-actions">
+        <button class="btn-card btn-sm btn-placeholder" onclick="showPlaceholderNotice('AudioSense NDK', 'Native C++ NDK repository is being prepared for public open-sourcing.')">Source (WIP)</button>
+        <button class="btn-card btn-sm btn-placeholder" onclick="showPlaceholderNotice('AudioSense APK', 'Test build APK for low-latency testing on Android 12+ devices coming soon.')">Download Alpha</button>
+      </div>
+    </article>
+
+    <!-- App 6: SensorForge Pro (Developer Tools & Hardware Diagnostics) -->
+    <article class="app-card" data-category="tools" data-keywords="kotlin jetpack compose sensors hardware diagnostics accelerometer gyroscope imu calibration logger">
+      <div class="app-top-meta">
+        <span class="app-category">Developer Tools</span>
+        <span class="badge-status badge-status-wip">In Development</span>
+      </div>
+
+      <div class="app-header-block">
+        <div class="app-icon" style="background: rgba(107, 114, 128, 0.1); border-color: rgba(107, 114, 128, 0.3);">
+          <!-- Sensors / Compass / Diagnostics Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4b5563" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3>SensorForge Pro</h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: 'Inter', sans-serif;">Hardware Diagnostics & Logger</span>
+        </div>
+      </div>
+
+      <div class="app-tagline">
+        High-frequency telemetry logger & sensor fusion calibration bench
+      </div>
+
+      <p class="app-description">
+        Comprehensive engineering tool for mobile developers, roboticists, and sensor researchers. Provides uncalibrated and fused telemetry across all hardware sensors (accelerometers, gyroscopes, magnetometers, barometer) with real-time multi-channel plotting and high-speed CSV export.
+      </p>
+
+      <ul class="app-features">
+        <li>Unrestricted sampling frequencies up to SENSOR_DELAY_FASTEST (200Hz+)</li>
+        <li>Live comparison of Raw vs. Complementary vs. Kalman-filtered sensor fusion</li>
+        <li>Synchronized high-throughput streaming to CSV and Apache Parquet</li>
+        <li>Real-time 3D device orientation visualizer with Quaternion angles</li>
+      </ul>
+
+      <div class="keywords" style="margin: 0 0 1rem 0;">
+        <span class="keywords-label">Keywords</span> — Kotlin, Jetpack Compose, Sensor HAL, Sensor Fusion, Logging
+      </div>
+
+      <div class="app-actions">
+        <button class="btn-card btn-sm btn-placeholder" onclick="showPlaceholderNotice('SensorForge Pro', 'Developer testing APK build is in internal QA. Public testing link will be posted here.')">Get Alpha APK</button>
+        <button class="btn-card btn-sm btn-placeholder" onclick="showPlaceholderNotice('SensorForge Schemas', 'Export format specifications & Python data loading scripts will be released on GitHub.')">Data Schemas</button>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Empty state message for searches -->
+  <p id="noAppsMessage" style="text-align: center; color: var(--text-secondary); display: none; margin: 3rem 0; font-size: 1.1rem;">
+    No Android applications found matching your criteria.
+  </p>
+</section>
+
+<!-- Sleek Notification Toast for Placeholders -->
+<div id="placeholderToast" style="position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--paper-bg); color: var(--text-color); border: 2px solid var(--accent-color); padding: 1rem 1.5rem; border-radius: 8px; box-shadow: var(--shadow); z-index: 1000; max-width: 90vw; width: 440px; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease; opacity: 0; pointer-events: none;">
+  <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+    <span style="font-size: 1.3rem; line-height: 1;">📱</span>
+    <div style="flex: 1;">
+      <div id="toastTitle" style="font-weight: bold; font-family: 'Inter', sans-serif; font-size: 0.95rem; margin-bottom: 0.25rem;">Application Placeholder</div>
+      <div id="toastMessage" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">This app is currently in active development. Releases will be updated here.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Interactive Filtering & Search for Android Showcase
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('appSearchInput');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.app-card');
+    const noAppsMessage = document.getElementById('noAppsMessage');
+
+    let activeCategory = 'all';
+
+    function filterApps() {
+      const searchTerm = (searchInput ? searchInput.value : '').toLowerCase().trim();
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const keywords = card.getAttribute('data-keywords') || '';
+        const cardText = card.textContent.toLowerCase();
+
+        const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+        const matchesSearch = !searchTerm || cardText.includes(searchTerm) || keywords.includes(searchTerm);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (noAppsMessage) {
+        noAppsMessage.style.display = (visibleCount === 0) ? 'block' : 'none';
+      }
+    }
+
+    // Category button click handling
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function () {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        activeCategory = this.getAttribute('data-category');
+        filterApps();
+      });
+    });
+
+    // Search input handling
+    if (searchInput) {
+      searchInput.addEventListener('input', filterApps);
+    }
+  });
+
+  // Toast notification for placeholder interactions
+  let toastTimer = null;
+  function showPlaceholderNotice(title, message) {
+    const toast = document.getElementById('placeholderToast');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMessage = document.getElementById('toastMessage');
+
+    if (!toast) return;
+
+    toastTitle.textContent = title || 'Work in Progress';
+    toastMessage.textContent = message || 'This application build is currently in active development. Download links and repository access will be updated soon.';
+
+    toast.style.pointerEvents = 'auto';
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(-50%) translateY(100px)';
+      toast.style.pointerEvents = 'none';
+    }, 4000);
+  }
+</script>
+
