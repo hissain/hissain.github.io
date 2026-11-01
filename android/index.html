@@ -4,40 +4,29 @@ title: Android Apps
 description: Showcase of native Android applications, on-device AI, and digital signal processing systems by Sazzad Hissain Khan.
 ---
 
-<section>
-  <!-- Header Card -->
-  <div class="card" style="margin-bottom: 2rem; border-left: 4px solid #3ddc84;">
-    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-      <div>
-        <h1 style="margin: 0; font-size: 2.3rem; text-align: left;">Android Showcase</h1>
-        <p style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 1.1rem;">
-          Native Android applications, on-device AI, and mobile DSP engines.
-        </p>
-      </div>
-      <div style="display: flex; align-items: center; gap: 0.6rem; background: var(--tag-bg); padding: 0.5rem 0.9rem; border-radius: 8px; border: 1px solid var(--card-border);">
-        <!-- Android Logo SVG -->
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="#3ddc84" aria-hidden="true">
-          <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-1.0003s.4482-1.0003.9993-1.0003c.5511 0 .9993.4486.9993 1.0003s-.4482 1.0003-.9993 1.0003m-11.046 0c-.5511 0-.9993-.4486-.9993-1.0003s.4482-1.0003.9993-1.0003c.5511 0 .9993.4486.9993 1.0003s-.4482 1.0003-.9993 1.0003m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.414 13.8533 8.125 12 8.125s-3.5902.289-5.1368.8247L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.75h24c-.3432-4.0911-2.6889-7.5633-6.1185-9.4286"/>
-        </svg>
-        <span style="font-size: 0.85rem; font-weight: 600; font-family: 'Inter', sans-serif;">Mobile</span>
+<section style="margin-top: 1rem;">
+  <!-- Header Hero -->
+  <div style="margin-bottom: 3rem;">
+    <div style="margin-bottom: 1.25rem;">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>Native Mobile Systems &bull; On-Device Machine Learning</span>
       </div>
     </div>
-  </div>
-
-  <!-- Status Notice Banner -->
-  <div class="android-banner">
-    <h4>
-      <span>ℹ️</span> Application Showcase & Distribution Status
-    </h4>
-    <p>
-      Open-source Android projects, plus Bangla Keyboard, an offline Bangla phonetic keyboard being prepared for release on the Google Play Store.
+    
+    <h1 class="gradient-text" style="font-size: 2.8rem; margin-bottom: 0.75rem;">
+      Android Engineering Portfolio
+    </h1>
+    
+    <p style="color: var(--text-secondary); font-size: 1.15rem; max-width: 760px; line-height: 1.7; margin: 0;">
+      A showcase of production-ready mobile systems, privacy-first input methods, on-device neural embeddings, and high-performance signal processing engines.
     </p>
   </div>
 
   <!-- Search & Filter Controls -->
-  <div class="card" style="margin-bottom: 2rem;">
+  <div class="card" style="margin-bottom: 2.5rem; padding: 1.5rem;">
     <input type="text" id="appSearchInput" placeholder="Search Android apps, tech stack, or keywords..."
-      style="width: 100%; padding: 0.8rem; border: 1px solid var(--card-border); border-radius: 6px; font-size: 1rem; background: var(--paper-bg); color: var(--text-color); margin-bottom: 1rem;"
+      style="width: 100%; padding: 0.85rem 1.1rem; border: 1px solid var(--card-border); border-radius: 10px; font-size: 1rem; background: var(--tag-bg); color: var(--text-color); margin-bottom: 1rem; outline: none; transition: border-color 0.2s;"
       aria-label="Search Android apps">
 
     <div class="filter-tabs" style="margin: 0;">
@@ -52,27 +41,19 @@ description: Showcase of native Android applications, on-device AI, and digital 
   <div class="app-grid" id="appsContainer">
 
     <!-- Bangla Keyboard -->
-    <article class="app-card" data-category="keyboard" data-keywords="kotlin android keyboard ime bangla bengali phonetic offline dictionary suggestions privacy">
+    <article class="app-card" data-category="keyboard" data-keywords="kotlin android keyboard ime bangla bengali phonetic offline dictionary suggestions privacy" style="border-color: rgba(6, 182, 212, 0.35);">
       <div class="app-top-meta">
-        <span class="app-category">Keyboards & Input</span>
-        <span class="badge-status badge-status-beta">Coming to Google Play</span>
+        <span class="app-category" style="color: #22d3ee;">Keyboards & Input &bull; Featured</span>
+        <span class="badge-status badge-status-beta">Play Store Ready</span>
       </div>
 
       <div class="app-header-block">
-        <div class="app-icon" style="background: rgba(0, 106, 78, 0.1); border-color: rgba(0, 106, 78, 0.3);">
-          <!-- Keyboard Icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="#006a4e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="6" width="20" height="12" rx="2"></rect>
-            <line x1="6" y1="10" x2="6.01" y2="10"></line>
-            <line x1="10" y1="10" x2="10.01" y2="10"></line>
-            <line x1="14" y1="10" x2="14.01" y2="10"></line>
-            <line x1="18" y1="10" x2="18.01" y2="10"></line>
-            <line x1="7" y1="14" x2="17" y2="14"></line>
-          </svg>
+        <div class="app-icon" style="background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.3);">
+          <span style="font-size: 1.75rem; font-weight: bold; color: #22d3ee; line-height: 1;">ক</span>
         </div>
         <div class="app-title-area">
-          <h3>Bangla Keyboard</h3>
-          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: 'Inter', sans-serif;">com.infomity.banglakeyboard</span>
+          <h3 style="margin: 0 0 0.25rem 0;"><a href="{{ "/android/bangla-keyboard/" | relative_url }}" style="color: inherit; text-decoration: none;">Bangla Keyboard</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);">com.infomity.banglakeyboard</span>
         </div>
       </div>
 
@@ -81,22 +62,22 @@ description: Showcase of native Android applications, on-device AI, and digital 
       </div>
 
       <p class="app-description">
-        Type Bangla using plain lowercase English letters. A bundled dictionary ranks the suggestions, so ambiguous spellings such as <em>acho</em> resolve to the word you meant. It runs entirely on your device, with no internet permission, no ads, and no data collection.
+        Type Bangla using plain lowercase English letters. A bundled frequency-ranked dictionary resolves ambiguous spellings such as <em>acho</em> to the word you meant. Operates 100% offline with zero network permissions, zero tracking, and no ads.
       </p>
 
       <ul class="app-features">
-        <li>Lowercase phonetic typing with dictionary-ranked suggestions</li>
-        <li>Quick switch to English QWERTY, numbers and symbols page, Bangla digits, and emoji</li>
-        <li>Works offline: your typing never leaves the device</li>
-        <li>Native Kotlin input method service, no third-party tracking code</li>
+        <li>Lowercase phonetic typing with AI4Bharat IndicCorp frequency-ranked suggestions</li>
+        <li>Quick switch to English QWERTY, symbols, native Bangla digits, and emoji</li>
+        <li>100% air-gapped: typed text never leaves volatile device RAM</li>
+        <li>Native Kotlin InputMethodService with automatic password field shielding</li>
       </ul>
 
-      <div class="keywords" style="margin: 0 0 1rem 0;">
-        <span class="keywords-label">Keywords</span> - Kotlin, InputMethodService, Bangla, Phonetic Keyboard, Offline
+      <div class="keywords" style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>Kotlin &bull; InputMethodService &bull; Bangla &bull; Offline Lexicon</span>
       </div>
 
       <div class="app-actions">
-        <a href="{{ "/android/bangla-keyboard/" | relative_url }}" class="btn-card btn-sm">App Website</a>
+        <a href="{{ "/android/bangla-keyboard/" | relative_url }}" class="btn-card btn-sm" style="border-color: var(--accent-color); color: var(--accent-color);">Official App Page →</a>
         <a href="{{ "/android/bangla-keyboard/privacy/" | relative_url }}" class="btn-card btn-sm">Privacy Policy</a>
       </div>
     </article>
@@ -109,17 +90,16 @@ description: Showcase of native Android applications, on-device AI, and digital 
       </div>
 
       <div class="app-header-block">
-        <div class="app-icon" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
-          <!-- Vector / Neural Search Icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="app-icon" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             <circle cx="11" cy="11" r="3"></circle>
           </svg>
         </div>
         <div class="app-title-area">
-          <h3><a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank" style="color: inherit; text-decoration: none;">AndroidSemanticSearch</a></h3>
-          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: 'Inter', sans-serif;">hissain / AndroidSemanticSearch</span>
+          <h3 style="margin: 0 0 0.25rem 0;"><a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">AndroidSemanticSearch</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);">hissain / AndroidSemanticSearch</span>
         </div>
       </div>
 
@@ -128,7 +108,7 @@ description: Showcase of native Android applications, on-device AI, and digital 
       </div>
 
       <p class="app-description">
-        A minimalistic Android application demonstrating local, high-speed semantic search without cloud dependencies. Integrates the MiniLM-L6-V2 sentence embedding model, TensorFlow Lite, ObjectBox vector database, and Apache Lucene KNN to deliver context-aware retrieval directly on the device.
+        A minimalistic Android application demonstrating local, high-speed semantic search without cloud dependencies. Integrates MiniLM-L6-V2 sentence embeddings, TensorFlow Lite, ObjectBox vector database, and Apache Lucene KNN directly on device.
       </p>
 
       <ul class="app-features">
@@ -138,16 +118,16 @@ description: Showcase of native Android applications, on-device AI, and digital 
         <li>Clean MVVM architecture with Kotlin Coroutines and Flow</li>
       </ul>
 
-      <div class="keywords" style="margin: 0 0 1rem 0;">
-        <span class="keywords-label">Keywords</span> — Kotlin, TensorFlow Lite, ObjectBox, Lucene KNN, Vector Search
+      <div class="keywords" style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>Kotlin &bull; TensorFlow Lite &bull; ObjectBox &bull; Lucene KNN</span>
       </div>
 
       <div class="app-actions">
-        <a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank" class="btn-card btn-sm">GitHub Repository</a>
+        <a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank" rel="noopener" class="btn-card btn-sm">GitHub Repository</a>
       </div>
     </article>
 
-    <!-- App 2: jSciPy Android Workbench (Real library & interactive demo) -->
+    <!-- App 2: jSciPy Android Workbench -->
     <article class="app-card" data-category="dsp" data-keywords="kotlin java jscipy signal processing dsp fft butterworth filters peak detection mobile workbench">
       <div class="app-top-meta">
         <span class="app-category">Signal Processing & DSP</span>
@@ -155,15 +135,14 @@ description: Showcase of native Android applications, on-device AI, and digital 
       </div>
 
       <div class="app-header-block">
-        <div class="app-icon" style="background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3);">
-          <!-- Waveform / Spectrum Icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="app-icon" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.3);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
           </svg>
         </div>
         <div class="app-title-area">
-          <h3><a href="https://github.com/hissain/jscipy" target="_blank" style="color: inherit; text-decoration: none;">jSciPy Android Studio</a></h3>
-          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: 'Inter', sans-serif;">Scientific Computing on Android</span>
+          <h3 style="margin: 0 0 0.25rem 0;"><a href="https://github.com/hissain/jscipy" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">jSciPy Android Studio</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);">Scientific Computing on Android</span>
         </div>
       </div>
 
@@ -172,7 +151,7 @@ description: Showcase of native Android applications, on-device AI, and digital 
       </div>
 
       <p class="app-description">
-        Mobile interactive testbed built on the jSciPy scientific library. Empowers mobile engineers and biomedical researchers to design digital filters (Butterworth, Chebyshev, Bessel), compute real-time FFT frequency spectrums, analyze Power Spectral Density (PSD), and detect waveform peaks.
+        Mobile interactive testbed built on the jSciPy scientific library. Empowers mobile engineers and biomedical researchers to design digital filters (Butterworth, Chebyshev, Bessel), compute real-time FFT frequency spectrums, and detect waveform peaks.
       </p>
 
       <ul class="app-features">
@@ -182,19 +161,15 @@ description: Showcase of native Android applications, on-device AI, and digital 
         <li>Runge-Kutta (RK4) differential equation solver and numerical calculus</li>
       </ul>
 
-      <div class="keywords" style="margin: 0 0 1rem 0;">
-        <span class="keywords-label">Keywords</span> — Java, Kotlin, jSciPy, FFT, Signal Processing, Filters
+      <div class="keywords" style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>Java &bull; Kotlin &bull; jSciPy &bull; FFT &bull; Signal Processing</span>
       </div>
 
       <div class="app-actions">
-        <a href="https://github.com/hissain/jscipy" target="_blank" class="btn-card btn-sm">jSciPy Library</a>
+        <a href="https://github.com/hissain/jscipy" target="_blank" rel="noopener" class="btn-card btn-sm">jSciPy Library</a>
         <a href="{{ "/jscipy" | relative_url }}" class="btn-card btn-sm">Documentation</a>
       </div>
     </article>
-
-
-
-
 
   </div>
 
@@ -203,7 +178,6 @@ description: Showcase of native Android applications, on-device AI, and digital 
     No Android applications found matching your criteria.
   </p>
 </section>
-
 
 <script>
   // Interactive Filtering & Search for Android Showcase
@@ -255,6 +229,4 @@ description: Showcase of native Android applications, on-device AI, and digital 
       searchInput.addEventListener('input', filterApps);
     }
   });
-
 </script>
-

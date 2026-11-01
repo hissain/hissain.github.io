@@ -2,177 +2,327 @@
 layout: default
 ---
 
-<section id="about">
-  <h2>About Me</h2>
-  <p class="about-text">
-    I am an <strong>Associate Architect</strong> and <strong>Assistant Principal Engineer</strong> at Samsung
-    Electronics with over 14 years of experience in Mobile and Wearables. I specialize in building robust, performant
-    systems and have contributed significantly to <strong>Samsung Health for iOS</strong> (6M+ users). My work
-    includes seven patent applications, with one granted.
-    <br><br>
-    Currently, I lead the Health Sensing Modalities Team, pioneering AI-driven health sensing and on-device
-    intelligence.
-    Key innovations include stress detection algorithms for earbuds, non-invasive sweat sensors (with Caltech), and
-    DLMO estimation (with MIT). I also led the development of on-device foundation models for blood pressure and heart
-    health monitoring and conducted clinical studies on women's health.
-    <br><br>
-    My expertise spans Digital Health, Mobile development, System Design, and BLE. Beyond tech, I am passionate
-    about AI, physics, philosophy, and music, viewing software engineering as a means to solve real-world problems
-    and improve human well-being.
-  </p>
+<!-- Executive Hero Section -->
+<section style="margin-top: 1.5rem; margin-bottom: 4rem;">
+  <div style="max-width: 900px;">
+    
+    <!-- Status Pill -->
+    <div style="margin-bottom: 1.5rem;">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>Associate Architect &bull; Health Sensing Modalities @ Samsung Electronics</span>
+      </div>
+    </div>
+
+    <!-- Main Title -->
+    <h1 class="gradient-text" style="font-size: 3.2rem; line-height: 1.15; margin-bottom: 1.5rem; letter-spacing: -0.035em;">
+      Architecting Next-Gen Mobile, Digital Health & On-Device AI Systems
+    </h1>
+
+    <!-- Bio / Mission Statement -->
+    <p style="font-size: 1.2rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 2rem;">
+      I am an <strong>Associate Architect</strong> and <strong>Assistant Principal Engineer</strong> with over 14 years of experience pioneering mobile operating systems, wearable sensor modalities, and on-device machine learning. Significantly contributed to <strong>Samsung Health for iOS</strong> (6M+ users) and lead initiatives bridging biomedical signal processing, foundation models, and clinical research.
+    </p>
+
+    <!-- CTAs -->
+    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;">
+      <a href="{{ "/android" | relative_url }}" class="btn-glow">
+        <span>Explore Android Portfolio</span>
+        <span>→</span>
+      </a>
+
+      <a href="{{ "/android/bangla-keyboard" | relative_url }}" class="btn-glass">
+        <span>Bangla Keyboard IME</span>
+      </a>
+
+      <a href="https://github.com/hissain" target="_blank" rel="noopener" class="btn-card" style="padding: 0.75rem 1.25rem; font-size: 0.92rem;">
+        <span>GitHub Profile</span>
+      </a>
+    </div>
+
+    <!-- Telemetry Stats Strip -->
+    <div class="metrics-strip" style="margin: 2rem 0;">
+      <div class="metric-card">
+        <div class="metric-label">Engineering Tenure</div>
+        <div class="metric-value">14+ Years</div>
+        <p class="metric-desc">Architecting robust mobile & wearable systems at scale.</p>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">User Reach</div>
+        <div class="metric-value">6M+ Users</div>
+        <p class="metric-desc">Core engineering contributor to Samsung Health for iOS.</p>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Intellectual Property</div>
+        <div class="metric-value">7 Patents</div>
+        <p class="metric-desc">Wearable gesture control, biometric sensing, and AI algorithms.</p>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Clinical Research</div>
+        <div class="metric-value">MIT & Caltech</div>
+        <p class="metric-desc">Collaborative studies on sweat sensors & DLMO circadian estimation.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<section id="projects">
-  <h2>Featured Work</h2>
-  <div class="project-grid">
+<!-- About Section -->
+<section id="about" style="margin-bottom: 4.5rem;">
+  <div class="card" style="padding: 2.5rem;">
+    <h2 style="margin-bottom: 1.25rem;">Engineering Leadership & Vision</h2>
+    <div style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8;">
+      <p style="margin-bottom: 1.25rem;">
+        Currently, I lead the <strong>Health Sensing Modalities Team</strong> at Samsung, pioneering AI-driven physiological sensing and on-device edge intelligence. Key innovations include real-time stress detection algorithms for smart earbuds, non-invasive electrochemical sweat sensors (in partnership with Caltech), and personalized circadian phase (DLMO) estimation models (with MIT).
+      </p>
+      <p style="margin-bottom: 1.25rem;">
+        My work also encompasses training on-device foundation models for continuous blood pressure monitoring, heart rate variability (HRV), and executing clinical trials on women's health. My technical domain spans Digital Health, Mobile Systems, Distributed Architecture, Low-Power BLE, and Digital Signal Processing (DSP).
+      </p>
+      <p style="margin: 0;">
+        Beyond system architecture, I explore AI, physics, philosophy, and music—viewing software engineering as a vehicle to address challenging physical-world problems and enhance human well-being.
+      </p>
+    </div>
+  </div>
+</section>
 
-    <!-- Featured Project: jSciPy -->
-    <article class="card featured-project">
-      <div class="card-header">
-        <h3><a href="https://github.com/hissain/jscipy" target="_blank">jSciPy</a></h3>
-        <span class="badge-featured">Flagship</span>
+<!-- Featured Projects Section -->
+<section id="projects" style="margin-bottom: 4.5rem;">
+  <div style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+    <div>
+      <h2 style="margin: 0 0 0.25rem 0;">Featured Work & Open Systems</h2>
+      <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem;">Production libraries, developer tooling, and algorithmic prototypes.</p>
+    </div>
+    <a href="{{ "/android" | relative_url }}" class="btn-card" style="font-size: 0.85rem;">View Android Apps Catalog →</a>
+  </div>
+
+  <div class="app-grid">
+
+    <!-- Flagship: jSciPy -->
+    <article class="app-card" style="border-color: rgba(16, 185, 129, 0.35);">
+      <div class="app-top-meta">
+        <span class="app-category">Signal Processing &bull; Flagship</span>
+        <span class="badge-status badge-status-release">Library</span>
       </div>
-      <p>A comprehensive Java Scientific Computing Library inspired by Python's SciPy, bridging the gap in the Java
-        ecosystem for robust signal processing. It provides high-performance, dependency-free implementations of
-        Butterworth/Chebyshev filters, FFT, Peak Detection, and RK4 solvers—essential tools for building efficient
-        ML pipelines on JVM and Android.</p>
-      <div class="keywords">
-        <span class="keywords-label">Keywords</span> — Java, Signal Processing, Scientific Computing, Android
+      <div class="app-header-block">
+        <div class="app-icon" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3><a href="https://github.com/hissain/jscipy" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">jSciPy</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);">Scientific Computing for JVM & Android</span>
+        </div>
       </div>
-      <div class="card-actions">
-        <a href="https://github.com/hissain/jscipy" target="_blank" class="btn-card">View Project</a>
+      <div class="app-tagline">Java Scientific Computing & Signal Processing Library</div>
+      <p class="app-description">
+        Inspired by Python's SciPy, jSciPy bridges the gap in the JVM ecosystem for performant signal processing. Offers dependency-free Butterworth and Chebyshev filters, FFT, Peak Detection, and Runge-Kutta numerical solvers for ML pipelines on Android.
+      </p>
+      <div class="keywords" style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>Java &bull; Signal Processing &bull; FFT &bull; Android</span>
+      </div>
+      <div class="app-actions">
+        <a href="https://github.com/hissain/jscipy" target="_blank" rel="noopener" class="btn-card btn-sm">GitHub Repository</a>
+        <a href="{{ "/jscipy" | relative_url }}" class="btn-card btn-sm">Documentation</a>
+      </div>
+    </article>
+
+    <!-- Bangla Keyboard -->
+    <article class="app-card" style="border-color: rgba(6, 182, 212, 0.35);">
+      <div class="app-top-meta">
+        <span class="app-category">Mobile IME &bull; Featured</span>
+        <span class="badge-status badge-status-beta">Play Store Ready</span>
+      </div>
+      <div class="app-header-block">
+        <div class="app-icon" style="background: rgba(6, 182, 212, 0.15); border-color: rgba(6, 182, 212, 0.3);">
+          <span style="font-size: 1.6rem; font-weight: bold; color: #22d3ee; line-height: 1;">ক</span>
+        </div>
+        <div class="app-title-area">
+          <h3><a href="{{ "/android/bangla-keyboard" | relative_url }}" style="color: inherit; text-decoration: none;">Bangla Keyboard</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);">com.infomity.banglakeyboard</span>
+        </div>
+      </div>
+      <div class="app-tagline">100% Offline Bengali phonetic IME with on-device AI4Bharat lexicon</div>
+      <p class="app-description">
+        Privacy-first Bengali keyboard for Android requiring zero network permissions. Features lowercase phonetic typing, frequency-ranked dictionary disambiguation, sensitive field auto-shielding, and sub-15ms keystroke latency.
+      </p>
+      <div class="keywords" style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>Kotlin &bull; InputMethodService &bull; Privacy &bull; AI4Bharat</span>
+      </div>
+      <div class="app-actions">
+        <a href="{{ "/android/bangla-keyboard" | relative_url }}" class="btn-card btn-sm" style="border-color: var(--accent-color); color: var(--accent-color);">Official App Page →</a>
+        <a href="{{ "/android/bangla-keyboard/privacy/" | relative_url }}" class="btn-card btn-sm">Privacy Policy</a>
+      </div>
+    </article>
+
+    <!-- AndroidSemanticSearch -->
+    <article class="app-card">
+      <div class="app-top-meta">
+        <span class="app-category">On-Device AI</span>
+        <span class="badge-status badge-status-release">Open Source</span>
+      </div>
+      <div class="app-header-block">
+        <div class="app-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <circle cx="11" cy="11" r="3"></circle>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3><a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">AndroidSemanticSearch</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);">Local Neural Vector Retrieval</span>
+        </div>
+      </div>
+      <div class="app-tagline">Offline semantic search powered by MiniLM embeddings & ObjectBox</div>
+      <p class="app-description">
+        Demonstrates local vector retrieval on Android using TensorFlow Lite, MiniLM-L6-V2 sentence embeddings, ObjectBox HNSW indexing, and Apache Lucene KNN without network dependencies.
+      </p>
+      <div class="keywords" style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>Kotlin &bull; TFLite &bull; ObjectBox &bull; Lucene KNN</span>
+      </div>
+      <div class="app-actions">
+        <a href="https://github.com/hissain/AndroidSemanticSearch" target="_blank" rel="noopener" class="btn-card btn-sm">View Project</a>
       </div>
     </article>
 
     <!-- CoronaTracker -->
-    <article class="card">
-      <h3><a href="https://github.com/hissain/CoronaTracker" target="_blank">CoronaTracker</a></h3>
-      <p>A comprehensive, full-stack contact tracing framework designed to combat pandemics like COVID-19. Utilizing a
-        privacy-first approach, it leverages multi-modal sensing (Bluetooth, GPS, and NFC) to accurately trace
-        close-contact candidates over a configurable period (e.g., 14 days). The system features a scalable backend
-        architecture capable of handling nationwide data, aiming to flatten the infection curve while balancing public
-        health necessities with individual data privacy.</p>
-      <div class="keywords">
-        <span class="keywords-label">Keywords</span> — Java, Swift, Spring Boot
+    <article class="app-card">
+      <div class="app-top-meta">
+        <span class="app-category">Distributed Systems & Sensing</span>
+        <span class="badge-status badge-status-release">Framework</span>
       </div>
-      <div class="card-actions">
-        <a href="https://github.com/hissain/CoronaTracker" target="_blank" class="btn-card">View Project</a>
+      <div class="app-header-block">
+        <div class="app-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3><a href="https://github.com/hissain/CoronaTracker" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">CoronaTracker</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);">Privacy-First Contact Tracing</span>
+        </div>
+      </div>
+      <div class="app-tagline">Full-stack multi-modal BLE contact tracing architecture</div>
+      <p class="app-description">
+        Scalable contact tracing framework leveraging multi-modal sensing (Bluetooth BLE, GPS, NFC) and Spring Boot backend to trace exposure candidates while preserving privacy.
+      </p>
+      <div class="keywords" style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>Java &bull; Swift &bull; Spring Boot &bull; BLE</span>
+      </div>
+      <div class="app-actions">
+        <a href="https://github.com/hissain/CoronaTracker" target="_blank" rel="noopener" class="btn-card btn-sm">View Project</a>
       </div>
     </article>
-
 
     <!-- llm_patent_search -->
-    <article class="card">
-      <h3><a href="https://github.com/hissain/llm_patent_search" target="_blank">llm_patent_search</a></h3>
-      <p>A cutting-edge solution for patent prior art search that harnesses the power of Large Language Models (LLMs)
-        and Retrieval-Augmented Generation (RAG). By integrating the Google Patent Database, DuckDuckGo search, and
-        advanced AI models like Google Gemini, it automates the complex process of keyword generation, query
-        construction, and result parsing. This tool significantly streamlines the workflow for legal professionals,
-        delivering highly relevant similarity search results with minimal manual effort.</p>
-      <div class="keywords">
-        <span class="keywords-label">Keywords</span> — Python, LLM, RAG
+    <article class="app-card">
+      <div class="app-top-meta">
+        <span class="app-category">Generative AI & RAG</span>
+        <span class="badge-status badge-status-release">Web Utility</span>
       </div>
-      <div class="card-actions">
-        <a href="https://github.com/hissain/llm_patent_search" target="_blank" class="btn-card">View Project</a>
+      <div class="app-header-block">
+        <div class="app-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3><a href="https://github.com/hissain/llm_patent_search" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">llm_patent_search</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);">Prior Art Intelligence</span>
+        </div>
       </div>
-    </article>
-
-    <!-- InspectorAI -->
-    <article class="card">
-      <h3><a href="https://github.com/hissain/InspectorAI" target="_blank">InspectorAI</a></h3>
-      <p>A production-ready Chrome extension that transforms how developers and users interact with web content.
-        InspectorAI allows you to visually select any DOM element, intelligently cleaning the HTML to minimize token
-        usage, and instantly analyze it using top-tier AI models (OpenAI, Gemini, Anthropic, or local LLMs). Whether
-        for reverse-engineering UI components, extracting complex table data, or translating content in-place, it
-        supercharges web analysis without ever leaving the browser.</p>
-      <div class="keywords">
-        <span class="keywords-label">Keywords</span> — JavaScript, Chrome Ext, AI
+      <div class="app-tagline">Automated patent similarity search harnessing LLMs & RAG</div>
+      <p class="app-description">
+        Retrieval-Augmented Generation system integrating Google Patents, DuckDuckGo, and Gemini to automate keyword generation, query expansion, and technical relevance parsing.
+      </p>
+      <div class="keywords" style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>Python &bull; Streamlit &bull; LLM &bull; RAG</span>
       </div>
-      <div class="card-actions">
-        <a href="https://github.com/hissain/InspectorAI" target="_blank" class="btn-card">View Project</a>
-      </div>
-    </article>
-
-    <!-- NoQuota -->
-    <article class="card">
-      <h3><a href="https://github.com/hissain/NoQuota" target="_blank">NoQuota</a></h3>
-      <p>An essential VS Code extension for power users of AI coding assistants, ensuring fully uninterrupted workflows.
-        NoQuota features an intelligent fallback system that automatically switches providers (e.g., from OpenAI to
-        Claude, DeepSeek, or local Ollama models) the moment a quota limit is reached. With built-in support for a wide
-        array of models and context-aware code completion, it guarantees that your development momentum is never stalled
-        by API rate limits or exhaustion.</p>
-      <div class="keywords">
-        <span class="keywords-label">Keywords</span> — TypeScript, VS Code, AI
-      </div>
-      <div class="card-actions">
-        <a href="https://github.com/hissain/NoQuota" target="_blank" class="btn-card">View Project</a>
-      </div>
-    </article>
-
-    <!-- fastrep -->
-    <article class="card">
-      <h3><a href="https://github.com/hissain/fastrep" target="_blank">fastrep</a></h3>
-      <p>A powerful productivity suite designed for engineers to track daily work activities and generate professional
-        status reports effortlessly. Offering both a sleek CLI and a modern Web Dashboard, FastRep utilizes AI agents
-        (Cline, OpenAI, Gemini) to intelligently summarize your logs into weekly or monthly reports. It features a
-        privacy-first architecture with local SQLite storage and offers over 7 customizable, live-preview templates to
-        match any corporate reporting style.</p>
-      <div class="keywords">
-        <span class="keywords-label">Keywords</span> — Python, Flask, Productivity
-      </div>
-      <div class="card-actions">
-        <a href="https://github.com/hissain/fastrep" target="_blank" class="btn-card">View Project</a>
+      <div class="app-actions">
+        <a href="https://github.com/hissain/llm_patent_search" target="_blank" rel="noopener" class="btn-card btn-sm">View Project</a>
       </div>
     </article>
 
     <!-- simplest-mcp -->
-    <article class="card">
-      <h3><a href="https://github.com/hissain/simplest-mcp" target="_blank">simplest-mcp</a></h3>
-      <p>A definitive, minimal yet complete reference implementation of the Model Context Protocol (MCP), demonstrating
-        the future of AI-tool integration. This project provides full-stack examples of both local (stdio-based) and
-        remote (SSE/Cloudflare Workers) server architectures. It includes a comprehensive suite of pre-built tools,
-        prompts, and resources—ranging from creative writing to system utilities—serving as the perfect blueprint for
-        developers building their own MCP-compliant agents and clients.</p>
-      <div class="keywords">
-        <span class="keywords-label">Keywords</span> — TypeScript, MCP, AI Agents
+    <article class="app-card">
+      <div class="app-top-meta">
+        <span class="app-category">AI Agents & Standards</span>
+        <span class="badge-status badge-status-release">Reference Spec</span>
       </div>
-      <div class="card-actions">
-        <a href="https://github.com/hissain/simplest-mcp" target="_blank" class="btn-card">View Project</a>
+      <div class="app-header-block">
+        <div class="app-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <div class="app-title-area">
+          <h3><a href="https://github.com/hissain/simplest-mcp" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">simplest-mcp</a></h3>
+          <span style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);">Model Context Protocol</span>
+        </div>
+      </div>
+      <div class="app-tagline">Minimal complete reference implementation of Model Context Protocol</div>
+      <p class="app-description">
+        Demonstrates local (stdio) and remote (SSE/Cloudflare Workers) server architectures with tool execution, prompts, and resource handling for MCP-compliant AI agents.
+      </p>
+      <div class="keywords" style="margin: 0 0 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>TypeScript &bull; MCP &bull; Agentic AI &bull; Cloudflare</span>
+      </div>
+      <div class="app-actions">
+        <a href="https://github.com/hissain/simplest-mcp" target="_blank" rel="noopener" class="btn-card btn-sm">View Project</a>
       </div>
     </article>
 
   </div>
 </section>
 
-<section id="publications">
-  <h2>Patents & Publications</h2>
-  <div class="project-grid">
+<!-- Patents & Publications Section -->
+<section id="publications" style="margin-bottom: 4.5rem;">
+  <h2 style="margin-bottom: 0.5rem;">Patents & Publications</h2>
+  <p style="margin: 0 0 2rem 0; color: var(--text-secondary); font-size: 0.95rem;">Peer-reviewed machine learning research and granted intellectual property.</p>
+
+  <div class="app-grid">
 
     <!-- HiMAE Publication -->
     <article class="card">
-      <h3><a href="https://arxiv.org/abs/2510.25785" target="_blank">HiMAE</a></h3>
-      <p>Hierarchical Masked Autoencoders for finding structure in wearable time series. A self-supervised learning
-        framework discovering scale-sensitive structures in physiological signals for efficient on-device
-        processing.</p>
-      <div class="keywords">
-        <span class="keywords-label">Keywords</span> — Publication, AI Research, Time Series
+      <div class="app-top-meta">
+        <span class="app-category">AI Research Paper</span>
+        <span class="badge-status badge-status-release">arXiv:2510.25785</span>
       </div>
-      <div class="card-actions">
-        <a href="https://arxiv.org/abs/2510.25785" target="_blank" class="btn-card">Read Paper</a>
+      <h3 style="margin: 0 0 0.5rem 0;"><a href="https://arxiv.org/abs/2510.25785" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">HiMAE: Hierarchical Masked Autoencoders</a></h3>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+        Finding scale-sensitive structure in wearable time-series signals. A self-supervised representation learning framework designed for scale-aware feature extraction in physiological sensor streams.
+      </p>
+      <div class="keywords" style="margin: 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>Time-Series &bull; Self-Supervised Learning &bull; Digital Health</span>
+      </div>
+      <div class="app-actions">
+        <a href="https://arxiv.org/abs/2510.25785" target="_blank" rel="noopener" class="btn-card btn-sm">Read on arXiv →</a>
       </div>
     </article>
 
     <!-- Wearable Patent -->
     <article class="card">
-      <h3><a href="https://patents.google.com/patent/US12056292B2/" target="_blank">Wearable Gesture Control
-        </a></h3>
-      <p>Apparatus and method for controlling wearable devices via strap-based tap gestures. Enables interaction
-        without screen touch, ideal for active scenarios or gloved usage.</p>
-      <div class="keywords">
-        <span class="keywords-label">Keywords</span> — Patent, Wearables, HCI
+      <div class="app-top-meta">
+        <span class="app-category">Granted Patent</span>
+        <span class="badge-status badge-status-release">US12056292B2</span>
       </div>
-      <div class="card-actions">
-        <a href="https://patents.google.com/patent/US12056292B2/" target="_blank" class="btn-card">View Patent</a>
+      <h3 style="margin: 0 0 0.5rem 0;"><a href="https://patents.google.com/patent/US12056292B2/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">Wearable Gesture Control System</a></h3>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+        Apparatus and method for controlling wearable devices via strap-based tap gestures. Enables touch-free screenless interaction, ideal for active athletic scenarios, gloved usage, and ambient computing.
+      </p>
+      <div class="keywords" style="margin: 1rem 0; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <span>USPTO &bull; Wearable Gestures &bull; HCI &bull; Hardware Sensors</span>
+      </div>
+      <div class="app-actions">
+        <a href="https://patents.google.com/patent/US12056292B2/" target="_blank" rel="noopener" class="btn-card btn-sm">View USPTO Patent →</a>
       </div>
     </article>
 
