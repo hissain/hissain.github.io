@@ -1,0 +1,101 @@
+PRIVACY POLICY — BANGLA KEYBOARD
+=================================
+Last Updated: November 1, 2026
+
+Application: Bangla Keyboard
+Package Name: com.infomity.banglakeyboard
+Publisher: Infomity
+URL: https://hissain.github.io/android/bangla-keyboard/privacy/
+
+
+SUMMARY
+-------
+Bangla Keyboard works entirely on your device. It does not collect, store,
+transmit, or share your personal data, keystrokes, credentials, or anything
+you type. The application requests zero network permissions and makes zero
+internet connections.
+
+
+1. WHAT THE APP DOES WITH WHAT YOU TYPE
+---------------------------------------
+- Everything you type is processed purely locally on your device hardware,
+  solely to convert input characters into Bangla script and display word
+  suggestions.
+- Typed text, suggestions, and the words you pick are never sent to the
+  publisher or any third party.
+- The app does not have the Android android.permission.INTERNET permission and
+  makes no network connections whatsoever. It is technically incapable of
+  sending data off your device.
+- Words you select from suggestions are remembered only in volatile device
+  memory while the keyboard service is actively running. They are not written
+  to persistent storage and are cleared when the keyboard service stops.
+
+
+2. SENSITIVE INPUT FIELDS (PASSWORDS, EMAILS, URLS)
+---------------------------------------------------
+In password, e-mail, and URL input fields, the app automatically switches to
+a standard English layout. Word suggestion caching and auto-corrections are
+completely disabled in these fields to guarantee privacy.
+
+
+3. OPERATING SYSTEM PERMISSIONS
+-------------------------------
+Bangla Keyboard requests no special or dangerous runtime permissions. It
+requires only standard Input Method permissions:
+- Input Method Service: Standard capability required by Android to act as an
+  on-screen keyboard.
+- Vibrate (android.permission.VIBRATE): Used solely to provide optional haptic
+  feedback when you tap a key. This can be toggled off in settings.
+
+
+4. DATA STORED LOCALLY ON YOUR DEVICE
+-------------------------------------
+The application saves only basic user preferences locally in private app
+storage:
+- Whether Bangla digits are enabled
+- Whether key haptic vibration is active
+- Your last selected language mode (Bangla or English)
+
+This data remains strictly on your device and is permanently removed if you
+uninstall the app. Automatic cloud backups of application data are explicitly
+disabled.
+
+
+5. OFFLINE DICTIONARY & WORD LIST
+---------------------------------
+All word suggestions originate from a pre-packaged, offline word frequency list
+bundled directly inside the APK. No dictionary lookups ever occur online. The
+word list is derived from the openly licensed (CC0) AI4Bharat IndicCorp v2
+Bengali corpus; only statistical word counts are bundled, not the source texts.
+
+
+6. INFORMATION WE COLLECT
+-------------------------
+None. We do not collect:
+- Personal identifiers (names, emails, phone numbers)
+- Device identifiers (IMEI, Android ID, MAC address)
+- Location information
+- Contacts, files, or photos
+- Analytics, telemetry, or crash reports
+
+The application contains no advertising SDKs, no analytics trackers, and no
+third-party tracking code.
+
+
+7. CHILDREN'S PRIVACY
+---------------------
+Bangla Keyboard does not collect any personal information from any user,
+including children under the age of 13.
+
+
+8. CHANGES TO THIS POLICY
+-------------------------
+If this Privacy Policy is updated, the revised version will be published at
+this permanent URL with an updated "Last Updated" date.
+
+
+9. CONTACT & INQUIRIES
+----------------------
+If you have questions about this Privacy Policy, please contact the developer:
+- GitHub: https://github.com/hissain
+- LinkedIn: https://www.linkedin.com/in/hissain/

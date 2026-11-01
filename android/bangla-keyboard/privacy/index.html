@@ -1,47 +1,282 @@
----
-layout: default
-title: Bangla Keyboard - Privacy Policy
-description: Privacy policy for Bangla Keyboard, an offline Bangla phonetic keyboard for Android.
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Bangla Keyboard</title>
+  <meta name="description" content="Privacy Policy for Bangla Keyboard (com.infomity.banglakeyboard) for Android.">
+  <meta name="robots" content="index, follow">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111827;
+      --text-muted: #4b5563;
+      --border: #e5e7eb;
+      --card-bg: #f9fafb;
+      --accent: #006a4e;
+      --accent-light: rgba(0, 106, 78, 0.08);
+      --link: #006a4e;
+    }
 
-<section>
-  <div class="card" style="max-width: 800px; margin: 0 auto;">
-    <h1 style="margin-top: 0;">Privacy Policy - Bangla Keyboard</h1>
-    <p><em>Last updated: 2026-11-01</em></p>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --text: #f3f4f6;
+        --text-muted: #9ca3af;
+        --border: #27272a;
+        --card-bg: #18181b;
+        --accent: #34d399;
+        --accent-light: rgba(52, 211, 153, 0.12);
+        --link: #34d399;
+      }
+    }
 
-    <p>Bangla Keyboard ("the app") is a Bangla phonetic and English keyboard for Android, published by Infomity ("we", "us").</p>
+    * {
+      box-sizing: border-box;
+    }
 
-    <h2>Summary</h2>
-    <p>The app works entirely on your device. It does not collect, store, transmit, or share your personal data or anything you type.</p>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    <h2>What the app does with what you type</h2>
+    .doc-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem 1.5rem;
+    }
+
+    .doc-header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .meta-line {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .meta-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .meta-tag {
+      font-size: 0.8rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      color: var(--text-muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .summary-box {
+      background-color: var(--accent-light);
+      border: 1px solid var(--accent);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .summary-box h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .summary-box p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 2.25rem 0 0.75rem 0;
+      color: var(--text);
+    }
+
+    p {
+      margin: 0 0 1rem 0;
+      color: var(--text);
+    }
+
+    ul {
+      margin: 0 0 1.25rem 0;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.88em;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .doc-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      margin-top: 3.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .doc-container {
+        padding: 2rem 1.25rem 3rem 1.25rem;
+      }
+      h1 {
+        font-size: 1.65rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="doc-container">
+    <header class="doc-header">
+      <h1>Privacy Policy — Bangla Keyboard</h1>
+      <p class="meta-line">Last Updated: November 1, 2026</p>
+      <div class="meta-tags">
+        <span class="meta-tag">Application: Bangla Keyboard</span>
+        <span class="meta-tag">Package: com.infomity.banglakeyboard</span>
+        <span class="meta-tag">Publisher: Infomity</span>
+      </div>
+    </header>
+
+    <div class="summary-box">
+      <h2>Summary</h2>
+      <p>
+        <strong>Bangla Keyboard works entirely on your device.</strong> It does not collect, store, transmit, or share your personal data, keystrokes, credentials, or anything you type. The application requests zero network permissions and makes zero internet connections.
+      </p>
+    </div>
+
+    <h2>1. What the App Does with What You Type</h2>
     <ul>
-      <li>Everything you type is processed locally on your device, only to convert it to Bangla and suggest words.</li>
-      <li>Typed text, suggestions, and the words you pick are never sent to us or to anyone else.</li>
-      <li>The app has no internet permission and makes no network connections. It cannot send data off your device.</li>
-      <li>Words you pick from suggestions are remembered only in the device's memory while the keyboard is running. They are not written to storage, and are discarded when the keyboard service stops.</li>
-      <li>In password, e-mail, and URL fields the app switches to a plain English layout and does not offer suggestions.</li>
+      <li>Everything you type is processed purely locally on your device hardware, solely to convert input characters into Bangla script and display word suggestions.</li>
+      <li>Typed text, suggestions, and the words you pick are never sent to the publisher or any third party.</li>
+      <li>The app does not have the Android <code>android.permission.INTERNET</code> permission and makes no network connections whatsoever. It is technically incapable of sending data off your device.</li>
+      <li>Words you select from suggestions are remembered only in volatile device memory while the keyboard service is actively running. They are not written to persistent storage and are cleared when the keyboard service stops.</li>
     </ul>
 
-    <h2>Data stored on your device</h2>
-    <p>The app saves only three settings, in private app storage: whether Bangla digits are shown, whether key vibration is on, and your last language mode (Bangla or English). This stays on your device and is removed when you uninstall the app. Automatic cloud backup of app data is disabled.</p>
+    <h2>2. Sensitive Input Fields (Passwords, Emails, URLs)</h2>
+    <p>
+      In password, e-mail, and URL input fields, the app automatically switches to a standard English layout. Word suggestion caching and auto-corrections are completely disabled in these fields to guarantee privacy.
+    </p>
 
-    <h2>Data we collect</h2>
-    <p>None. We do not collect personal information, device identifiers, location, contacts, usage analytics, or crash reports. The app contains no advertising, no analytics, and no third-party tracking code.</p>
+    <h2>3. Operating System Permissions</h2>
+    <p>
+      Bangla Keyboard requests no special or dangerous runtime permissions. It requires only standard Input Method permissions:
+    </p>
+    <ul>
+      <li><strong>Input Method Service:</strong> Standard capability required by Android to act as an on-screen keyboard.</li>
+      <li><strong>Vibrate (<code>android.permission.VIBRATE</code>):</strong> Used solely to provide optional haptic feedback when you tap a key. This can be toggled off in settings.</li>
+    </ul>
 
-    <h2>Permissions</h2>
-    <p>The app requests no permissions beyond the standard ability to act as a keyboard (input method) that you enable yourself in Android settings.</p>
+    <h2>4. Data Stored Locally on Your Device</h2>
+    <p>
+      The application saves only basic user preferences locally in private app storage:
+    </p>
+    <ul>
+      <li>Whether Bangla digits are enabled</li>
+      <li>Whether key haptic vibration is active</li>
+      <li>Your last selected language mode (Bangla or English)</li>
+    </ul>
+    <p>
+      This data remains strictly on your device and is permanently removed if you uninstall the app. Automatic cloud backups of application data are explicitly disabled.
+    </p>
 
-    <h2>Word list</h2>
-    <p>Suggestions come from a word list bundled inside the app, so no lookups happen online. The word list is derived from the openly licensed (CC0) AI4Bharat IndicCorp v2 Bengali corpus; only derived word counts are bundled, not the original text.</p>
+    <h2>5. Offline Dictionary & Word List</h2>
+    <p>
+      All word suggestions originate from a pre-packaged, offline word frequency list bundled directly inside the APK. No dictionary lookups ever occur online. The word list is derived from the openly licensed (CC0) <em>AI4Bharat IndicCorp v2</em> Bengali corpus; only statistical word counts are bundled, not the source texts.
+    </p>
 
-    <h2>Children</h2>
-    <p>The app does not knowingly collect any information from anyone, including children.</p>
+    <h2>6. Information We Collect</h2>
+    <p>
+      <strong>None.</strong> We do not collect:
+    </p>
+    <ul>
+      <li>Personal identifiers (names, emails, phone numbers)</li>
+      <li>Device identifiers (IMEI, Android ID, MAC address)</li>
+      <li>Location information</li>
+      <li>Contacts, files, or photos</li>
+      <li>Analytics, telemetry, or crash reports</li>
+    </ul>
+    <p>
+      The application contains no advertising SDKs, no analytics trackers, and no third-party tracking code.
+    </p>
 
-    <h2>Changes</h2>
-    <p>If this policy changes, the updated version will be posted at this address with a new "last updated" date.</p>
+    <h2>7. Children's Privacy</h2>
+    <p>
+      Bangla Keyboard does not collect any personal information from any user, including children under the age of 13.
+    </p>
 
-    <h2>Contact</h2>
-    <p>Questions about this policy: contact the publisher through the <a href="https://github.com/hissain" target="_blank">GitHub</a> or <a href="https://www.linkedin.com/in/hissain/" target="_blank">LinkedIn</a> profile linked in the footer of this site.</p>
-  </div>
-</section>
+    <h2>8. Changes to this Policy</h2>
+    <p>
+      If this Privacy Policy is updated, the revised version will be published at this permanent URL with an updated "Last Updated" date.
+    </p>
+
+    <h2>9. Contact & Inquiries</h2>
+    <p>
+      If you have questions about this Privacy Policy, please contact the developer via:
+    </p>
+    <ul>
+      <li>GitHub: <a href="https://github.com/hissain" target="_blank" rel="noopener">github.com/hissain</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/hissain/" target="_blank" rel="noopener">linkedin.com/in/hissain</a></li>
+    </ul>
+
+    <footer class="doc-footer">
+      <div>
+        <a href="../">← Return to Bangla Keyboard Website</a>
+      </div>
+      <div>
+        <a href="privacy.txt">Raw Plain Text (privacy.txt)</a>
+      </div>
+    </footer>
+  </main>
+
+</body>
+</html>
