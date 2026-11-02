@@ -95,7 +95,7 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
 
           <!-- Simulated Input Box -->
           <div class="chat-input-sim" id="chatInputSim" tabindex="0" onclick="focusSim()">
-            <span id="liveInputText" style="color: var(--accent-color);">type in english phonetics...</span>
+            <span id="liveInputText" style="color: var(--text-muted);">type on keyboard</span>
             <span class="cursor-blink">|</span>
           </div>
         </div>
@@ -562,6 +562,8 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     return res || input;
   }
 
+  const HINT_TEXT = "type on keyboard";
+
   function pickSuggestion(word) {
     const chatOutput = document.getElementById('chatOutput');
     const liveInput = document.getElementById('liveInputText');
@@ -571,7 +573,7 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
 
     activeBuffer = "";
     if (liveInput) {
-      liveInput.textContent = "type on physical keyboard or click keys below...";
+      liveInput.textContent = HINT_TEXT;
       liveInput.style.color = "var(--text-muted)";
     }
     
@@ -614,7 +616,7 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     if (activeBuffer.length > 0) {
       activeBuffer = activeBuffer.slice(0, -1);
       if (liveInput) {
-        liveInput.textContent = activeBuffer || "type on physical keyboard or click keys below...";
+        liveInput.textContent = activeBuffer || HINT_TEXT;
         liveInput.style.color = activeBuffer ? "var(--accent-color)" : "var(--text-muted)";
       }
       renderSuggestions(getCandidates(activeBuffer));
@@ -676,7 +678,7 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     const liveInput = document.getElementById('liveInputText');
     if (chatOutput) chatOutput.textContent = "—";
     if (liveInput) {
-      liveInput.textContent = "type on physical keyboard or click keys below...";
+      liveInput.textContent = HINT_TEXT;
       liveInput.style.color = "var(--text-muted)";
     }
     renderSuggestions(['আমি', 'আমার', 'আমরা', 'আজ', 'আছে']);
