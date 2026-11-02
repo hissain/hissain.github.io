@@ -72,15 +72,42 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
       <span style="color: #a855f7;">📦</span> 45,000+ AI4Bharat Lexicon
     </div>
 
+    <!-- Fullscreen Launcher Action Bar -->
+    <div style="display: flex; justify-content: flex-end; align-items: center; max-width: 580px; margin: 0 auto 0.75rem auto; padding: 0 0.5rem;">
+      <button type="button" class="btn-fullscreen-trigger" onclick="toggleSimFullscreen()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: #34d399;">
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        </svg>
+        <span style="font-weight: 600;">Full Screen Testing</span>
+        <span style="font-size: 0.7rem; color: #34d399; font-family: var(--font-mono); background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); padding: 1px 6px; border-radius: 4px;">PHONE MODE</span>
+      </button>
+    </div>
+
     <!-- Phone Mockup Container -->
-    <div class="phone-mockup-frame">
+    <div class="phone-mockup-frame" id="phoneMockupFrame">
       <div class="phone-screen">
         
         <!-- Screen Top Bar -->
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 1rem; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-          <span>09:41</span>
-          <span style="color: #34d399; font-weight: 700;">● 100% OFFLINE</span>
-          <span style="cursor: pointer; color: var(--text-secondary);" onclick="resetDemo()" title="Reset chat simulation">Reset ↺</span>
+        <div class="phone-screen-topbar" style="display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 1rem; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>09:41</span>
+            <span style="color: #34d399; font-weight: 700;">● 100% OFFLINE</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <button type="button" class="sim-ctrl-btn" onclick="resetDemo()" title="Reset chat simulation">Reset ↺</button>
+            <button type="button" class="sim-ctrl-btn sim-expand-btn" id="expandSimBtn" onclick="toggleSimFullscreen()" title="Toggle full screen phone simulation">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" id="expandSimIcon" style="vertical-align: -1px; margin-right: 3px;">
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <polyline points="9 21 3 21 3 15"></polyline>
+                <line x1="21" y1="3" x2="14" y2="10"></line>
+                <line x1="3" y1="21" x2="10" y2="14"></line>
+              </svg>
+              <span id="expandSimText">Expand ⛶</span>
+            </button>
+          </div>
         </div>
 
         <!-- Chat / Output Simulation Area -->
@@ -689,6 +716,60 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     if (sim) sim.classList.add('active-focus');
   }
 
+  // Fullscreen Simulator Mode for Realistic Phone Device Testing
+  function toggleSimFullscreen() {
+    const frame = document.getElementById('phoneMockupFrame');
+    const text = document.getElementById('expandSimText');
+    const icon = document.getElementById('expandSimIcon');
+    const body = document.body;
+
+    if (!frame) return;
+
+    const isFull = frame.classList.toggle('is-fullscreen');
+    body.classList.toggle('sim-fullscreen-active', isFull);
+
+    if (isFull) {
+      if (text) text.textContent = "Exit ✕";
+      if (icon) {
+        icon.innerHTML = `
+          <polyline points="4 14 10 14 10 20"></polyline>
+          <polyline points="20 10 14 10 14 4"></polyline>
+          <line x1="14" y1="10" x2="21" y2="3"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        `;
+      }
+      try {
+        if (!document.fullscreenElement && frame.requestFullscreen) {
+          frame.requestFullscreen().catch(() => {});
+        }
+      } catch (e) {}
+    } else {
+      if (text) text.textContent = "Expand ⛶";
+      if (icon) {
+        icon.innerHTML = `
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        `;
+      }
+      try {
+        if (document.fullscreenElement && document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      } catch (e) {}
+    }
+  }
+
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) {
+      const frame = document.getElementById('phoneMockupFrame');
+      if (frame && frame.classList.contains('is-fullscreen')) {
+        toggleSimFullscreen();
+      }
+    }
+  });
+
   // Keyboard Page Toggling (Letters <-> Symbols Page 1 <-> Symbols Page 2)
   function toggleSymbols(target) {
     if (target) {
@@ -829,6 +910,14 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
 
   // Robust Desktop Chrome & Physical Keyboard Support
   window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const frame = document.getElementById('phoneMockupFrame');
+      if (frame && frame.classList.contains('is-fullscreen')) {
+        toggleSimFullscreen();
+        return;
+      }
+    }
+
     // Don't intercept if user is typing into an actual form element
     if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable)) {
       return;
