@@ -677,7 +677,7 @@ h3 {
   box-shadow: 0 2px 0 #0a0d17;
   color: #f1f5f9;
   border-radius: 6px;
-  min-width: 32px;
+  min-width: 0;
   height: 42px;
   display: flex;
   align-items: center;
@@ -685,16 +685,24 @@ h3 {
   font-size: 0.95rem;
   font-weight: 500;
   user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  touch-action: manipulation;
   cursor: pointer;
-  transition: all 0.1s ease;
+  transition: all 0.08s ease;
   flex: 1;
 }
 
-.kb-key:hover, .kb-key:active {
+.kb-key:hover, .kb-key:active, .kb-key.active-pressed {
   background: #2b364e;
   border-color: var(--accent-color);
   color: #ffffff;
-  transform: translateY(1px);
+  transform: translateY(1px) scale(0.98);
+}
+
+.kb-key.active-pressed {
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.45);
 }
 
 .kb-key-accent {
@@ -703,17 +711,58 @@ h3 {
   border-color: #34d399;
 }
 
+.kb-key-return {
+  background: #232c3d;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.14);
+  font-size: 1.15rem;
+}
+
+.kb-key-return:hover, .kb-key-return:active, .kb-key-return.active-pressed {
+  background: #334057;
+  border-color: var(--accent-color);
+  color: #34d399;
+}
+
 .kb-key-fn {
   background: #182030;
   color: var(--text-secondary);
-  font-size: 0.8rem;
-  flex: 1.5;
+  font-size: 0.82rem;
 }
 
 .kb-spacebar {
-  flex: 5;
+  flex: 4.4;
   font-size: 0.85rem;
   color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.space-lang-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.kb-spacer {
+  pointer-events: none;
+}
+
+.chat-input-sim {
+  cursor: text;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-input-sim:hover, .chat-input-sim:focus, .chat-input-sim.active-focus {
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15);
 }
 
 /* Floating Telemetry Chips Around Mockup */
