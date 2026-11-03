@@ -51,6 +51,11 @@
         <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
           <span id="themeIcon">☀️</span>
         </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMobileMenu()">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </div>
     </div>
   </nav>
@@ -59,12 +64,57 @@
     {{ content }}
   </div>
 
-  <footer>
-    <p>&copy; <span id="year"></span> {{ site.title }}. Engineered with modern web standards.</p>
-    <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.6; font-family: var(--font-mono);">v{{ site.version }} &bull; Distributed via GitHub Pages</p>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="https://avatars.githubusercontent.com/u/1412262?v=4" alt="{{ site.title }}" class="navbar-avatar" style="width: 36px; height: 36px;">
+        <div>
+          <span class="footer-brand-title">{{ site.title }}</span>
+          <span class="footer-brand-subtitle">&copy; <span id="year"></span> {{ site.title }} &bull; Associate Software Architect</span>
+        </div>
+      </div>
+
+      <div class="footer-links-grid">
+        <a href="{{ "/" | relative_url }}" class="footer-link">Home</a>
+        <a href="{{ "/android" | relative_url }}" class="footer-link">Android</a>
+        <a href="{{ "/blog" | relative_url }}" class="footer-link">Blog</a>
+        <a href="https://github.com/hissain" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/hissain/" target="_blank" rel="noopener" class="footer-link footer-link-highlight">LinkedIn &#8599;</a>
+        <a href="https://infomity.github.io/" target="_blank" rel="noopener" class="footer-link footer-link-highlight">Infomity Studio &#8599;</a>
+      </div>
+    </div>
   </footer>
 
   <script>
+    function toggleMobileMenu() {
+      const container = document.querySelector('.navbar-container');
+      const btn = document.getElementById('mobileMenuBtn');
+      if (!container) return;
+      const isOpen = container.classList.toggle('is-open');
+      if (btn) btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    document.addEventListener('click', function(e) {
+      const container = document.querySelector('.navbar-container');
+      if (!container || !container.classList.contains('is-open')) return;
+      if (!container.contains(e.target)) {
+        container.classList.remove('is-open');
+        const btn = document.getElementById('mobileMenuBtn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.querySelectorAll('.navbar-links .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const container = document.querySelector('.navbar-container');
+        if (container && container.classList.contains('is-open')) {
+          container.classList.remove('is-open');
+          const btn = document.getElementById('mobileMenuBtn');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
     document.getElementById('year').textContent = new Date().getFullYear();
 
     const themeToggle = document.getElementById('themeToggle');
