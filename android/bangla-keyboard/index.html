@@ -13,7 +13,7 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
       <div class="status-pill">
         <span class="status-dot"></span>
-        <span>v1.0.0 Production Ready &bull; Zero Network Telemetry</span>
+        <span>v1.0.20 Production Ready &bull; Zero Network Telemetry</span>
       </div>
     </div>
 
@@ -127,32 +127,25 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
           </div>
         </div>
 
-        <!-- Keyboard Suggestion Bar -->
+        <!-- Keyboard Suggestion Bar (buildStrip matching KeyboardUi.kt) -->
         <div class="keyboard-suggestions-bar" id="suggestionBar">
-          <span class="suggestion-chip active" onclick="pickSuggestion('আমি')">আমি</span>
-          <span class="suggestion-chip" onclick="pickSuggestion('আমার')">আমার</span>
-          <span class="suggestion-chip" onclick="pickSuggestion('আমরা')">আমরা</span>
-          <span class="suggestion-chip" onclick="pickSuggestion('আজ')">আজ</span>
-          <span class="suggestion-chip" onclick="pickSuggestion('আছে')">আছে</span>
+          <div class="suggestion-chips-container" id="suggestionChips">
+            <span class="suggestion-chip active" onclick="pickSuggestion('আমি')">আমি</span>
+            <span class="suggestion-chip" onclick="pickSuggestion('আমার')">আমার</span>
+            <span class="suggestion-chip" onclick="pickSuggestion('আমরা')">আমরা</span>
+            <span class="suggestion-chip" onclick="pickSuggestion('আজ')">আজ</span>
+            <span class="suggestion-chip" onclick="pickSuggestion('আছে')">আছে</span>
+          </div>
+          <div class="strip-helpers" id="stripHelpers">
+            <div class="kb-key-helper" data-key="," onclick="pressPunct(',')">,</div>
+            <div class="kb-key-helper" data-key="?" onclick="pressPunct('?')">?</div>
+            <div class="kb-key-helper" data-key="।" onclick="pressPunct('।')">।</div>
+          </div>
         </div>
 
-        <!-- Virtual Keyboard Layout (Phonetic QWERTY - Release 1.0.7 Parity) -->
+        <!-- Virtual Keyboard Layout (Parity with Bengal_Keyboard release 1.0.20) -->
         <div class="virtual-keyboard" id="virtualKeyboard">
-          <!-- Row 1: Dedicated Digit Row -->
-          <div class="kb-row">
-            <div class="kb-key" data-key="1" onclick="pressKey('1')">1</div>
-            <div class="kb-key" data-key="2" onclick="pressKey('2')">2</div>
-            <div class="kb-key" data-key="3" onclick="pressKey('3')">3</div>
-            <div class="kb-key" data-key="4" onclick="pressKey('4')">4</div>
-            <div class="kb-key" data-key="5" onclick="pressKey('5')">5</div>
-            <div class="kb-key" data-key="6" onclick="pressKey('6')">6</div>
-            <div class="kb-key" data-key="7" onclick="pressKey('7')">7</div>
-            <div class="kb-key" data-key="8" onclick="pressKey('8')">8</div>
-            <div class="kb-key" data-key="9" onclick="pressKey('9')">9</div>
-            <div class="kb-key" data-key="0" onclick="pressKey('0')">0</div>
-          </div>
-
-          <!-- Row 2: Letters Q-P -->
+          <!-- Row 1: Letters Q-P (10 keys) -->
           <div class="kb-row">
             <div class="kb-key" data-key="q" onclick="pressKey('q')">q</div>
             <div class="kb-key" data-key="w" onclick="pressKey('w')">w</div>
@@ -166,7 +159,7 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
             <div class="kb-key" data-key="p" onclick="pressKey('p')">p</div>
           </div>
 
-          <!-- Row 3: Letters A-L (with 0.5 spacers on both sides) -->
+          <!-- Row 2: Letters A-L (0.5 spacer + 9 keys + 0.5 spacer) -->
           <div class="kb-row">
             <div class="kb-spacer" style="flex: 0.5;"></div>
             <div class="kb-key" data-key="a" onclick="pressKey('a')">a</div>
@@ -181,13 +174,9 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
             <div class="kb-spacer" style="flex: 0.5;"></div>
           </div>
 
-          <!-- Row 4: Shift (1.5) | Z-M (7 keys) | Backspace (1.5) -->
+          <!-- Row 3: Spacer 1.5 in BN (or Shift 1.5 in EN) | Z-M (7 keys) | Backspace 1.5 -->
           <div class="kb-row">
-            <div class="kb-key kb-key-fn" id="shiftKey" data-key="shift" onclick="toggleShift()" style="flex: 1.5;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" id="shiftIcon">
-                <path d="M12 4L4 12h5v7h6v-7h5z"></path>
-              </svg>
-            </div>
+            <div class="kb-spacer" style="flex: 1.5;"></div>
             <div class="kb-key" data-key="z" onclick="pressKey('z')">z</div>
             <div class="kb-key" data-key="x" onclick="pressKey('x')">x</div>
             <div class="kb-key" data-key="c" onclick="pressKey('c')">c</div>
@@ -198,15 +187,17 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
             <div class="kb-key kb-key-fn" data-key="backspace" onclick="deleteChar()" style="flex: 1.5;">⌫</div>
           </div>
 
-          <!-- Row 5: 123 (1.7) | Emoji (1.0) | Space (4.4) | . (1.0) | Return (1.9) -->
+          <!-- Row 4: 123 (1.7) | Emoji (1.0) | Space (4.4) | - (1.0) | Return (1.9) -->
           <div class="kb-row">
-            <div class="kb-key kb-key-fn" id="togglePageKey" data-key="toggle" onclick="toggleSymbols()" style="flex: 1.7;">123</div>
-            <div class="kb-key kb-key-fn" data-key="emoji" onclick="pressEmoji()" style="flex: 1.0;">☺</div>
+            <div class="kb-key kb-key-fn" id="togglePageKey" data-key="toggle" onclick="toggleSymbols('symbols')" style="flex: 1.7;">123</div>
+            <div class="kb-key kb-key-fn" data-key="emoji" onclick="toggleSymbols('emoji')" style="flex: 1.0;">☺</div>
             <div class="kb-key kb-spacebar" data-key="space" onclick="pressSpace()" style="flex: 4.4;">
               <span>Space</span>
-              <span class="space-lang-badge">EN | BN</span>
+              <span class="space-lang-badge" id="spaceLangBadge" onclick="event.stopPropagation(); toggleLanguage();" title="Tap to switch language (English / Bangla)">
+                <span class="badge-en">EN</span> | <span class="badge-bn badge-active">BN</span>
+              </span>
             </div>
-            <div class="kb-key" data-key="." onclick="pressKey('.')" style="flex: 1.0;">.</div>
+            <div class="kb-key" id="hyphenPeriodKey" data-key="-" onclick="pressPunct('-')" style="flex: 1.0;">-</div>
             <div class="kb-key kb-key-return" data-key="enter" onclick="pressEnter()" style="flex: 1.9;">↵</div>
           </div>
         </div>
@@ -528,18 +519,97 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     'onek': ['অনেক', 'অনেকে', 'অনেকের'],
     'mobile': ['মোবাইল', 'মোবাইলে'],
     'phone': ['ফোন', 'ফোনে'],
-    'keyboard': ['কীবোর্ড', 'কিবোর্ড']
+    'keyboard': ['কীবোর্ড', 'কিবোর্ড'],
+    'virbena': ['ভিড়বেনা', 'ভিড়বে না', 'ভির্বেনা'],
+    'virbe': ['ভিড়বে'],
+    'ebsoliut': ['এবসলিউট', 'অ্যাবসলিউট'],
+    'ebsoliutli': ['এবসলিউটলি', 'অ্যাবসলিউটলি'],
+    'app': ['অ্যাপ', 'অ্যাপস', 'আপনি'],
+    'apps': ['অ্যাপস', 'অ্যাপ'],
+    'khoma': ['ক্ষমা', 'খোমা'],
+    'gyan': ['জ্ঞান', 'গ্যান'],
+    'kolonko': ['কলঙ্ক'],
+    'bachbona': ['বাঁচবো না', 'বাঁচব না', 'বাছবনা'],
+    'bachbo': ['বাঁচবো', 'বাঁচব'],
+    'chomotkar': ['চমৎকার']
   };
 
   let activeBuffer = "";
   let committedText = "আমি বাংলায় গান গাই";
+  let isEnglish = false;
   let isShifted = false;
-  let currentKeyboardPage = 'letters'; // 'letters' | 'symbols' | 'symbols2'
-  const emojiList = ['😊', '❤️', '👍', '🎉', '✨', '🇧🇩', '🔥', '🌸'];
-  let emojiIdx = 0;
+  let currentKeyboardPage = 'letters'; // 'letters' | 'symbols' | 'symbols2' | 'emoji'
+  let activeEmojiTab = 0;
+
+  // Complete Emoji Data matching Bengal_Keyboard EmojiData.kt
+  const emojiCategories = [
+    {
+      icon: '🕒',
+      items: ['😊', '❤️', '👍', '🎉', '✨', '🇧🇩', '🔥', '🌸', '👏', '🙏', '😍', '🙌', '💯', '⭐', '🎈', '🚀']
+    },
+    {
+      icon: '🙂',
+      items: [
+        '😀', '😃', '😄', '😁', '😆', '😅', '😂', '🤣', '😊', '😇', '🙂', '🙃', '😉', '😌', '😍', '🥰', '😘', 
+        '😗', '😚', '😋', '😛', '😜', '🤪', '🤨', '🧐', '🤓', '😎', '🤩', '🥳', '😏', '😒', '😞', '😔', '😟', 
+        '😕', '🙁', '🥺', '😢', '😭', '😤', '😠', '😡', '🤬', '🤯', '😳', '🥵', '🥶', '😱', '😨', '😰', '😥', 
+        '😓', '🤗', '🤔', '🤭', '🤫', '🤥', '😶', '😐', '😑', '😬', '🙄', '😯', '😦', '😧', '😮', '😲', '🥱', 
+        '😴', '🤤', '😪', '😵', '🤐', '🥴', '🤢', '🤮', '🤧', '😷', '🤒', '🤕', '🤑', '🤠', '😈', '👿', '👹', 
+        '👺', '🤡', '💩', '👻', '💀', '☠️', '👽', '👾', '🤖', '🎃'
+      ]
+    },
+    {
+      icon: '👋',
+      items: [
+        '👋', '🤚', '🖐️', '✋', '🖖', '👌', '🤌', '🤏', '✌️', '🤞', '🤟', '🤘', '🤙', '👈', '👉', '👆', '👇', 
+        '☝️', '👍', '👎', '✊', '👊', '🤛', '🤜', '👏', '🙌', '👐', '🤲', '🤝', '🙏', '✍️', '💅', '🤳', '💪', 
+        '🦵', '🦶', '👂', '👃', '🧠', '👀', '👁️', '👅', '👄', '👶', '🧒', '👦', '👧', '🧑', '👨', '👩', '🧓', 
+        '👴', '👵'
+      ]
+    },
+    {
+      icon: '❤️',
+      items: [
+        '❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎', '💔', '❣️', '💕', '💞', '💓', '💗', '💖', '💘', 
+        '💝', '💟', '💯', '💢', '💥', '💫', '💦', '💨', '💬', '💭', '💤', '✨', '🌟', '⭐', '🔥', '⚡', '✅', 
+        '❌', '❎', '❓', '❗', '⚠️', '🚫', '➕', '➖', '➗', '✔️', '☑️', '🔴', '🟢', '🔵', '🟣', '⚫', '⚪'
+      ]
+    },
+    {
+      icon: '🐶',
+      items: [
+        '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮', '🐷', '🐸', '🐵', '🙈', '🙉', 
+        '🙊', '🐔', '🐧', '🐦', '🐤', '🦆', '🦅', '🦉', '🦇', '🐺', '🐗', '🐴', '🦄', '🐝', '🐛', '🦋', '🐌', 
+        '🐞', '🐜', '🐢', '🐍', '🦎', '🐙', '🦑', '🦐', '🦀', '🐠', '🐟', '🐬', '🐳', '🐋', '🦈', '🐊', '🐅', 
+        '🐆', '🦓', '🐘', '🦏'
+      ]
+    },
+    {
+      icon: '🍔',
+      items: [
+        '🍏', '🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🍈', '🍒', '🍑', '🥭', '🍍', '🥥', '🥝', '🍅', 
+        '🍆', '🥑', '🥦', '🥕', '🌽', '🌶️', '🥔', '🍠', '🥐', '🍞', '🥖', '🧀', '🥚', '🍳', '🥞', '🥓', '🥩', 
+        '🍗', '🍖', '🌭', '🍔', '🍟', '🍕', '🥪', '🥙', '🧆', '🌮', '🌯', '🥗', '🥘', '🍝', '🍜', '🍲', '🍛', 
+        '🍣', '🍱', '🥟', '🍤', '🍙', '🍚', '🍘', '🍥', '🥠', '🥮', '🍢', '🍡', '🍧', '🍨', '🍦', '🥧', '🧁', 
+        '🍰', '🎂', '🍮', '🍭', '🍬', '🍫', '🍿', '🍩', '🍪', '🌰', '🥜', '🍯', '🥛', '🍼', '☕', '🍵', '🧃', 
+        '🥤', '🧋', '🍶', '🍺', '🍻', '🥂', '🍷', '🥃', '🍸', '🍹'
+      ]
+    },
+    {
+      icon: '🇧🇩',
+      items: [
+        '🇧🇩', '✈️', '🚗', '🚕', '🚙', '🚌', '🚎', '🏎️', '🚓', '🚑', '🚒', '🚐', '🛻', '🚚', '🚛', '🚜', '🛵', 
+        '🏍️', '🛺', '🚲', '🛴', '🚨', '🚔', '🚍', '🚘', '🚖', '🚡', '🚠', '🚟', '🚃', '🚋', '🚞', '🚝', '🚄', 
+        '🚅', '🚈', '🚂', '🚆', '🚇', '🚊', '🚉', '🚁', '🛩️', '🛫', '🛬', '🛰️', '🚀', '🛸', '⛵', '🚤', '🛳️', 
+        '⛴️', '🚢', '⚓', '⛽', '🚧', '🚦', '🚥', '🗺️', '🗿', '🗽', '🗼', '🏰', '🏯', '🏟️', '🎡', '🎢', '🎠', 
+        '⛲', '⛱️', '🏖️', '🏝️', '🏜️', '🌋', '⛰️', '🏔️', '🗻', '🏕️', '⛺', '🏠', '🏡', '🏘️', '🏚️', '🏗️', '🏢', 
+        '🏬', '🏣', '🏤', '🏥', '🏦', '🏨', '🏪', '🏫', '🏩', '💒', '🏛️', '⛪', '🕌', '🛕', '🕍', '⛩️', '🕋'
+      ]
+    }
+  ];
 
   function renderSuggestions(candidates) {
-    const bar = document.getElementById('suggestionBar');
+    const bar = document.getElementById('suggestionChips');
     if (!bar) return;
     bar.innerHTML = "";
     candidates.slice(0, 5).forEach((word, idx) => {
@@ -551,9 +621,15 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     });
   }
 
+  function renderPlaceholder(text) {
+    const bar = document.getElementById('suggestionChips');
+    if (!bar) return;
+    bar.innerHTML = `<span class="suggestion-chip" style="background: transparent; border: none; color: var(--text-muted); font-weight: 500; cursor: default;">${text}</span>`;
+  }
+
   function getCandidates(query) {
     const q = query.toLowerCase().trim();
-    if (!q) return ['আমি', 'আমার', 'আমরা', 'আজ', 'আছে'];
+    if (!q) return isEnglish ? ['English'] : ['আমি', 'আমার', 'আমরা', 'আজ', 'আছে'];
     if (sampleLexicon[q]) return sampleLexicon[q];
     for (const key of Object.keys(sampleLexicon)) {
       if (key.startsWith(q)) return sampleLexicon[key];
@@ -568,12 +644,16 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
       'ch': 'চ', 'chh': 'ছ', 'j': 'জ', 'jh': 'ঝ',
       't': 'ত', 'th': 'থ', 'd': 'দ', 'dh': 'ধ', 'n': 'ন',
       'p': 'প', 'f': 'ফ', 'ph': 'ফ', 'b': 'ব', 'bh': 'ভ', 'v': 'ভ', 'm': 'ম',
-      'z': 'য', 'r': 'র', 'l': 'ল', 'sh': 'শ', 's': 'স', 'h': 'হ'
+      'z': 'য', 'r': 'র', 'l': 'ল', 'sh': 'শ', 's': 'স', 'h': 'হ',
+      '^': 'ঁ', ':': 'ঃ'
     };
     let res = '';
     let i = 0;
     while (i < input.length) {
-      if (i + 1 < input.length && map[input.substr(i, 2)]) {
+      if (input.substr(i, 2) === ',,') {
+        res += '্';
+        i += 2;
+      } else if (i + 1 < input.length && map[input.substr(i, 2)]) {
         res += map[input.substr(i, 2)];
         i += 2;
       } else if (map[input[i]]) {
@@ -584,6 +664,7 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
       else if (input[i] === 'u') { res += (res ? 'ু' : 'উ'); i++; }
       else if (input[i] === 'e') { res += (res ? 'ে' : 'এ'); i++; }
       else if (input[i] === 'o') { res += (res ? 'ো' : 'ও'); i++; }
+      else if (input[i] === '`') { i++; }
       else { res += input[i]; i++; }
     }
     return res || input;
@@ -604,24 +685,73 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
       liveInput.style.color = "var(--text-muted)";
     }
     
-    renderSuggestions(['আমি', 'তোমার', 'কেমন', 'আছো', 'ধন্যবাদ']);
-    // Notice: Intermittent toast popup completely removed as requested!
+    if (isEnglish) {
+      renderPlaceholder('English');
+    } else {
+      renderSuggestions(['আমি', 'তোমার', 'কেমন', 'আছো', 'ধন্যবাদ']);
+    }
   }
 
   function pressKey(char) {
     const liveInput = document.getElementById('liveInputText');
-    const actualChar = isShifted ? char.toUpperCase() : char.toLowerCase();
-    activeBuffer += actualChar;
-
-    if (liveInput) {
-      liveInput.textContent = activeBuffer;
-      liveInput.style.color = "var(--accent-color)";
+    if (isEnglish) {
+      const actualChar = isShifted ? char.toUpperCase() : char.toLowerCase();
+      activeBuffer += actualChar;
+      if (liveInput) {
+        liveInput.textContent = activeBuffer;
+        liveInput.style.color = "var(--accent-color)";
+      }
+      renderSuggestions([activeBuffer]);
+      if (isShifted) toggleShift();
+    } else {
+      activeBuffer += char.toLowerCase();
+      if (liveInput) {
+        liveInput.textContent = activeBuffer;
+        liveInput.style.color = "var(--accent-color)";
+      }
+      const candidates = getCandidates(activeBuffer);
+      renderSuggestions(candidates);
     }
+  }
 
-    const candidates = getCandidates(activeBuffer);
-    renderSuggestions(candidates);
+  // Punctuation & Helper Key Handler (committing active word + appending symbol)
+  function pressPunct(char) {
+    if (activeBuffer.length > 0) {
+      const candidates = getCandidates(activeBuffer);
+      const topCandidate = candidates[0] || activeBuffer;
+      committedText += (committedText ? " " : "") + topCandidate + char;
+      activeBuffer = "";
+      const liveInput = document.getElementById('liveInputText');
+      if (liveInput) {
+        liveInput.textContent = HINT_TEXT;
+        liveInput.style.color = "var(--text-muted)";
+      }
+    } else {
+      committedText += char;
+    }
+    const chatOutput = document.getElementById('chatOutput');
+    if (chatOutput) chatOutput.textContent = committedText;
+    if (isEnglish) {
+      renderPlaceholder('English');
+    } else {
+      renderSuggestions(['আমি', 'তোমার', 'কেমন', 'আছো', 'ধন্যবাদ']);
+    }
+  }
 
-    if (isShifted) toggleShift();
+  function pressAltHelper(token, symbol) {
+    if (activeBuffer.length > 0) {
+      activeBuffer += token;
+      const liveInput = document.getElementById('liveInputText');
+      if (liveInput) {
+        liveInput.textContent = activeBuffer;
+        liveInput.style.color = "var(--accent-color)";
+      }
+      renderSuggestions(getCandidates(activeBuffer));
+    } else {
+      committedText += symbol;
+      const chatOutput = document.getElementById('chatOutput');
+      if (chatOutput) chatOutput.textContent = committedText;
+    }
   }
 
   function pressSpace() {
@@ -646,14 +776,57 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
         liveInput.textContent = activeBuffer || HINT_TEXT;
         liveInput.style.color = activeBuffer ? "var(--accent-color)" : "var(--text-muted)";
       }
-      renderSuggestions(getCandidates(activeBuffer));
+      if (isEnglish) {
+        if (activeBuffer) {
+          renderSuggestions([activeBuffer]);
+        } else {
+          renderPlaceholder('English');
+        }
+      } else {
+        renderSuggestions(getCandidates(activeBuffer));
+      }
     } else if (committedText.length > 0) {
       committedText = committedText.slice(0, -1);
-      if (chatOutput) chatOutput.textContent = committedText;
+      if (chatOutput) chatOutput.textContent = committedText || "—";
+    }
+  }
+
+  function toggleLanguage() {
+    isEnglish = !isEnglish;
+    if (activeBuffer.length > 0) {
+      const candidates = getCandidates(activeBuffer);
+      pickSuggestion(candidates[0] || activeBuffer);
+    }
+    updateLanguageDisplay();
+    renderKeyboardLayout();
+  }
+
+  function updateLanguageDisplay() {
+    const badge = document.getElementById('spaceLangBadge');
+    if (badge) {
+      badge.innerHTML = `<span class="badge-en ${isEnglish ? 'badge-active' : ''}">EN</span> | <span class="badge-bn ${!isEnglish ? 'badge-active' : ''}">BN</span>`;
+    }
+    const helpers = document.getElementById('stripHelpers');
+    if (helpers) {
+      helpers.style.display = isEnglish ? 'none' : 'flex';
+    }
+    if (isEnglish) {
+      if (activeBuffer) {
+        renderSuggestions([activeBuffer]);
+      } else {
+        renderPlaceholder('English');
+      }
+    } else {
+      if (activeBuffer) {
+        renderSuggestions(getCandidates(activeBuffer));
+      } else {
+        renderSuggestions(['আমি', 'আমার', 'আমরা', 'আজ', 'আছে']);
+      }
     }
   }
 
   function toggleShift() {
+    if (!isEnglish) return;
     isShifted = !isShifted;
     const shiftIcon = document.getElementById('shiftIcon');
     const shiftKey = document.getElementById('shiftKey');
@@ -676,20 +849,11 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     });
   }
 
-  function pressEmoji() {
-    const emoji = emojiList[emojiIdx % emojiList.length];
-    emojiIdx++;
-    committedText += (committedText && !committedText.endsWith(' ') ? ' ' : '') + emoji;
-    const chatOutput = document.getElementById('chatOutput');
-    if (chatOutput) chatOutput.textContent = committedText;
-  }
-
   function pressEnter() {
     if (activeBuffer.length > 0) {
       const candidates = getCandidates(activeBuffer);
       pickSuggestion(candidates[0] || activeBuffer);
     } else {
-      // Subtle visual flash on chat bubble instead of intrusive toast
       const bubble = document.getElementById('chatOutput');
       if (bubble) {
         bubble.style.boxShadow = "0 0 20px rgba(16, 185, 129, 0.6)";
@@ -701,6 +865,8 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
   function resetDemo() {
     committedText = "";
     activeBuffer = "";
+    isShifted = false;
+    currentKeyboardPage = 'letters';
     const chatOutput = document.getElementById('chatOutput');
     const liveInput = document.getElementById('liveInputText');
     if (chatOutput) chatOutput.textContent = "—";
@@ -708,7 +874,8 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
       liveInput.textContent = HINT_TEXT;
       liveInput.style.color = "var(--text-muted)";
     }
-    renderSuggestions(['আমি', 'আমার', 'আমরা', 'আজ', 'আছে']);
+    updateLanguageDisplay();
+    renderKeyboardLayout();
   }
 
   function focusSim() {
@@ -770,8 +937,111 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     }
   });
 
-  // Keyboard Page Toggling (Letters <-> Symbols Page 1 <-> Symbols Page 2)
+  // Long-Press Alternates Popup System (matching KeyAlternatesMenu.kt)
+  let activeAlternatesMenu = null;
+  let altTimer = null;
+  let altTriggered = false;
+
+  function dismissAlternatesMenu() {
+    if (activeAlternatesMenu) {
+      activeAlternatesMenu.remove();
+      activeAlternatesMenu = null;
+    }
+  }
+
+  function showAlternatesMenu(anchorEl, items) {
+    dismissAlternatesMenu();
+    if (!items || !items.length) return;
+
+    const menu = document.createElement('div');
+    menu.className = 'kb-alternates-menu';
+    menu.id = 'activeAlternatesMenu';
+
+    items.forEach(item => {
+      const btn = document.createElement('div');
+      btn.className = 'kb-alt-item';
+      btn.textContent = item.label;
+      btn.onmousedown = (e) => e.stopPropagation();
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        dismissAlternatesMenu();
+        item.action();
+      };
+      menu.appendChild(btn);
+    });
+
+    document.body.appendChild(menu);
+    activeAlternatesMenu = menu;
+
+    const rect = anchorEl.getBoundingClientRect();
+    menu.style.position = 'fixed';
+    menu.style.left = (rect.left + rect.width / 2) + 'px';
+    menu.style.top = (rect.top - 8) + 'px';
+    menu.style.transform = 'translate(-50%, -100%)';
+    menu.style.zIndex = '9999';
+
+    setTimeout(() => {
+      const closeHandler = (e) => {
+        if (!menu.contains(e.target)) {
+          dismissAlternatesMenu();
+          document.removeEventListener('click', closeHandler);
+          document.removeEventListener('touchstart', closeHandler);
+        }
+      };
+      document.addEventListener('click', closeHandler);
+      document.addEventListener('touchstart', closeHandler);
+    }, 20);
+  }
+
+  function startKeyHold(element, type, e) {
+    altTriggered = false;
+    if (altTimer) clearTimeout(altTimer);
+
+    altTimer = setTimeout(() => {
+      altTriggered = true;
+      if (type === 'hyphen') {
+        if (!isEnglish) {
+          showAlternatesMenu(element, [
+            { label: 'ঁ', action: () => pressAltHelper('^', 'ঁ') },
+            { label: 'ঃ', action: () => pressAltHelper(':', 'ঃ') },
+            { label: '্', action: () => pressAltHelper(',,', '্') },
+            { label: '`', action: () => pressAltHelper('`', '`') }
+          ]);
+        } else {
+          showAlternatesMenu(element, [
+            { label: '.', action: () => pressKey('.') },
+            { label: ',', action: () => pressKey(',') },
+            { label: "'", action: () => pressKey("'") },
+            { label: '!', action: () => pressKey('!') },
+            { label: '?', action: () => pressKey('?') }
+          ]);
+        }
+      } else if (type === 'currency') {
+        showAlternatesMenu(element, [
+          { label: '৳', action: () => pressKey('৳') },
+          { label: '$', action: () => pressKey('$') },
+          { label: '€', action: () => pressKey('€') },
+          { label: '£', action: () => pressKey('£') },
+          { label: '¥', action: () => pressKey('¥') }
+        ]);
+      }
+    }, 380);
+  }
+
+  function endKeyHold(element, type, normalAction) {
+    if (altTimer) {
+      clearTimeout(altTimer);
+      altTimer = null;
+    }
+    if (!altTriggered) {
+      normalAction();
+    }
+    altTriggered = false;
+  }
+
+  // Keyboard Page Toggling (Letters <-> Symbols Page 1 <-> Symbols Page 2 <-> Emoji)
   function toggleSymbols(target) {
+    dismissAlternatesMenu();
     if (target) {
       currentKeyboardPage = target;
     } else if (currentKeyboardPage === 'letters') {
@@ -782,104 +1052,168 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     renderKeyboardLayout();
   }
 
+  function switchEmojiTab(index) {
+    activeEmojiTab = index;
+    renderKeyboardLayout();
+  }
+
+  function selectEmoji(e) {
+    committedText += (committedText && !committedText.endsWith(' ') ? ' ' : '') + e;
+    const chatOutput = document.getElementById('chatOutput');
+    if (chatOutput) chatOutput.textContent = committedText;
+
+    const recents = emojiCategories[0].items;
+    const idx = recents.indexOf(e);
+    if (idx !== -1) recents.splice(idx, 1);
+    recents.unshift(e);
+    if (recents.length > 24) recents.pop();
+  }
+
+  // Exact Layout Renderer matching Bengal_Keyboard release 1.0.20
   function renderKeyboardLayout() {
     const kb = document.getElementById('virtualKeyboard');
     if (!kb) return;
 
+    dismissAlternatesMenu();
+
     if (currentKeyboardPage === 'letters') {
-      kb.innerHTML = `
-        <!-- Row 1: Dedicated Digit Row -->
-        <div class="kb-row">
-          ${['1','2','3','4','5','6','7','8','9','0'].map(d => `<div class="kb-key" data-key="${d}" onclick="pressKey('${d}')">${d}</div>`).join('')}
+      const punctChar = isEnglish ? '.' : '-';
+      const shiftOrSpacer = isEnglish ? `
+        <div class="kb-key kb-key-fn" id="shiftKey" data-key="shift" onclick="toggleShift()" style="flex: 1.5; ${isShifted ? 'background: var(--accent-color); color: #fff;' : ''}">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="${isShifted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" id="shiftIcon">
+            <path d="M12 4L4 12h5v7h6v-7h5z"></path>
+          </svg>
         </div>
-        <!-- Row 2: Letters Q-P -->
+      ` : `<div class="kb-spacer" style="flex: 1.5;"></div>`;
+
+      kb.innerHTML = `
+        <!-- Row 1: Letters Q-P (Dedicated number row removed in release 1.0.12+) -->
         <div class="kb-row">
           ${['q','w','e','r','t','y','u','i','o','p'].map(l => `<div class="kb-key" data-key="${l}" onclick="pressKey('${l}')">${isShifted ? l.toUpperCase() : l}</div>`).join('')}
         </div>
-        <!-- Row 3: Letters A-L (with 0.5 spacers) -->
+        <!-- Row 2: Letters A-L (with 0.5 spacers on both sides) -->
         <div class="kb-row">
           <div class="kb-spacer" style="flex: 0.5;"></div>
           ${['a','s','d','f','g','h','j','k','l'].map(l => `<div class="kb-key" data-key="${l}" onclick="pressKey('${l}')">${isShifted ? l.toUpperCase() : l}</div>`).join('')}
           <div class="kb-spacer" style="flex: 0.5;"></div>
         </div>
-        <!-- Row 4: Shift (1.5) | Z-M (7 keys) | Backspace (1.5) -->
+        <!-- Row 3: Spacer 1.5 (BN) / Shift 1.5 (EN) | Z-M (7 keys) | Backspace (1.5) -->
         <div class="kb-row">
-          <div class="kb-key kb-key-fn" id="shiftKey" data-key="shift" onclick="toggleShift()" style="flex: 1.5; ${isShifted ? 'background: var(--accent-color); color: #fff;' : ''}">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="${isShifted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" id="shiftIcon">
-              <path d="M12 4L4 12h5v7h6v-7h5z"></path>
-            </svg>
-          </div>
+          ${shiftOrSpacer}
           ${['z','x','c','v','b','n','m'].map(l => `<div class="kb-key" data-key="${l}" onclick="pressKey('${l}')">${isShifted ? l.toUpperCase() : l}</div>`).join('')}
           <div class="kb-key kb-key-fn" data-key="backspace" onclick="deleteChar()" style="flex: 1.5;">⌫</div>
         </div>
-        <!-- Row 5: 123 (1.7) | Emoji (1.0) | Space (4.4) | . (1.0) | Return (1.9) -->
+        <!-- Row 4: 123 (1.7) | Emoji (1.0) | Space (4.4) | -/. (1.0) | Return (1.9) -->
         <div class="kb-row">
           <div class="kb-key kb-key-fn" id="togglePageKey" data-key="toggle" onclick="toggleSymbols('symbols')" style="flex: 1.7;">123</div>
-          <div class="kb-key kb-key-fn" data-key="emoji" onclick="pressEmoji()" style="flex: 1.0;">☺</div>
+          <div class="kb-key kb-key-fn" data-key="emoji" onclick="toggleSymbols('emoji')" style="flex: 1.0;">☺</div>
           <div class="kb-key kb-spacebar" data-key="space" onclick="pressSpace()" style="flex: 4.4;">
             <span>Space</span>
-            <span class="space-lang-badge">EN | BN</span>
+            <span class="space-lang-badge" id="spaceLangBadge" onclick="event.stopPropagation(); toggleLanguage();" title="Tap to switch language (English / Bangla)">
+              <span class="badge-en ${isEnglish ? 'badge-active' : ''}">EN</span> | <span class="badge-bn ${!isEnglish ? 'badge-active' : ''}">BN</span>
+            </span>
           </div>
-          <div class="kb-key" data-key="." onclick="pressKey('.')" style="flex: 1.0;">.</div>
+          <div class="kb-key" id="hyphenPeriodKey" data-key="${punctChar}" 
+               onmousedown="startKeyHold(this, 'hyphen', event)" 
+               onmouseup="endKeyHold(this, 'hyphen', () => pressPunct('${punctChar}'))"
+               ontouchstart="startKeyHold(this, 'hyphen', event)"
+               ontouchend="event.preventDefault(); endKeyHold(this, 'hyphen', () => pressPunct('${punctChar}'))"
+               style="flex: 1.0;">${punctChar}</div>
           <div class="kb-key kb-key-return" data-key="enter" onclick="pressEnter()" style="flex: 1.9;">↵</div>
         </div>
       `;
     } else if (currentKeyboardPage === 'symbols') {
-      // Page 1: Numbers & Symbols (matching Bengal_Keyboard KeyLayouts.kt)
+      const punctChar = isEnglish ? '.' : '-';
       kb.innerHTML = `
-        <!-- Row 1: Digits -->
+        <!-- Row 1: Digits 1-0 -->
         <div class="kb-row">
           ${['1','2','3','4','5','6','7','8','9','0'].map(d => `<div class="kb-key" data-key="${d}" onclick="pressKey('${d}')">${d}</div>`).join('')}
         </div>
         <!-- Row 2: Standard Symbols + Local Currency (৳) -->
         <div class="kb-row">
-          ${['-','/',':',';','(',')','৳','&','@','"'].map(s => `<div class="kb-key" data-key="${s}" onclick="pressKey('${s}')">${s}</div>`).join('')}
+          ${['-','/',':',';','(',')'].map(s => `<div class="kb-key" data-key="${s}" onclick="pressKey('${s}')">${s}</div>`).join('')}
+          <div class="kb-key" data-key="৳" 
+               onmousedown="startKeyHold(this, 'currency', event)" 
+               onmouseup="endKeyHold(this, 'currency', () => pressKey('৳'))"
+               ontouchstart="startKeyHold(this, 'currency', event)"
+               ontouchend="event.preventDefault(); endKeyHold(this, 'currency', () => pressKey('৳'))">৳</div>
+          ${['&','@','"'].map(s => `<div class="kb-key" data-key="${s}" onclick="pressKey('${s}')">${s}</div>`).join('')}
         </div>
-        <!-- Row 3: #+= toggle (1.4) + 5 punctuation keys (1.45 each) + Backspace (1.35) -->
+        <!-- Row 3: #+= toggle (1.4) + 5 punctuation keys (.,'!?) (1.45 each) + Backspace (1.35) -->
         <div class="kb-row">
           <div class="kb-key kb-key-fn" onclick="toggleSymbols('symbols2')" style="flex: 1.4;">#+=</div>
-          ${['. ',',','?','!','\''].map(p => `<div class="kb-key" data-key="${p.trim()}" onclick="pressKey('${p.trim()}')" style="flex: 1.45;">${p.trim()}</div>`).join('')}
+          ${['. ',',','\'','!','?'].map(p => `<div class="kb-key" data-key="${p.trim()}" onclick="pressKey('${p.trim()}')" style="flex: 1.45;">${p.trim()}</div>`).join('')}
           <div class="kb-key kb-key-fn" data-key="backspace" onclick="deleteChar()" style="flex: 1.35;">⌫</div>
         </div>
-        <!-- Row 4: ABC (1.7) | Emoji (1.0) | Space (4.4) | . (1.0) | Return (1.9) -->
+        <!-- Row 4: ABC (1.7) | Emoji (1.0) | Space (4.4) | -/. (1.0) | Return (1.9) -->
         <div class="kb-row">
           <div class="kb-key kb-key-fn" onclick="toggleSymbols('letters')" style="flex: 1.7; color: var(--accent-color); font-weight: 700;">ABC</div>
-          <div class="kb-key kb-key-fn" data-key="emoji" onclick="pressEmoji()" style="flex: 1.0;">☺</div>
+          <div class="kb-key kb-key-fn" data-key="emoji" onclick="toggleSymbols('emoji')" style="flex: 1.0;">☺</div>
           <div class="kb-key kb-spacebar" data-key="space" onclick="pressSpace()" style="flex: 4.4;">
             <span>Space</span>
-            <span class="space-lang-badge">EN | BN</span>
+            <span class="space-lang-badge" id="spaceLangBadge" onclick="event.stopPropagation(); toggleLanguage();">
+              <span class="badge-en ${isEnglish ? 'badge-active' : ''}">EN</span> | <span class="badge-bn ${!isEnglish ? 'badge-active' : ''}">BN</span>
+            </span>
           </div>
-          <div class="kb-key" data-key="." onclick="pressKey('.')" style="flex: 1.0;">.</div>
+          <div class="kb-key" data-key="${punctChar}" onclick="pressPunct('${punctChar}')" style="flex: 1.0;">${punctChar}</div>
           <div class="kb-key kb-key-return" data-key="enter" onclick="pressEnter()" style="flex: 1.9;">↵</div>
         </div>
       `;
     } else if (currentKeyboardPage === 'symbols2') {
-      // Page 2: Advanced Symbols (SYMBOLS2 matching KeyLayouts.kt)
+      const punctChar = isEnglish ? '.' : '-';
       kb.innerHTML = `
         <!-- Row 1: SYMBOLS_ROW1 -->
         <div class="kb-row">
           ${['[',']','{','}','#','%','^','*','+','='].map(s => `<div class="kb-key" data-key="${s}" onclick="pressKey('${s}')">${s}</div>`).join('')}
         </div>
-        <!-- Row 2: SYMBOLS_ROW2 -->
+        <!-- Row 2: SYMBOLS_ROW2 (_\\|~<>€£¥•) -->
         <div class="kb-row">
-          ${['_','\\','|','~','<','>','€','$','¥','•'].map(s => `<div class="kb-key" data-key="${s}" onclick="pressKey('${s}')">${s}</div>`).join('')}
+          ${['_','\\','|','~','<','>','€','£','¥','•'].map(s => `<div class="kb-key" data-key="${s}" onclick="pressKey('${s}')">${s}</div>`).join('')}
         </div>
-        <!-- Row 3: 123 toggle (1.4) + 5 punctuation keys (1.45 each) + Backspace (1.35) -->
+        <!-- Row 3: 123 toggle (1.4) + 5 punctuation keys (.,'!?) (1.45 each) + Backspace (1.35) -->
         <div class="kb-row">
           <div class="kb-key kb-key-fn" onclick="toggleSymbols('symbols')" style="flex: 1.4;">123</div>
-          ${['. ',',','?','!','\''].map(p => `<div class="kb-key" data-key="${p.trim()}" onclick="pressKey('${p.trim()}')" style="flex: 1.45;">${p.trim()}</div>`).join('')}
+          ${['. ',',','\'','!','?'].map(p => `<div class="kb-key" data-key="${p.trim()}" onclick="pressKey('${p.trim()}')" style="flex: 1.45;">${p.trim()}</div>`).join('')}
           <div class="kb-key kb-key-fn" data-key="backspace" onclick="deleteChar()" style="flex: 1.35;">⌫</div>
         </div>
-        <!-- Row 4: ABC (1.7) | Emoji (1.0) | Space (4.4) | . (1.0) | Return (1.9) -->
+        <!-- Row 4: ABC (1.7) | Emoji (1.0) | Space (4.4) | -/. (1.0) | Return (1.9) -->
         <div class="kb-row">
           <div class="kb-key kb-key-fn" onclick="toggleSymbols('letters')" style="flex: 1.7; color: var(--accent-color); font-weight: 700;">ABC</div>
-          <div class="kb-key kb-key-fn" data-key="emoji" onclick="pressEmoji()" style="flex: 1.0;">☺</div>
+          <div class="kb-key kb-key-fn" data-key="emoji" onclick="toggleSymbols('emoji')" style="flex: 1.0;">☺</div>
           <div class="kb-key kb-spacebar" data-key="space" onclick="pressSpace()" style="flex: 4.4;">
             <span>Space</span>
-            <span class="space-lang-badge">EN | BN</span>
+            <span class="space-lang-badge" id="spaceLangBadge" onclick="event.stopPropagation(); toggleLanguage();">
+              <span class="badge-en ${isEnglish ? 'badge-active' : ''}">EN</span> | <span class="badge-bn ${!isEnglish ? 'badge-active' : ''}">BN</span>
+            </span>
           </div>
-          <div class="kb-key" data-key="." onclick="pressKey('.')" style="flex: 1.0;">.</div>
+          <div class="kb-key" data-key="${punctChar}" onclick="pressPunct('${punctChar}')" style="flex: 1.0;">${punctChar}</div>
           <div class="kb-key kb-key-return" data-key="enter" onclick="pressEnter()" style="flex: 1.9;">↵</div>
+        </div>
+      `;
+    } else if (currentKeyboardPage === 'emoji') {
+      const activeCat = emojiCategories[activeEmojiTab] || emojiCategories[0];
+      kb.innerHTML = `
+        <div class="emoji-panel">
+          <!-- Emoji Categories Tab Row -->
+          <div class="emoji-tab-bar">
+            ${emojiCategories.map((c, i) => `
+              <button type="button" class="emoji-tab-btn ${i === activeEmojiTab ? 'active' : ''}" onclick="switchEmojiTab(${i})">
+                ${c.icon}
+              </button>
+            `).join('')}
+          </div>
+          <!-- Emoji Grid Container -->
+          <div class="emoji-grid-scroller">
+            ${activeCat.items.map(e => `
+              <div class="emoji-grid-item" onclick="selectEmoji('${e}')">${e}</div>
+            `).join('')}
+          </div>
+        </div>
+        <!-- Bottom Row: ABC (1.7) | Space (6.4) | Backspace (1.9) -->
+        <div class="kb-row" style="margin-top: 0.4rem;">
+          <div class="kb-key kb-key-fn" onclick="toggleSymbols('letters')" style="flex: 1.7; color: var(--accent-color); font-weight: 700;">ABC</div>
+          <div class="kb-key kb-spacebar" data-key="space" onclick="pressSpace()" style="flex: 6.4;">Space</div>
+          <div class="kb-key kb-key-fn" data-key="backspace" onclick="deleteChar()" style="flex: 1.9;">⌫</div>
         </div>
       `;
     }
@@ -887,8 +1221,8 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
 
   // Visual Key Feedback for Physical Typing
   function flashVirtualKey(charKey) {
-    let selector = '';
     if (!charKey) return;
+    let selector = '';
     const lower = charKey.toLowerCase();
     if (lower === ' ' || lower === 'space') {
       selector = '.kb-spacebar';
@@ -899,7 +1233,8 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     } else if (lower === 'shift') {
       selector = '#shiftKey';
     } else {
-      selector = `[data-key="${lower}"]`;
+      const safe = CSS.escape ? CSS.escape(charKey) : charKey;
+      selector = `[data-key="${safe}"]`;
     }
     const el = document.querySelector(selector);
     if (el) {
@@ -908,9 +1243,10 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     }
   }
 
-  // Robust Desktop Chrome & Physical Keyboard Support
+  // Desktop & Physical Keyboard Support
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+      dismissAlternatesMenu();
       const frame = document.getElementById('phoneMockupFrame');
       if (frame && frame.classList.contains('is-fullscreen')) {
         toggleSimFullscreen();
@@ -918,7 +1254,6 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
       }
     }
 
-    // Don't intercept if user is typing into an actual form element
     if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable)) {
       return;
     }
@@ -947,15 +1282,24 @@ description: An ultra-lightweight, 100% offline Bangla phonetic keyboard for And
     }
 
     if (e.key === 'Shift') {
-      toggleShift();
-      flashVirtualKey('shift');
+      if (isEnglish) {
+        toggleShift();
+        flashVirtualKey('shift');
+      }
       return;
     }
 
-    // Single printable character (letters, numbers, punctuation)
     if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
-      pressKey(e.key);
-      flashVirtualKey(e.key);
+      if (!isEnglish && e.key === '.') {
+        pressPunct('।');
+        flashVirtualKey('।');
+      } else if (e.key === ',' || e.key === '?' || e.key === '।' || e.key === '-') {
+        pressPunct(e.key);
+        flashVirtualKey(e.key);
+      } else {
+        pressKey(e.key);
+        flashVirtualKey(e.key);
+      }
     }
   });
 
