@@ -1,6 +1,6 @@
 PRIVACY POLICY — BANGLA KEYBOARD
 =================================
-Last Updated: November 1, 2026
+Last Updated: November 9, 2026
 
 Application: Bangla Keyboard
 Package Name: com.infomity.banglakeyboard
@@ -10,10 +10,11 @@ URL: https://hissain.github.io/android/bangla-keyboard/privacy/
 
 SUMMARY
 -------
-Bangla Keyboard works entirely on your device. It does not collect, store,
+Bangla Keyboard works entirely on your device. It does not collect,
 transmit, or share your personal data, keystrokes, credentials, or anything
-you type. The application requests zero network permissions and makes zero
-internet connections.
+you type. The few things it keeps (your settings and the suggestions you
+picked) stay in private storage on your device. The application requests zero
+network permissions and makes zero internet connections.
 
 
 1. WHAT THE APP DOES WITH WHAT YOU TYPE
@@ -26,9 +27,13 @@ internet connections.
 - The app does not have the Android android.permission.INTERNET permission and
   makes no network connections whatsoever. It is technically incapable of
   sending data off your device.
-- Words you select from suggestions are remembered only in volatile device
-  memory while the keyboard service is actively running. They are not written
-  to persistent storage and are cleared when the keyboard service stops.
+- Words you pick from the suggestion strip are remembered on your device so
+  the same choice is offered first next time (up to 500 entries). They are
+  kept only in the app's private storage, are never sent anywhere, and can be
+  erased at any time with "Reset learned words" in the app's Setup screen.
+  Words you merely type are not recorded. Next-word suggestions come from a
+  word-pair list bundled with the app; nothing is learned from your typing for
+  them.
 
 
 2. SENSITIVE INPUT FIELDS (PASSWORDS, EMAILS, URLS)
@@ -50,11 +55,15 @@ requires only standard Input Method permissions:
 
 4. DATA STORED LOCALLY ON YOUR DEVICE
 -------------------------------------
-The application saves only basic user preferences locally in private app
-storage:
-- Whether Bangla digits are enabled
-- Whether key haptic vibration is active
+The application saves only the following, in private app storage on your
+device:
+- Your settings: number row, Bangla digits, key vibration, key sound, key
+  preview bubble, next-word suggestions, double-space full stop, keyboard
+  theme (system, light or dark) and key height
 - Your last selected language mode (Bangla or English)
+- Your recently used emoji (up to 24)
+- The suggestions you picked (up to 500 entries), which can be erased with
+  "Reset learned words" in the Setup screen
 
 This data remains strictly on your device and is permanently removed if you
 uninstall the app. Automatic cloud backups of application data are explicitly
@@ -67,6 +76,9 @@ All word suggestions originate from a pre-packaged, offline word frequency list
 bundled directly inside the APK. No dictionary lookups ever occur online. The
 word list is derived from the openly licensed (CC0) AI4Bharat IndicCorp v2
 Bengali corpus; only statistical word counts are bundled, not the source texts.
+The next-word suggestions use a small word-pair list derived from the same
+corpus and bundled in the same way; the keyboard does not learn word pairs
+from what you type.
 
 
 6. INFORMATION WE COLLECT

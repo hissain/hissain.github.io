@@ -377,7 +377,7 @@
       <header class="doc-header">
         <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--tag-bg); border: 1px solid var(--card-border); padding: 0.3rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; font-family: var(--font-mono); color: var(--accent-color);">
           <span>●</span>
-          <span>Effective Date: November 1, 2026</span>
+          <span>Effective Date: November 9, 2026</span>
         </div>
 
         <h1 class="gradient-text">Privacy Policy & Transparency Report</h1>
@@ -406,9 +406,9 @@
         Bangla Keyboard was engineered with a strict <strong>privacy-by-design</strong> architecture:
       </p>
       <ul>
-        <li><strong>Volatile Memory Only:</strong> All keystrokes, phonetic transliterations, and candidate predictions are processed exclusively in volatile device RAM while the keyboard is actively on screen.</li>
+        <li><strong>Processed On Your Device:</strong> All keystrokes, phonetic transliterations, and candidate predictions are computed locally on your device while the keyboard is on screen. The text you type is never written to disk by the keyboard.</li>
         <li><strong>No Network Transmission:</strong> The application does not declare or request the Android <code>android.permission.INTERNET</code> permission. It possesses no network sockets and cannot transmit data to our servers or any third-party infrastructure.</li>
-        <li><strong>No Keystroke Logging:</strong> Typed text, selected suggestions, and vocabulary inputs are never written to disk, persistent storage, or diagnostic files. When the keyboard collapses, temporary suggestion states are cleared.</li>
+        <li><strong>No Keystroke Logging:</strong> Typed text is never recorded. The only typing-related data kept is the suggestions you tap: a short pair of "letters typed" and "word chosen" (at most 500 entries) in private app storage, so the same choice is offered first next time. You can erase them at any time with <em>Reset learned words</em> in the app's Setup screen. Words you only type are not recorded, and next-word suggestions come from a list bundled with the app, not from your typing.</li>
       </ul>
 
       <h2>2. Sensitive Input Fields (Passwords, Emails & URLs)</h2>
@@ -431,12 +431,13 @@
 
       <h2>4. Local App Storage & Settings</h2>
       <p>
-        The application stores only three non-identifiable user preferences locally in Android private sandbox storage (<code>SharedPreferences</code>):
+        The application stores only the following small, non-identifiable items locally in Android private sandbox storage (<code>SharedPreferences</code>):
       </p>
       <ul>
-        <li>Whether Bengali digits are preferred over Arabic numerals.</li>
-        <li>Whether key haptic vibration is active.</li>
+        <li>Your settings: number row, Bengali digits, key vibration, key sound, key preview bubble, next-word suggestions, double-space full stop, keyboard theme (system, light or dark) and key height.</li>
         <li>The last selected input mode (Bangla Phonetic or English).</li>
+        <li>Your recently used emoji (up to 24).</li>
+        <li>The suggestions you picked (up to 500 entries), which can be erased with <em>Reset learned words</em> in the Setup screen.</li>
       </ul>
       <p>
         This configuration data never leaves your device and is permanently deleted when you uninstall the app. Android automatic cloud backup of application data is explicitly disabled (<code>android:allowBackup="false"</code>).
@@ -449,6 +450,7 @@
       <ul>
         <li>The vocabulary list is derived from the openly licensed (CC0) <em>AI4Bharat IndicCorp v2</em> Bengali corpus.</li>
         <li>Only derived mathematical word frequency counts are bundled—no raw source texts are stored or accessed.</li>
+        <li>The next-word suggestions use a small word-pair list derived from the same corpus and bundled in the same way. The keyboard does not learn word pairs from what you type.</li>
         <li>No network lookups or cloud queries are executed to generate suggestions.</li>
       </ul>
 
