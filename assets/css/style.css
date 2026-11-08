@@ -375,14 +375,31 @@ body::before {
 
   .status-pill, .hero-status-pill {
     font-size: 0.65rem !important;
-    padding: 0.35rem 0.65rem !important;
+    padding: 0.45rem 0.9rem !important;
     white-space: normal !important;
-    text-align: left !important;
+    text-align: center !important;
     max-width: 100% !important;
-    display: inline-flex !important;
-    flex-wrap: wrap !important;
+    box-sizing: border-box !important;
+    /* block + inline children: dot and text flow (and centre) as one line of text, no split rows */
+    display: block !important;
+    border-radius: 1.1rem !important;
     letter-spacing: 0.3px !important;
-    line-height: 1.4 !important;
+    line-height: 1.5 !important;
+  }
+
+  .status-pill > span:not(.status-dot),
+  .hero-status-pill > span:not(.status-dot) {
+    display: inline !important;
+    text-wrap: balance;
+  }
+
+  .status-pill > .status-dot,
+  .hero-status-pill > .status-dot {
+    display: inline-block !important;
+    margin-right: 0.45rem;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
   }
 }
 
